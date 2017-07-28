@@ -10,11 +10,7 @@
 		<script src="../js/jquery-2.1.4.js"></script>
 		
 		<style>
-			#detail{ 
-				height:100%; 
-				overflow:hidden; 
-				padding:1em 0.6em; 
-			}
+			
 			#detail div{ 
 				font-size:1.2em; 
 				height:3em; 
@@ -29,7 +25,7 @@
 			.btn{ 
 				width:100%; 
 				height:3em; 
-				line-height:2em; 
+				line-height:3em; 
 				border-radius:0.3em; 
 				color:#fff; text-align:center; 
 				background:#f4740f; 
@@ -41,29 +37,39 @@
 	<body>
 		
 		<div class="wrapper">
-			<header class="header" style="background-color: #FFFFFF;">
+			<header class="header">
 				<a href="#" class="return floatL"></a>
-				<h3 class="floatL headtitle">资料</h3>
+				<h3 class="floatL headtitle">个人资料</h3>
 			</header>	
 			
 			
 			
-			<section id="detail">
-				<div style="margin-top: 50px;">
-            		<input id="txt_UserNmae" name="txt_UserName" type="text" placeholder="用户名（3～26个字符）">
+			<div id="detail">
+				<div style="margin-top: 70px;">
+            		<input id="txt_UserNmae" type="text" placeholder="姓名">
 				</div>
 
            		<div>
-					<input id="txt_Pwd" name="txt_Pwd" type="password" placeholder="密码（6～16个字符）"></div>
+					<input id="six" type="text" placeholder="性别"></div>
         		<div>
 
             	<div>
-                	<input id="txt_PwdTwo" name="txt_PwdTwo" type="password" placeholder="再次输入密码"></div>
-        		</div>
+					<input id="birthday" type="text" placeholder="生日 "></div>
+        		<div>
+        			
+        		<div>
+					<input id="address" type="text" placeholder="现住地址"></div>
+        		<div>
+        			
+        		<div>
+					<input id="star" type="text" placeholder="星座"></div>
+        		<div>
 
-        		<a id="asubmit" class="btn">立即注册</a>
+				<div>
+					<a id="asubmit" type="text" class="btn">立即注册</a>
+        		<div>
         		
-			</section> 
+			</div> 
 								
 		</div>
 	</body>
