@@ -325,11 +325,11 @@
 			.massion-layer-content{
 				position:absolute;
 				width: 70%;
-				height: 32rem;
+				height: 3rem;
 				top: 7rem;
 				right: 10%;
 				z-index:999;
-				background-color:#fff;
+				background-color:#FFFFFF;
 			}
 			.massion-header{
 				position: relative;
@@ -343,7 +343,7 @@
 			}
 			.massion-content{
 				position: relative;
-				height: 4rem;
+				background-color: #FFFFFF;
 			}
 			.massion-content__fotter{
 				position: relative;
@@ -361,7 +361,7 @@
 			}
 		</style>
 		
-		<div class="massion-layer qiandao-active">
+		<div class="massion-layer massion-active">
 	        <div class="massion-layer-content">
 	            <div class="massion-header">
 	           		每日任务
@@ -372,7 +372,7 @@
 	           				<div class="massion-content__li">
 	           					<p style="color: #5d5d5d;font-size: 16px;margin-top: 6px;margin-left: 4rem;">每日签到</p>
 		           				<p style="color: #646464;font-size: 12px;margin-top: 5px;margin-left: 4rem;">未签到 </p>
-		           				<b class="right" style="margin-top: -27px;right: 20px;">
+		           				<b class="right" style="margin-top: -29px;right: 20px;">
 		           					<i class="right-arrow1"></i>
 		           					<i class="right-arrow2"></i>
 		           				</b>
@@ -382,7 +382,7 @@
 	           				<div class="massion-content__li">
 	           					<p style="color: #5d5d5d;font-size: 16px;margin-top: 6px;margin-left: 4rem;">完善详细资料</p>
 		           				<p style="color: #646464;font-size: 12px;margin-top: 5px;margin-left: 4rem;">未完成 </p>
-		           				<b class="right" style="margin-top: 27px;right: 20px;">
+		           				<b class="right" style="margin-top: 29px;right: 20px;">
 		           					<i class="right-arrow1"></i>
 		           					<i class="right-arrow2"></i>
 		           				</b>
@@ -393,7 +393,7 @@
 	           				<div class="massion-content__li">
 	           					<p style="color: #5d5d5d;font-size: 16px;margin-top: 6px;margin-left: 4rem;">邀请好友</p>
 		           				<p style="color: #646464;font-size: 12px;margin-top: 5px;margin-left: 4rem;">今日未邀请好友</p>
-		           				<b class="right" style="margin-top: 82px;right: 20px;">
+		           				<b class="right" style="margin-top: 84px;right: 20px;">
 		           					<i class="right-arrow1"></i>
 		           					<i class="right-arrow2"></i>
 		           				</b>
@@ -401,7 +401,7 @@
 	           			</li>
 	           		</ul>
 	           		<div class="massion-content__fotter">
-	           			<button>我知道了</button>
+	           			<button class="dismissdiv">我知道了</button>
 	           		</div>
 	           	</div>
 	        </div>
@@ -426,6 +426,10 @@
 			{
 				$('.massion-layer').fadeIn();
 			}
+			
+			$('.dismissdiv').click(function(){
+				$('.massion-active').hide();
+			});
 			
 			var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
 		    window.hasLoaded = 0;
