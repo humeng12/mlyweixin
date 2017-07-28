@@ -11,11 +11,14 @@
 		<link href="../nav/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="../nav/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
 		
+		<link rel="stylesheet" href="../css/swiper.css">
+
 		<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="../js/iscroll.js"></script>
 		<script type="text/javascript" src="../js/navbarscroll.js"></script>
 		
 		<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
+		<script src="../js/swiper.min.js"></script>
     
 	    <style>
 
@@ -155,7 +158,10 @@
 			}
 			.wrapper .scroller li.cur a{
 				color:#edbe75;
+				transition:all .5s ease;
+				transform:scale(1.1);
 			}
+		
 			
 			/*活动*/
 			.goodthing{
@@ -277,6 +283,7 @@
 				</ul>
 			</div>
 		</div>
+		
 		
 		
 		<div class="maincontent">
@@ -572,7 +579,7 @@
 				pager:false,
 				mode: 'fade'
 			});
-	
+			
 	
 			slidelist(null);
 			
