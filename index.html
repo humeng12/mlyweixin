@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,user-scalable=0" />
+
+		<!--weuicss属性 grid-->
+		<link rel="stylesheet" href="weui/css/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+	
+		<!--轮播图的css-->
+		<link rel="stylesheet" href="mui/css/mui.min.css">
+		<link rel="stylesheet" href="weui/css/demos.css">
+		<link rel="stylesheet" href="css/common.css" />
+		<style>
+			body{
+				background-color: #FFFFFF;
+			}
+			.weui-grids{
+				margin-top: 0.5rem;
+				background-color: #FFFFFF;
+			}
+			.footer .user_center{
+				width:3rem;
+				height:3rem;
+				top:40rem;
+				left:0.5rem;
+				position:fixed;
+			}
+			.footer .collection{
+				width:3rem;
+				height:3rem;
+				top:47rem;
+				left:0.5rem;
+				position:fixed;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--轮播图-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/banner.png" style="height: 13.5rem;"/>
+							<p style="opacity: 0.5;" class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/banner.png" style="height: 13.5rem;"/>
+							<p style="opacity: 0.5;" class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/banner.png" style="height: 13.5rem;"/>
+							<p style="opacity: 0.5;" class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/banner.png" style="height: 13.5rem;"/>
+							<p style="opacity: 0.5;" class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/banner.png" style="height: 13.5rem;"/>
+							<p style="opacity: 0.5;" class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/banner.png" style="height: 13.5rem;"/>
+							<p style="opacity: 0.5;" class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator mui-text-right" style="height: 1.3rem;">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+		</div>
+
+		<!--gird 九宫格-->
+		<div class="weui-grids">
+			<a href="newsports.html" class="weui-grid js_grid">
+				<div class="weui-grid__icon">
+					<img src="images/newproductionsports.png" alt="新品活动">
+				</div>
+				<p class="weui-grid__label">
+					新品活动
+				</p>
+			</a>
+			<a href="sign.html" class="weui-grid js_grid">
+				<div class="weui-grid__icon">
+					<img src="images/signicon.png" alt="每日签到">
+				</div>
+				<p class="weui-grid__label">
+					每日签到
+				</p>
+			</a>
+			<a href="ShowProduct.html" class="weui-grid js_grid">
+				<div class="weui-grid__icon">
+					<img src="images/exchangepoints.png" alt="积分兑换">
+				</div>
+				<p class="weui-grid__label">
+					积分兑换
+				</p>
+			</a>
+			<a href="earnpoints.html" class="weui-grid js_grid">
+				<div class="weui-grid__icon">
+					<img src="images/enjoyfriends.png" alt="邀请好友">
+				</div>
+				<p class="weui-grid__label">
+					邀请好友
+				</p>
+			</a>
+			<a href="newsports.html" class="weui-grid js_grid">
+				<div class="weui-grid__icon">
+					<img src="images/Palmactivities.png" alt="掌上生活">
+				</div>
+				<p class="weui-grid__label">
+					掌上生活
+				</p>
+			</a>
+			<a href="newsports.html" class="weui-grid js_grid">
+				<div class="weui-grid__icon">
+					<img src="images/PlasticEncyclopedia.png" alt="">
+				</div>
+				<p class="weui-grid__label">
+					整形百科
+				</p>
+			</a>
+		</div>
+		<div class="footer">
+			  <ul>
+		    	<li>
+		    		<img src="images/integration.jpg" alt="" style="width: 100%; margin-top:0.5rem;">
+		    	</li>
+		    	<li>
+		    		<img src="images/meal.jpg" alt="" style="width:100%">		
+		    	</li>
+		    	<li>
+		    		<img src="images/newsports.jpg" alt="" style="width:100%"">
+		    	</li>
+		    	<a href="user_center.html">
+		          <li>
+		    		<img src="images/usercenter.png" alt="" class="user_center">
+		    	  </li>
+		    	</a>
+		    	<a href='#'>
+		    	  <li>
+		    		<img src="images/collection.png" alt="" class="collection">
+		    	  </li>
+		    	</a>
+		    </ul>
+		</div>
+	</body>
+	<script src="mui/js/mui.min.js"></script>
+	<script>
+		var slider = mui("#slider");
+		slider.slider({
+			interval: 5000
+		});
+	</script>
+
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册</title>
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+<meta name="viewport" media="(device-height: 568px)" content="initial-scale=1.0,user-scalable=no,maximum-scale=1">
+
+<link rel="stylesheet" href="css/gongyong.css">
+<link rel="stylesheet" href="css/weui.min.css">
+<link rel="stylesheet" href="css/jquery-weui.min.css">
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/jquery-weui.js"></script>
+<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="head">
+
+会员注册
+
+<span class="head_rg"><a href="login.html">登录</a></span>
+</div>
+
+<div class="zhuce">
+	<div class="text">
+        <span>昵 称:</span>
+        <input type="text" placeholder="请输入昵称" class="input" id="nickname">
+    </div>
+	<div class="text">
+        <span>手机号:</span>
+        <input type="text" placeholder="请输入手机号" class="input" id="phone">
+    </div>
+     <div class="text">
+        <span>会员性别:</span>
+        <input type="text" placeholder="请输入性别" onfocus="this.blur();" class="input" id="six">
+    </div>
+    <div class="text">
+        <span>会员生日:</span>
+        <input type="text" placeholder="请输入会员生日" onfocus="this.blur();" class="input" id="birthday">
+    </div>
+	  <div class="text">
+        <span>选择区域:</span>
+        <input type="text" placeholder="请输入会员所在区域" onfocus="this.blur();" class="input" id="city">
+    </div>
+    <div class="text">
+        <span>密 码:</span>
+        <input type="password" placeholder="请输入密码" class="input" id="password">
+    </div>
+    <div class="text">
+        <span>确认密码:</span>
+        <input type="password" placeholder="请输入确认密码" class="input" id="comfirmpassword">
+    </div>
+    <div class="btndl" ><input type="submit" value="立即注册"></div>
+</div>
+</body>
+</html>
+	<script src="weui/js/city-picker.js"></script>
+	<script src="weui/js/fastclick.js"></script>
+	 <script src="weui/js/city-picker.js"></script>
+	  <script src="common/common.js"></script>
+	<script>
+		alert(get('logintime'));
+		/*var distime = Date() - logintime;
+		alert(distime);*/
+		if(get('islogin')==1){
+		    window.location.href="index.html";
+		}else{
+			$("#city").cityPicker({
+        title: "选择所在地区",
+        showDistrict: false,
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+        }
+      });
+		//replace(/\s+/g,"")
+//		getInfo();
+		//进行注册时进行的请求验证
+ 	   	$('.btndl').click(function(){
+			
+//			var wxopenid = localStorage.getItem('wxopenid');
+			
+			var wxopenid = "oV-bKvzCTi9DKDyzTN0v-xdKE8TY";
+
+/*		if (wxopenid == "" || wxopenid == null)
+			{
+				getInfo();
+			}else{
+*/
+				var nickname=$('#nickname').val();
+				var phone=$('#phone').val();
+				var six=$('#six').val();
+				var birthday=$('#birthday').val();
+				var city=$("#city").val();
+				var password=$('#password').val();
+				var comfirmpassword=$('#comfirmpassword').val();
+				
+				if(nickname == ''){
+					$.toast("请输入昵称", "text");
+					return;
+				}
+				
+				if(phone == ''){
+					$.toast("请输入手机号","text");
+					return;
+				}
+				
+				var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+				if(!myreg.test(phone)) 
+				{ 
+					$.toast('请输入有效的手机号码！',"text");
+					return;
+				}
+				
+				if(six == ''){
+					$.toast('请选择性别',"text");
+					return;
+				}
+				
+				if(birthday == ''){
+					$.toast('请输入生日日期',"text");
+					return;
+				}
+				
+				if(password == ''){
+					$.toast('请输入密码',"text");
+					return;
+				}
+				
+				if(comfirmpassword == ''){
+					$.toast('请再次输入密码',"text");
+					return;
+				}
+				
+				
+				if(password != comfirmpassword){
+					$.toast('输入的密码不一样',"text");
+					return;
+				}
+				
+				
+				var sextype = -1;
+				if(six == '男'){
+					sextype = 0;
+				}else if(six == '女'){
+					sextype = 1;
+				}
+			
+				$.showLoading('注册中...');
+				
+				$.ajax({  
+					type:'post',  
+					url: 'http://chenxiaolong.ngrok.cc/shop/1/zmdmly/public/api/register',  
+					dataType:'json',  
+					data: {
+						openid:wxopenid,
+						telphone:phone,
+						sex:sextype,
+						birthday:birthday,
+						password:password,
+						nickname:nickname,
+						city:city
+					},  
+					beforeSend:function(){
+						
+					},
+					async:false,  
+					cache:false,                 
+					success: function (result) {                     
+						
+						if(result['status'] == '0'){
+							
+							localStorage.setItem('registered','1');
+							localStorage.setItem('idstr',result['data']);
+						}
+						
+						setTimeout(function() {
+							
+							$.hideLoading();
+							$.toast(result['message'],"text");
+						},3000); 
+					}  
+				});  
+				
+//			}
+	   	});	
+		
+		
+		
+		
+		$(document).on("click", "#six", function() {
+			$.actions({
+				title: "性别",
+				onClose: function() {
+					console.log("close");
+				},
+				actions: [
+				{
+					text: "男",
+					className: "color-primary",
+					onClick: function() {
+					
+						$('#six').val('男');
+					}
+				},
+				{
+					text: "女",
+					className: "color-primary",
+					onClick: function() {
+						$('#six').val('女');
+					}
+				}
+				]
+			});
+		});
+		
+		
+		$('#birthday').on('click', function () {
+			
+			weui.datePicker({
+				start: 1990,
+				end: new Date().getFullYear(),
+				onChange: function (result) {
+					console.log(result);
+				},
+				onConfirm: function (result) {
+					
+					$('#birthday').val(result[0] + '-' + result[1] + '-' + result[2]);
+				}
+			});
+		});
+		
+		
+		
+		function getInfo()
+		{
+			var wxopenid = localStorage.getItem('wxopenid'); 
+			
+			var fromurl=location.href;  
+			
+			var access_code = getQueryStringByName('code');
+				
+			if (wxopenid == "" || wxopenid == null)
+			{ 
+				if (access_code == null || access_code == "")  
+				{
+					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5be0ef8a6f12a155&redirect_uri='+encodeURIComponent(fromurl)+"&response_type=code&scope=snsapi_base&state=11111111#wechat_redirect";  			
+					location.href=url; 
+				}
+				else
+				{
+					$.ajax({  
+						type:'get',  
+						url:'http://47.93.217.112/shoph/1/mly/public/api/getOpenid',   
+						async:false,  
+						cache:false,  
+						data:{code:access_code},  
+						dataType:'json',  
+						success:function(result){  
+
+							var data = result['data'];
+								
+							if (data != null && data.hasOwnProperty('openid')){  
+
+								localStorage.setItem('wxopenid',data['openid']);      
+
+								getlogininfo(data['openid']); 
+							}   
+							else  
+							{   
+								location.href=fromurl;  
+							}  
+						}  
+					}); 
+				}
+			}
+			else
+			{
+				getlogininfo(wxopenid);
+			}
+		}
+		
+		//获取登陆用户的信息
+		function getlogininfo(wxopenid){    
+
+	    	$.ajax({  
+                type:'get',  
+                url: 'http://47.93.217.112/shoph/1/mly/public/api/getUserBaseInfo',  
+                data: {wxopenid:wxopenid},  
+                dataType:'json',  
+                async:false,  
+                cache:false,                 
+                success: function (result) {                     
+                    
+                    var data = result['data'];
+
+                    if (data != null && data.hasOwnProperty('nickname')){ 
+
+                    	localStorage.setItem('nickname',data['nickname']); 
+                    	localStorage.setItem('headimgurl',data['headimgurl']); 
+
+                    }else{
+                    	
+                    }
+                }  
+            });  
+	    }
+
+
+	   	function getQueryStringByName(name){
+	 
+	     	var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+	 
+	     	if(result == null || result.length < 1){
+	         	return "";
+	     	}
+	     	return result[1];
+	  	}
+		}
+	</script>
+

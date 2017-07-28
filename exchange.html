@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>兑换页面</title>
+		  <link href="css/styles.css" rel="stylesheet" type="text/css"/>
+		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+			 <link rel="stylesheet" href="weui/css/weui.min.css">
+		     <link rel="stylesheet" href="weui/css/jquery-weui.min.css">
+		     <link href="css/common.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<style>
+		.header img {
+			width: 100%;
+		}
+		
+		.content {
+			padding-top: 1rem;
+			padding-left: 2rem;
+			line-height: 2.5rem;
+		}
+		
+		.exchange_ciycher {
+			font-size: 2rem;
+		}
+		
+		.exchange_points {
+			font-size: 2rem;
+			color: #E72929;
+		}
+		
+		.exchange_expenses {
+			font-size: 1.5rem;
+		}
+		
+		.exchange_gift {
+			font-size: 1.5rem;
+			color: #F07800;
+			border-bottom: solid 1px #F07800;
+			width: 23%;
+		}
+		
+		.exchange_discount {
+			font-size: 1.5rem;
+		}
+		
+		.exchange_interpretion {
+			font-size: 1.5rem;
+		}
+		
+		.footer img {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+		
+		.bottom_line {
+			width: 100%;
+			height: 1px;
+			color: #F07800;
+		}
+		
+		.container {
+			display: flex;
+			display: -webkit-flex;
+			padding-top: 1.5rem;
+			padding-left: 5rem
+		}
+		
+		.reduce {
+			background-color: #BEB4A8;
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		
+		.add {
+			background-color: #BEB4A8;
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		
+		.count {
+			width: 1.5rem;
+			height: 1.5rem;
+			padding-right: 0.5rem;
+			padding-left: 0.5rem;
+		}
+		
+		.container_reduce {
+			padding-left: 45%;
+		}
+		
+		.container_count {
+			padding-left: 45%;
+		}
+		
+		.container_add {
+			padding-left: 45%;
+		}
+		
+		.describe {
+			padding-top: 1.2rem;
+			padding-left: 50%;
+			line-height: 1.5rem;
+		}
+		
+		.weui-grids {
+			position: relative;
+			overflow: hidden
+		}
+		
+		.weui-grid {
+			position: relative;
+			float: left;
+			padding: 20px 0px;
+			width: 33.33333333%;
+			box-sizing: border-box
+		}
+		
+		.weui-grid:after,
+		.weui-grid:before {
+			content: " ";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			color: #FFFFFE
+		}
+		
+		.weui-grid:active {
+			background-color: #FFFFFE
+		}
+		
+		.weui-grid__icon {
+			width: 150px;
+			height: 100px;
+			padding-left: 10%;
+		}
+		
+		.weui-grid__icon img {
+			display: block;
+			width: 40%;
+			height: 40%;
+			margin-bottom: 120px;
+		}
+		
+		.weui-grid__label {
+			display: block;
+			color: #000;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			padding-left: 10%;
+		}
+		
+		.weui-footer,
+		.weui-grid__label {
+			font-size: 18px;
+		}
+		
+	</style>
+	<body>
+		<div class="header">
+			<img src="images/productionsix.png">
+		</div>
+		<div class="content">
+
+			<p class="exchange_ciycher">隆鼻3000元代金券<p>
+		    <p class="exchange_points">兑换积分:<span>300000</span><p>
+			<p class="exchange_expenses">运费：免运费<p>
+			<p class="exchange_gift">礼品介绍<p>
+			<p class="exchange_discount">本商城不折现，不找零。本代金券每人每项目限使用一次，不能与医院其他优惠券同时使用。<p>
+			<p class="exchange_interpretion">*本活动最终解释权归美林苑所有*<p>
+				
+		</div>
+		<div class="footer">
+			<div class='demos-content-padded'>
+			<a href="javascript:;" class="weui-btn weui-btn_primary open-popup" data-target="#half" style="width: 100%;position: fixed;bottom: 0px;">立即兑换</a>
+		    </div>
+			<div id="half" class='weui-popup__container popup-bottom'>
+				<div class="weui-popup__overlay"></div>
+				<div class="weui-popup__modal">
+					<div class="toolbar">
+						<div class="toolbar-inner">
+							<a href="javascript:;" class="picker-button close-popup">关闭</a>
+						</div>
+					</div>
+					<div class="modal-content">
+						<div class="weui-grids">
+							<a href="javascript:;" class="weui-grid js_grid" data-id="dialog">
+								<div class="weui-grid__icon">
+									<img src="images/productionfive.png" alt="">
+								</div>
+							</a>
+							<div class="describe">
+								<p class="describe_money">隆鼻3000元代金券</p>
+								<p class="describe_point">兑换积分：30000</p>
+							</div>
+						</div>
+						<div class="weui-grids">
+							<a href="javascript:;" class="weui-grid js_grid" data-id="dialog">
+								<p class="weui-grid__label">
+									购买数量
+								</p>
+							</a>
+							<div class="container">
+								<div class="reduce"><span class="container_reduce">-</span></div>
+								<div class="count"><span class="container_count">1</span></div>
+								<div class="add"><span class="container_add">+</span></div>
+							</div>
+						</div>
+						<div class="weui-grids">
+							<a href="javascript:;" class="weui-grid js_grid" data-id="dialog">
+								<img src="images/next.png" style="width: 100%;position: fixed;bottom: 0px;" id="next">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/jquery-weui.js"></script>
+<script>
+	$(document).on("open", ".weui-popup-modal", function() {
+		console.log("open popup");
+	}).on("close", ".weui-popup-modal", function() {
+		console.log("close popup");
+	});
+	$(".container_reduce").click(function(){
+		  var totalpoints=$(".container_count").text();
+	       if(totalpoints>1){
+	       	 --totalpoints;
+	       	$(".container_count").text(totalpoints);
+	       }
+	});
+	$(".container_add").click(function(){
+	       var totalpoints=$(".container_count").text();
+	       ++totalpoints;
+	       $(".container_count").text(totalpoints);
+	});
+	$("#next").click(function(){
+		$.ajax({  
+                type:'get',  
+                url: 'http://chenxiaolong.ngrok.cc/shop/1/mly/public/api/order',  
+                data: {
+                	   wxopenid:wxopenid,
+                       totalpoint:totalpoints,
+                       bugdate:date              
+                },
+                dataType:'json',  
+                async:false,  
+                cache:false,                 
+                success: function (result) {    
+                	if(result['status']==0){
+                		var sign=result['message'];
+                		//改变背景
+                		alert(sign);
+                        $('.unsign').css('display','none');
+		             	$('.sign').css('display','block');
+		               /* $(".signbutton").unbind("click");*/
+                	}
+                    else{
+                    	var sign=result['message'];
+                        alert(sign);
+                    	$('.unsign').css('display','block');
+			            $('.sign').css('display','none');
+                    }
+                }  
+            });  
+	});
+</script>

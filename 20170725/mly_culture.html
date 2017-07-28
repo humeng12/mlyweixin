@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title></title>
+		
+	    
+	    <link href="../nav/css/main.css" rel="stylesheet" type="text/css">
+		<link href="../nav/css/style.css" rel="stylesheet" type="text/css">
+		<link href="../nav/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="../nav/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+		
+		<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../js/iscroll.js"></script>
+		<script type="text/javascript" src="../js/navbarscroll.js"></script>
+		
+		<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
+    
+	    <style>
+
+	    	/*头部*/
+	    	.culture-header{
+	    		background-color: #575757;
+	    	}
+	    	.culture-header img{
+	    		width: 60%;
+	    		height: 60%;
+	    		margin-top: 10px;
+	    		margin-bottom: 10px;
+	    		margin-left: 20%;
+	    	}
+			
+			
+			/*图片展示*/
+			.pictures{
+				position: relative;
+				width: 100%;
+				height: 27rem;
+				margin-top: 20px;
+			}
+			
+			.pictures-left{
+				position: absolute;
+				width: 50%;
+				height: 100%;
+			}
+			
+			.pictures-left__header,.pictures-right__header{
+				width: 100%;
+				height: 20rem;
+			}
+			.pictures-left__footer,.pictures-right__footer{
+				width: 100%;
+				height: 7rem;
+			}
+			
+			.pictures-left__footer .yuyue{
+				position: absolute;
+				margin-bottom: 15px;
+				right: 8rem;
+				width: 18%;
+				height: 15%;
+			}
+			.pictures-left__footer .dianzhan{
+				position: absolute;
+				width: 14%;
+				height: 12%;
+				right: 5rem;
+				margin-top: 5px;
+			}
+			.pictures-left__footer .focusnum{
+				position: absolute;
+				right: 2.5rem;
+				font-size: 12px;
+				color: #c7a78e;
+				margin-top: 16px;
+			}
+			
+			.pictures-right__footer .yuyue{
+				position: absolute;
+				margin-bottom: 15px;
+				right: 8rem;
+				width: 18%;
+				height: 15%;
+			}
+			.pictures-right__footer .dianzhan{
+				position: absolute;
+				width: 14%;
+				height: 12%;
+				right: 5rem;
+				margin-top: 5px;
+			}
+			.pictures-right__footer .focusnum{
+				position: absolute;
+				right: 2.5rem;
+				font-size: 12px;
+				color: #c7a78e;
+				margin-top: 16px;
+			}
+			
+			.pictures-right{
+				position: absolute;
+				width: 50%;
+				height: 100%;
+				margin-left: 50%;
+			}
+			
+			.pictures img{
+				width: 90%;
+				height: 100%;
+				margin-left: 5%;
+			}
+			
+			/*电话*/
+			.culture-footer{
+				position: relative;
+				width: 100%;
+				height: 4rem;
+			}
+			.culture-footer img{
+				width: 100%;
+				height: 100%;
+			}
+			
+			/*滑动导航*/
+			a{
+				-webkit-tap-highlight-color:rgba(0,0,0,0);
+			}
+			.wrapper {
+				position:relative;
+				height: 3.5rem;
+				width: 100%;
+				overflow: hidden;
+				margin:0 auto;
+				background:#F4F4F4;
+			}
+			.wrapper .scroller {
+				position:absolute;
+				/*width: 100%;
+				height: 100%;*/
+			}
+			.wrapper .scroller li {
+				/*width: 25%;*/
+				height: 3.5rem;
+				float: left;
+				line-height: 3.5rem;
+				font-size: 1.8rem;
+				text-align: center;
+			}
+			.wrapper .scroller li a{
+				color:#010101;
+				display:block;
+				margin:0 .3rem;
+			}
+			.wrapper .scroller li.cur a{
+				color:#edbe75;
+			}
+			
+			/*活动*/
+			.goodthing{
+				margin: 0;
+				padding: 0;
+			}
+			.goodthing img{
+				width: 99.5%;
+				height: 100%;
+				margin-left: 0;
+			}
+			
+			/*菩萨面相*/
+			.pusanmianxiang .pusaimg{
+				width: 50%;
+				margin-left: 25%;
+			}
+			.pusanmianxiang p{
+				margin-left: 3rem;
+				padding-right: 10px;
+			}
+			
+			.p1{
+				color: #EDBE75;font-size: 14px;margin-top: 20px;
+			}
+			.p2{
+				color: #EDBE75;font-size: 13px;margin-top: 30px;
+			}
+			.p3{
+				color: #535353;font-size: 12px;margin-top: 4px;
+			}
+			
+			
+			/*案例*/
+			.anli_list{background:#fff;}
+			.anli_list .img{position:relative;}
+			.anli_list .img img{width:98%;margin-left: 3px;}
+			
+			
+			/*.bx-wrapper {
+				position: relative;
+				margin: 0 auto 60px;
+				padding: 0;
+				*zoom: 1;
+			}
+
+			.bx-wrapper img {
+				max-width: 100%;
+				display: block;
+			}*/
+
+			.bx-wrapper .bx-prev {
+				left: 10px;
+				background: url(../images/controls.png) no-repeat 0 -32px;
+			}
+			
+			.bx-wrapper .bx-next {
+				right: 10px;
+				background: url(../images/controls.png) no-repeat -43px -32px;
+			}
+
+			.bx-wrapper .bx-controls-direction a {
+				position: absolute;
+				top: 50%;
+				margin-top: 100px;
+				outline: 0;
+				width: 32px;
+				height: 32px;
+				text-indent: -9999px;
+				z-index: 9999;
+			}
+
+	    </style>
+	</head>
+	<body>
+		<div class="culture-header">
+			<img src="../images/culture-header.png"/>
+		</div>
+		
+		<div class="nav" style="margin-top: 0;">
+	        <ul>
+	            <li>
+	                <a href="#">
+	                    <p><img src="../images/menu_1.png" class="animated bounceIn"></p>
+	                    <span>最新优惠</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="javascript:void(0)" onclick="menubtn();">
+	                    <p><img src="../images/menu_2.png" class="animated rotateIn"></p>
+	                    <span>医生团队</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="#">
+	                    <p><img src="../images/menu_3.png" class="animated bounceIn"></p>
+	                    <span>所有项目</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="#">
+	                    <p><img src="../images/menu_4.png" class="animated rotateIn"></p>
+	                    <span>在线医师</span>
+	                </a>
+	            </li>
+	        </ul>
+        </div>
+        
+        
+		<div class="wrapper" id="listswipe">
+			<div class="scroller">
+				<ul class="clearfix">
+					<li><a href="javascript:void(0)">修行历程</a></li>
+					<li><a href="javascript:void(0)">品牌资质</a></li>
+					<li><a href="javascript:void(0)">菩萨面相</a></li>
+					<li><a href="javascript:void(0)">医生团队</a></li>
+					<li><a href="javascript:void(0)">经典案例</a></li>
+					<li><a href="javascript:void(0)">日行一善</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<div class="maincontent">
+			<!--历史-->
+			<div class="history">
+				<p style="text-align:left;letter-spacing: 1px;color: #666666;font-size: 13.5px;line-height:18px;margin-left: 10px;
+					margin-top: 10px;margin-right: 10px;">
+					TMOV国际医疗控股集团是一家致力于医疗整形、抗衰老产品研发、女性教育投资等服务女性一体化的集团运营公司，
+					创始于1997年，经过20余年的发展历程，现已成为中国唯一一家以修形文化为主导的修形医疗美容连锁机构，
+					拥有一支国际化专业的医师团队，其高超精湛的技术，细致周到的礼仪服务，高端先进的医疗设备，温馨优雅的蝶变环境，
+					只为亿万爱美女性送去美丽与自信。
+				</p>
+				<img style="width: 100%;margin: 0;padding: 0;" src="../images/history.png"/>
+				<div class="culture-footer">
+					<img src="../images/telphone.png"/>
+				</div>
+			</div>
+			
+			<!--菩萨面相-->
+			<div class="pusanmianxiang">
+				<img class="pusaimg" src="../images/pusa1.png" />
+				<p class="p1">菩萨面相之五福|长寿、富贵、康宁、好德、善报。</p>
+				<p class="p2">长寿：寿为富贵福禄之根本，人的寿命是第一位的。</p>
+				<p class="p3">寿——菩萨面相之命宫（印堂丰充，运势顺遂）。</p>
+				<p class="p3">寿——菩萨面相之耳垂（肉厚亮泽，福寿绵长）</p>
+				
+				<p class="p2">富，富贵：钱财富足而且地位尊贵。</p>
+				<p class="p3">富——菩萨面相之富贵额（额头饱满丰盈）。</p>
+				<p class="p3">富——菩萨面相之富贵鼻（鼻梁圆润立体丰隆）。</p>
+				<p class="p3">富——菩萨面相之丰填法令纹（法令纹丰充后财运顺遂）。</p>
+				
+				
+				<p class="p2">康宁：身体安康且心灵安宁。</p>
+				<p class="p3">康宁——菩萨面相之卧蚕眼（爱情与事业双赢，且子女安康、财运顺达）</p>
+				
+				<p class="p2">好德：生性仁善而且宽厚宁静。</p>
+				<p class="p3">好德——菩萨面相之慈眉传神眼（眼神灵动传神，眼尾微翘，妩媚动人）</p>
+				<p class="p3">好德——菩萨面相之丰太阳穴（又称夫妻宫，增添福气，旺夫，旺家，旺自己）</p>
+				<p class="p3">好德——菩萨面相之苹果肌（苹果肌又称笑肌，甜美可人，减龄法宝）</p>
+				<p class="p3">好德——菩萨面相之丰唇（唇型丰盈饱满，红润弹性。）</p>
+				
+				
+				<p class="p2">善报：身无病痛，心无挂碍，安详离开人间。</p>
+				<p class="p3">善报——菩萨面相之俏润脸（微调符合现代审美的俏润脸型，脸部线条圆润饱满）</p>
+				<p class="p3">善报——菩萨面相之兜财下巴（下巴兜兜，钱财无忧）</p>
+				<p class="p3">善报——菩萨面相之丰面颊（脸型轮廓精致，自然娇俏）</p>
+				
+				
+				<div class="culture-footer" style="margin-top: 30px;">
+					<img src="../images/telphone.png"/>
+				</div>
+				
+			</div>
+			
+			<!--经典案例-->
+			<div class="classiccase">
+				<div data-role="page" id="mypage">
+					<div role="main" class="ui-content">
+						<ul class="sliderlist">
+							<li>
+				                <div class="anli_list">
+				                	<div class="img">
+				                		<img style="margin-top: -1.5px;" src="../images/anli1.png">
+				                	</div>
+				            	</div>
+				            </li>
+				            <li>
+				                <div class="anli_list">
+				                	<div class="img">
+				                		<img src="../images/anli2.png">
+				                	</div>
+				            	</div>
+				            </li>
+				            <li>
+				                <div class="anli_list">
+				                	<div class="img">
+				                		<img src="../images/anli3.png">
+				                	</div>
+				            	</div>
+				            </li>
+				            <li>
+				                <div class="anli_list">
+				                	<div class="img">
+				                		<img src="../images/anli4.png">
+				                	</div>
+				            	</div>
+				            </li>
+				            <li>
+				                <div class="anli_list">
+				                	<div class="img">
+				                		<img src="../images/anli5.png">
+				                	</div>
+				            	</div>
+				            </li>
+				            <li>
+				                <div class="anli_list">
+				                	<div class="img">
+				                		<img src="../images/anli6.png">
+				                	</div>
+				            	</div>
+				            </li>
+				            <li>
+				                <div class="anli_list">
+				                	<div class="img">
+				                		<img src="../images/anli7.png">
+				                	</div>
+				            	</div>
+				            </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="goodthing" style="margin-top: 20px;">
+				<a href="http://mp.weixin.qq.com/s?__biz=MjM5NjYzNzY2NA==&mid=2650397539&idx=1&sn=76f86f6faebce058f0e058624bd86a52">
+					<img src="../images/huodong0.png"/>
+				</a>
+				<a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0NTc1MA==&mid=503426894&idx=1&sn=91021d85f2eceb5a27c75428bb44a38c">
+					<img src="../images/huodong1.png"/>
+				</a>
+				<a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0NTc1MA==&mid=503426831&idx=1&sn=30cbdbb463069350cd166e14bfcd1336">
+					<img src="../images/huodong2.png"/>
+				</a>
+				<a href="http://mp.weixin.qq.com/s?__biz=MjM5ODY3NzQ3Mg==&mid=2652691368&idx=4&sn=a6428dfd7f6c34931564e7c72a3e65e6">
+					<img src="../images/huodong3.png"/>
+				</a>
+				<a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0NTc1MA==&mid=503426606&idx=1&sn=c0624b97eb667207c6195971bec8c837">
+					<img src="../images/huodong4.png"/>
+				</a>
+				<a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0NTc1MA==&mid=2650909685&idx=1&sn=55a44bac005e8f80d42a551024a04248">
+					<img src="../images/huodong5.png"/>
+				</a>
+				<a href="http://mp.weixin.qq.com/s?__biz=MjM5ODY3NzQ3Mg==&mid=505207776&idx=2&sn=2ca7ca82d3602118e520e588753ce339">
+					<img src="../images/huodong6.png"/>
+				</a>
+				<div class="culture-footer" style="margin-top: 20px;">
+					<img src="../images/telphone.png"/>
+				</div>
+			</div>
+			
+			<!--医生简介-->
+			<div class="briefintro">
+				<p style="color: #666666;font-size: 13.5px;letter-spacing: 1px;margin-top:10px;margin-left: 15px;padding-left: 3px;">修外在，养内心；修行之美，美传天下。</p>
+                <p style="color: #666666;font-size: 13.5px;margin-top: 3px;letter-spacing: 1px;line-height: 16px;margin-left: 15px;padding-left: 3px;padding-right: 11px;">眼科精致，专注每一套黄金比例，以妙手奇技传播逆转时光的修行之美。</p>
+                <div class="pictures">
+					<div class="pictures-left">
+						<div class="pictures-left__header">
+							<img src="../images/picture1.png" />
+						</div>
+						<div class="pictures-left__footer">
+							<p style="text-align: center; margin-top: 5px;font-size: 15px;">秦瑞习</p>
+							<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">修行美林国际整形连锁创始人</p>
+							<img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+						</div>
+					</div>
+					<div class="pictures-right">
+						<div class="pictures-right__header">
+							<img src="../images/picture2.png" />
+						</div>
+						<div class="pictures-right__footer">
+							<p style="text-align: center; margin-top: 5px;font-size: 15px;">赵朝栋</p>
+							<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">TMOV美欧华国际整形美容</p>
+							<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">技术总院长</p>
+							<img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+						</div>
+					</div>
+				</div>
+				<div class="pictures" style="margin-top: 30px;">
+                    <div class="pictures-left">
+                        <div class="pictures-left__header">
+                            <img src="../images/zhangzaiyi.png" />
+                        </div>
+                        <div class="pictures-left__footer">
+                            <p style="text-align: center; margin-top: 5px;font-size: 15px;">张再义</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州TMOV美欧华修行医疗美容</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">医院院长</p>
+                            <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+                        </div>
+                    </div>
+                    <div class="pictures-right">
+                        <div class="pictures-right__header">
+                            <img src="../images/tongxiao.png" />
+                        </div>
+                        <div class="pictures-right__footer">
+                            <p style="text-align: center; margin-top: 5px;font-size: 15px;">仝晓</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州TMOV美欧华修行医疗美容</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">医院院长</p>
+                            <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pictures" style="margin-top: 30px;">
+                    <div class="pictures-left">
+                        <div class="pictures-left__header">
+                            <img src="../images/qinruiqi.png" />
+                        </div>
+                        <div class="pictures-left__footer">
+                            <p style="text-align: center;margin-top: 5px;font-size: 15px;">秦瑞奇</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">修行美林国际整形鹤壁分院院长</p>
+                            <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+                        </div>
+                    </div>
+                    <div class="pictures-right">
+                        <div class="pictures-right__header">
+                            <img style="padding-top: 4px;" src="../images/libaohe.png" />
+                        </div>
+                        <div class="pictures-right__footer">
+                            <p style="text-align: center; margin-top: 5px;font-size: 15px;">李保合</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">修行美林国际整形濮阳分院院长</p>
+                            <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pictures">
+                    <div class="pictures-left">
+                        <div class="pictures-left__header">
+                            <img src="../images/zhangfanping.png" />
+                        </div>
+	                    <div class="pictures-left__footer">
+	                        <p style="text-align: center; margin-top: 5px;font-size: 15px;">张繁萍</p>
+	                        <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">太原修行美林整形美容医院院长</p>
+	                        <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+	                    </div>
+	                </div>
+                    <div class="pictures-right">
+                        <div class="pictures-right__header">
+                            <img src="../images/zhengjianxin.png" />
+                        </div>
+	                    <div class="pictures-right__footer">
+	                        <p style="text-align: center; margin-top: 5px;font-size: 15px;">郑建新</p>
+	                        <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">山西美欧华整形美容医院院长</p>
+	                        <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+	                    </div>
+	                </div>
+                </div>
+                <div class="pictures">
+                    <div class="pictures-left">
+                        <div class="pictures-left__header">
+                            <img src="../images/liyunfei.png" />
+                        </div>
+                        <div class="pictures-left__footer">
+                            <p style="text-align: center; margin-top: 5px;font-size: 15px;">李云飞</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">山西美欧华整形美容医院院长</p>
+                            <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+                        </div>
+                    </div>
+                    <div class="pictures-right">
+                        <div class="pictures-right__header">
+                            <img src="../images/zhangziwei.png" />
+                        </div>
+                        <div class="pictures-right__footer">
+                            <p style="text-align: center; margin-top: 5px;font-size: 15px;">张自卫</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州修行美林整形美容医院院长</p>
+                            <img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="culture-footer" style="margin-top: 30px;">
+					<img src="../images/telphone.png"/>
+				</div>
+				
+			</div>
+		</div>
+
+	
+		<script type="text/javascript">
+			
+			
+			$('.sliderlist').bxSlider({
+				auto: false,
+				pager:false,
+				mode: 'fade'
+			});
+	
+	
+			slidelist(null);
+			
+			function menubtn()
+			{
+				slidelist(3);
+			}
+		  	
+		  	
+		  	function slidelist(listindex)
+		  	{
+		  		var defaultindex = localStorage.getItem('listindex');
+				if(!defaultindex)
+				{
+					defaultindex = 0;
+				}
+				
+				if(listindex != null){
+					defaultindex = listindex;
+				}
+	
+				$('#listswipe').navbarscroll({
+					defaultSelect:defaultindex,
+					endClickScroll:function(obj){
+						var tmpIndex = obj.index();
+						localStorage.setItem('listindex',tmpIndex);
+						//console.log(tmpIndex);
+						if(tmpIndex == 0){
+							$('.history').fadeIn(100);
+							$('.briefintro').hide();
+							$('.goodthing').hide();
+							$('.pusanmianxiang').hide();
+							$('.classiccase').hide();
+						}else if(tmpIndex == 2){
+							$('.history').hide();
+							$('.briefintro').hide();
+							$('.goodthing').hide();
+							$('.pusanmianxiang').fadeIn(100);
+							$('.classiccase').hide();
+						}else if(tmpIndex == 3){
+							$('.history').hide();
+							$('.briefintro').fadeIn();
+							$('.goodthing').hide();
+							$('.pusanmianxiang').hide(100);
+							$('.classiccase').hide();
+						}else if(tmpIndex == 5){
+							$('.history').hide();
+							$('.briefintro').hide();
+							$('.goodthing').fadeIn(100);
+							$('.pusanmianxiang').hide();
+							$('.classiccase').hide();
+						}else if(tmpIndex == 4){
+							$('.classiccase').fadeIn(100);
+							$('.history').hide();
+							$('.briefintro').hide();
+							$('.goodthing').hide();
+							$('.pusanmianxiang').hide();
+						}
+					}
+				});
+		  	}
+			
+			
+		</script>
+	</body>
+</html>

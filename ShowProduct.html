@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>微信商城</title>
+		<link href="mui/css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8"></script>
+		<style>
+
+.mui-row .product {
+	width: 50%;
+	background: #fff;
+	float: left;
+	padding: 10px 10px;
+}
+.pull-right {
+	float: right;
+}
+.mui-media-body{
+	margin: 1rem 1rem;
+}
+.mui-media-body a{
+	text-decoration: none;
+}
+a:link {color: #000000}		/* 未访问的链接 */
+a:visited {color: #000000}	/* 已访问的链接 */
+a:hover {color: #000000}	/* 鼠标移动到链接上 */
+a:active {color: #000000}	/* 选定的链接 */
+
+ </style>
+	</head>
+
+	<body>
+		<!-- 主界面菜单同时移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 主页面内容容器 -->
+				<div class="mui-content mui-content-cot mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!-- 主界面具体展示内容 -->
+						<!--轮播图-->
+					<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/signpoint.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/signpoint.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/signpoint.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/signpoint.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/signpoint.png">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/signpoint.png">
+						</a>
+					</div>
+				</div>
+			</div>
+						<div class="mui-media-body mui-media-cont">
+									<strong>热销产品</strong><span class="pull-right"></span>
+					    </div>
+						<div class="mui-row">
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productionfive.png" width="100%" />
+								</a>
+							</div>
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productionfive.png" width="100%" />
+								</a>
+							</div>
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productionsix.png" width="100%" />
+								</a>
+							</div>
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productionseven.png" width="100%" />
+								</a>
+							</div>
+						</div>
+						<div class="mui-media-body mui-media-cont">
+									<strong>精美礼品</strong><span class="pull-right"></span>
+					    </div>
+					    <div class="mui-row">
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productionone.png" width="100%" />
+								</a>
+							</div>
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productiontwo.png" width="100%" />
+								</a>
+							</div>
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productionthree.png" width="100%" />
+								</a>
+							</div>
+							<div class="product">
+								<a href="exchange.html">
+									<img src="images/productionfour.png" width="100%" />
+								</a>
+							</div>
+						</div>
+					</div>
+			   </div>
+			</div>
+		</div>
+	
+		<script src="mui/js/mui.min.js"></script>
+		<script src="mui/js/style.js"></script>
+		<script>
+			var slider = mui("#slider");
+			slider.slider({
+				interval: 5000
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="feedback">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>问题反馈</title>
+		<link rel="stylesheet" type="text/css" href="mui/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="mui/css/feedback.css" />
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.min.css">
+		
+		<style>
+			
+			.z_photo {
+	            width: 100%;
+	            height: 100px;
+	            margin: 0 auto;
+	        }
+	        
+	        .z_photo img {
+	            width: 1rem;
+	            height: 1rem;
+	        }
+	        
+	         .z_addImg {
+	            float: left;
+	            margin-right: 0.2rem;
+	        }
+        
+	        .z_file {
+	            width: 1rem;
+	            height: 1rem;
+	            background: url(images/z_add.png) no-repeat;
+	            background-size: 100% 100%;
+	            float: left;
+	            margin-right: 0.2rem;
+	        }
+	        
+	        .z_file input::-webkit-file-upload-button {
+	            width: 1rem;
+	            height: 1rem;
+	            border: none;
+	            position: absolute;
+	            outline: 0;
+	            opacity: 0;
+	        }
+
+	        .z_file input#file {
+	            display: block;
+	            width: auto;
+	            border: 0;
+	            vertical-align: middle;
+	        }
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">问题反馈</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<div class="mui-inline">问题和意见</div>
+			</div>
+			<div class="row mui-input-row">
+				<textarea id='question' class="mui-input-clear question" placeholder="请详细描述你的问题和意见..."></textarea>
+			</div>
+			<p>图片(选填,提供问题截图,总大小10M以下)</p>
+			
+			
+			<div  class="row image-list">			
+				<div class="z_photo">
+			        <div class="z_file">
+			            <input type="file" name="file" id="file" value="" accept="image/*" multiple onchange="imgChange('z_photo','z_file');" />
+			        </div>
+			   </div>
+		    </div>
+
+			<p>QQ/邮箱</p>
+			<div class="mui-input-row">
+				<input id='contact' type="text" class="mui-input-clear contact" placeholder="(选填,方便我们联系你 )" />
+			</div>
+		</div>
+		
+		<div class="mui-button-row">
+	        <button type="button" onclick="btnclick();" class="mui-btn mui-btn-primary" >提交</button>
+	    </div>
+    
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="mui/js/mui.min.js"></script>
+		<script src="mui/js/style.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+		
+		<script>
+			
+			var imgsArr = new Array();
+			
+			mui.init();
+			mui('.mui-scroll-wrapper').scroll();
+			
+			(function(doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function() {
+	                	
+	                    var clientWidth = docEl.clientWidth;
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= 640) {
+	                        docEl.style.fontSize = '100px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	                    }
+	                };
+	
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+
+			function imgChange(obj1, obj2) {
+				
+	            //获取点击的文本框
+	            var file = document.getElementById("file");
+	            
+	            //获取的图片文件
+	            var fileList = file.files;  
+	           
+	            //存放图片的父级元素
+	            var imgContainer = document.getElementsByClassName(obj1)[0];
+	            //文本框的父级元素
+	            var input = document.getElementsByClassName(obj2)[0];
+	            var imgArr = [];
+	            //遍历获取到得图片文件
+	            for (var i = 0; i < fileList.length; i++) {
+	            	
+	                var imgUrl = window.URL.createObjectURL(file.files[i]);
+	                imgArr.push(imgUrl);
+	                var img = document.createElement("img");
+	                img.setAttribute("src", imgArr[i]);
+	                var imgAdd = document.createElement("div");
+	                imgAdd.setAttribute("class", "z_addImg");
+	                imgAdd.appendChild(img);
+	                imgContainer.appendChild(imgAdd);
+	                
+	                var reader = new FileReader();
+	                reader.readAsDataURL(fileList[i]);   
+	        		reader.onload = function(e){
+	          			imgsArr.push(this.result);//this.result.split(",")[1]
+	        		}
+	            };
+	        };
+	        
+	        
+	        function btnclick(){
+	        	
+	        	var suggest = $('#question').val();
+	        	
+	        	if(!suggest){
+	        		mui.toast('请输入建议');
+	        		return;
+	        	}
+	        	
+	      		
+	      		$.ajax({
+	      			type:"post",
+	      			url:"http://chenxiaolong.ngrok.cc/shop/1/zmdmly/public/api/uploadSuggest",
+	      			dataType:'json',
+					data:{
+						idstr:'23',
+						suggestmess:suggest,
+						suggestpic:imgsArr,
+						suggestcomm:$('.contact').val()
+					},
+					beforeSend:function(){
+//						$.showLoading('上传中...');
+					},
+					success:function(data){
+				
+						setTimeout(function(){
+							
+							$.hideLoading();
+							$.toast(data['message'],'text');
+							if (data['status'] == '0') {
+								alert(data['data']);
+							};
+						},3000);
+					}
+	      		});	
+	        };
+	       
+		</script>
+	</body>
+
+</html>

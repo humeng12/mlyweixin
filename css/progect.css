@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	font-family: "Microsoft Yahei", "Calibri";
+	font-size: 14px;
+	background-color: #EEF3FA;
+	color:#777;
+}
+.creditsexchange_contnet img{
+	width: 100%;
+	height: 8rem;
+}
+.right_content{
+	display: flex;
+	display: -webkit-flex;
+	margin-left: 50%;
+	margin-top: -6rem;
+}
+.creditsexchange_contnet .right_content img{
+	width: 4rem;
+	height: 4rem;
+}
+.creditsexchange_contnet .right_content .text p{
+     line-height: 1.5rem;
+}
+

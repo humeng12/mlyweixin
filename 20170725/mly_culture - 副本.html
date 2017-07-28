@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title></title>
+		
+	    
+	    <link href="../nav/css/main.css" rel="stylesheet" type="text/css">
+		<link href="../nav/css/style.css" rel="stylesheet" type="text/css">
+		<link href="../nav/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="../nav/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+		
+		<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../nav/js/idangerous.swiper.min.js"></script>
+	    
+		<script type="text/javascript" src="../js/iscroll.js"></script>
+		<script type="text/javascript" src="../js/navbarscroll.js"></script>
+
+	    <script>
+	        $(document).ready(function(){
+	        //控制tab选项滚动
+	        var elm2 = $('.xx_tab');
+	        var startPos = $(elm2).offset().top;
+	        $.event.add(window, "scroll", function() {
+	            var p = $(window).scrollTop();
+	            $(elm2).css('position',((p) > startPos) ? 'fixed' : 'static');
+	            $(elm2).css('width',((p) > startPos) ? '100%' : '');
+	            $(elm2).css('top',((p) > startPos) ? '0rem' : '');
+	            $(elm2).css('opacity',((p) > startPos) ? '0.95' : '');
+	        });
+	        });
+	    </script>
+    
+	    <style>
+	    	
+	    	.culture-header{
+	    		background-color: #575757;
+	    	}
+	    	.culture-header img{
+	    		width: 60%;
+	    		height: 60%;
+	    		margin-top: 10px;
+	    		margin-bottom: 10px;
+	    		margin-left: 20%;
+	    	}
+	    	
+	    	.my_tab {
+				height: 4rem;
+				line-height: 4rem;
+				/*width: 100%;*/
+				/*border-bottom: .1rem #b1b1b1 solid;*/
+				background-color: #fff;
+				position: relative;
+				z-index: 100;
+				display: flex;
+				display: -webkit-flex;
+			}
+			
+			.my_tab a {
+				width: 25%;
+				text-align: center;
+				height: 3.8rem;
+				font-size: 1.5rem;
+				color: #000;
+			}
+			
+			.my_tab a.active {
+				color: #ff8400 !important;
+				border-bottom: .1rem #ff8400 solid;
+			}
+			
+			
+			.pictures{
+				position: relative;
+				width: 100%;
+				height: 23rem;
+				margin-top: 10px;
+			}
+			
+			.pictures-left{
+				position: absolute;
+				width: 50%;
+				height: 100%;
+			}
+			
+			.pictures-left__header,.pictures-right__header{
+				width: 100%;
+				height: 18rem;
+			}
+			.pictures-left__footer,.pictures-right__footer{
+				width: 100%;
+				height: 5rem;
+			}
+			
+			.pictures-left__footer .yuyue{
+				position: absolute;
+				bottom: -9px;
+				right: 6rem;
+				width: 15%;
+				height: 15%;
+			}
+			.pictures-left__footer .dianzhan{
+				position: absolute;
+				width: 10%;
+				height: 10%;
+				right: 4rem;
+				margin-top: 1px;
+			}
+			.pictures-left__footer .focusnum{
+				position: absolute;
+				right: 2rem;
+				font-size: 12px;
+				color: #c7a78e;
+				margin-top: 8px;
+			}
+			
+			.pictures-right{
+				position: absolute;
+				width: 50%;
+				height: 100%;
+				margin-left: 50%;
+			}
+			
+			.pictures img{
+				width: 90%;
+				height: 100%;
+				margin-left: 5%;
+			}
+			
+			
+			.culture-footer{
+				position: relative;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 4rem;
+			}
+			.culture-footer img{
+				width: 100%;
+				height: 100%;
+			}
+			
+			
+			a{
+				-webkit-tap-highlight-color:rgba(0,0,0,0);
+			}
+			.wrapper {
+				position:relative;
+				height: 3.5rem;
+				width: 100%;
+				overflow: hidden;
+				margin:0 auto;
+				background:#F4F4F4;
+			}
+			.wrapper .scroller {
+				position:absolute;
+			}
+			.wrapper .scroller li {
+				height: 3.5rem;
+				float: left;
+				line-height: 3.5rem;
+				font-size: 1.5rem;
+				text-align: center;
+			}
+			.wrapper .scroller li a{
+				color:#010101;
+				display:block;
+				margin:0 .3rem;
+			}
+			.wrapper .scroller li.cur a{
+				color:#edbe75;
+			}
+			/*edbe75*/
+	    </style>
+	</head>
+	<body>
+		<div class="culture-header">
+			<img src="../images/culture-header.png"/>
+		</div>
+		
+		<div class="nav" style="margin-top: 0;">
+	        <ul>
+	            <li>
+	                <a href="#">
+	                    <p><img src="../images/menu_1.png" class="animated bounceIn"></p>
+	                    <span>最新优惠</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="#">
+	                    <p><img src="../images/menu_2.png" class="animated rotateIn"></p>
+	                    <span>医生团队</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="#">
+	                    <p><img src="../images/menu_3.png" class="animated bounceIn"></p>
+	                    <span>所有项目</span>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="#">
+	                    <p><img src="../images/menu_4.png" class="animated rotateIn"></p>
+	                    <span>在线医师</span>
+	                </a>
+	            </li>
+	        </ul>
+        </div>
+        
+        
+		<div class="wrapper" id="demo05">
+			<div class="scroller">
+				<ul class="clearfix">
+					<li><a href="javascript:void(0)">修行历程</a></li>
+					<li><a href="javascript:void(0)">品牌资质</a></li>
+					<li><a href="javascript:void(0)">菩萨面相</a></li>
+					<li><a href="javascript:void(0)">医生团队</a></li>
+					<li><a href="javascript:void(0)">医生团队</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<div class="maincontent">
+			<div class="history">
+				<p style="text-align:left;letter-spacing: 1px;color: #666666;font-size: 13.5px;line-height:18px;margin-left: 10px;
+					margin-top: 10px;margin-right: 10px;">
+					TMOV国际医疗控股集团是一家致力于医疗整形、抗衰老产品研发、女性教育投资等服务女性一体化的集团运营公司，
+					创始于1997年，经过20余年的发展历程，现已成为中国唯一一家以修形文化为主导的修形医疗美容连锁机构，
+					拥有一支国际化专业的医师团队，其高超精湛的技术，细致周到的礼仪服务，高端先进的医疗设备，温馨优雅的蝶变环境，
+					只为亿万爱美女性送去美丽与自信。
+				</p>
+				<img style="width: 100%;margin: 0;padding: 0;" src="../images/history.png"/>
+				<div class="culture-footer">
+					<img src="../images/telphone.png"/>
+				</div>
+			</div>
+			
+			
+			<div class="briefintro">
+				<p style="color: #666666;font-size: 13.5px;letter-spacing: 1.5px;margin-top:10px;margin-left: 5px;">修外在，养内心；修行之美，美传天下。</p>
+                <p style="color: #666666;font-size: 13.5px;margin-top: 5px;letter-spacing: 1.5px;line-height: 18px;margin-left: 5px;">眼科精致，专注每一套黄金比例，以妙手奇技传播逆转时光的修行之美。</p>
+                <div class="pictures">
+					<div class="pictures-left">
+						<div class="pictures-left__header">
+							<img src="../images/picture1.png" />
+						</div>
+						<div class="pictures-left__footer">
+							<p style="text-align: center;">秦瑞习</p>
+							<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">修行美林国际整形连锁创始人</p>
+							<img class="yuyue" src="../images/yuyue.png" />
+							<img class="dianzhan" src="../images/dianzhan.png" />
+							<p class="focusnum">300</p>
+						</div>
+					</div>
+					<div class="pictures-right">
+						<div class="pictures-right__header">
+							<img src="../images/picture2.png" />
+						</div>
+						<div class="pictures-right__footer">
+							<p style="text-align: center;">赵朝栋</p>
+							<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">TMOV美欧华国际整形美容</p>
+							<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">技术总院长</p>
+						</div>
+					</div>
+				</div>
+				<div class="pictures">
+                    <div class="pictures-left">
+                        <div class="pictures-left__header">
+                            <img src="../images/zhangzaiyi.png" />
+                        </div>
+                        <div class="pictures-left__footer">
+                            <p style="text-align: center;">张再义</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州TMOV美欧华修行医疗美容</p>
+                            <p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">医院院长</p>
+                        </div>
+                            			</div>
+                            			<div class="pictures-right">
+                            				<div class="pictures-right__header">
+                            					<img src="../images/tongxiao.png" />
+                            				</div>
+                            				<div class="pictures-right__footer">
+                            					<p style="text-align: center;">仝晓</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州TMOV美欧华修行医疗美容</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">医院院长</p>
+                            				</div>
+                            			</div>
+                            		</div>
+			</div>
+		</div>
+
+        <div class="warpe" style="margin-top: 25px;">
+			<div class="tabs my_tab sqh_tab xx_tab" style="background-color: #f4f4f4;">
+				<a href="#" hidefocus="true" class="active">修行历程</a>
+				<a href="#" hidefocus="true">品牌资质</a>
+				<a href="#" hidefocus="true">菩萨面相</a>
+				<a href="#" hidefocus="true">医生团队</a>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					
+					<div class="swiper-slide" style="height: 10rem;">
+						<div class="content-slide">
+							<div class="main">
+								<div class="finance">
+									<p style="text-align:left;letter-spacing: 1px;color: #666666;font-size: 13.5px;line-height:18px;">
+										TMOV国际医疗控股集团是一家致力于医疗整形、抗衰老产品研发、女性教育投资等服务女性一体化的集团运营公司，
+										创始于1997年，经过20余年的发展历程，现已成为中国唯一一家以修形文化为主导的修形医疗美容连锁机构，
+										拥有一支国际化专业的医师团队，其高超精湛的技术，细致周到的礼仪服务，高端先进的医疗设备，温馨优雅的蝶变环境，
+										只为亿万爱美女性送去美丽与自信。
+									</p>
+									<img style="width: 100%;margin: 0;padding: 0;" src="../images/history.png"/>
+                        		</div>
+                    		</div>
+                		</div>
+                		<div class="culture-footer">
+							<img src="../images/telphone.png"/>
+						</div>
+            		</div>
+            		
+		            <div class="swiper-slide">
+		                <div class="content-slide">
+		                    <div class="main">
+		                        <div class="main">
+									<div class="finance">
+										111	
+		                        	</div>
+		                    	</div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+            		<div class="swiper-slide">
+                		<div class="content-slide">
+                    		<div class="main">
+                        		<div class="finance">
+                            	222
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="swiper-slide">
+                		<div class="content-slide">
+                    		<div class="main">
+                        		<div class="finance">
+                            		<p style="color: #666666;font-size: 13.5px;letter-spacing: 1.5px;margin: 5px;">修外在，养内心；修行之美，美传天下。</p>
+                            		<p style="color: #666666;font-size: 13.5px;margin-top: 5px;letter-spacing: 1.5px;line-height: 18px;margin-left: 5px;">眼科精致，专注每一套黄金比例，以妙手奇技传播逆转时光的修行之美。</p>
+                            		<div class="pictures">
+                            			<div class="pictures-left">
+                            				<div class="pictures-left__header">
+                            					<img src="../images/picture1.png" />
+                            				</div>
+                            				<div class="pictures-left__footer">
+                            					<p style="text-align: center;">秦瑞习</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">修行美林国际整形连锁创始人</p>
+                            					<img class="yuyue" src="../images/yuyue.png"/>
+                            					<img class="dianzhan" src="../images/dianzhan.png"/>
+                            					<p class="focusnum">300</p>
+                            				</div>
+                            			</div>
+                            			<div class="pictures-right">
+                            				<div class="pictures-right__header">
+                            					<img src="../images/picture2.png" />
+                            				</div>
+                            				<div class="pictures-right__footer">
+                            					<p style="text-align: center;">赵朝栋</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">TMOV美欧华国际整形美容</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">技术总院长</p>
+                            				</div>
+                            			</div>
+                            		</div>
+                            		<div class="pictures">
+                            			<div class="pictures-left">
+                            				<div class="pictures-left__header">
+                            					<img src="../images/zhangzaiyi.png" />
+                            				</div>
+                            				<div class="pictures-left__footer">
+                            					<p style="text-align: center;">张再义</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州TMOV美欧华修行医疗美容</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">医院院长</p>
+                            				</div>
+                            			</div>
+                            			<div class="pictures-right">
+                            				<div class="pictures-right__header">
+                            					<img src="../images/tongxiao.png" />
+                            				</div>
+                            				<div class="pictures-right__footer">
+                            					<p style="text-align: center;">仝晓</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州TMOV美欧华修行医疗美容</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">医院院长</p>
+                            				</div>
+                            			</div>
+                            		</div>
+                            		<div class="pictures">
+                            			<div class="pictures-left">
+                            				<div class="pictures-left__header">
+                            					<img src="../images/qinruiqi.png" />
+                            				</div>
+                            				<div class="pictures-left__footer">
+                            					<p style="text-align: center;">秦瑞奇</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">修行美林国际整形鹤壁分院院长</p>
+                            				</div>
+                            			</div>
+                            			<div class="pictures-right">
+                            				<div class="pictures-right__header">
+                            					<img style="padding-top: 4px;" src="../images/libaohe.png" />
+                            				</div>
+                            				<div class="pictures-right__footer">
+                            					<p style="text-align: center;">李保合</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">修行美林国际整形濮阳分院院长</p>
+                            				</div>
+                            			</div>
+                            		</div>
+                            		<div class="pictures">
+                            			<div class="pictures-left">
+                            				<div class="pictures-left__header">
+                            					<img src="../images/zhangfanping.png" />
+                            				</div>
+                            				<div class="pictures-left__footer">
+                            					<p style="text-align: center;">张繁萍</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">太原修行美林整形美容医院院长</p>
+                            				</div>
+                            			</div>
+                            			<div class="pictures-right">
+                            				<div class="pictures-right__header">
+                            					<img src="../images/zhengjianxin.png" />
+                            				</div>
+                            				<div class="pictures-right__footer">
+                            					<p style="text-align: center;">郑建新</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">山西美欧华整形美容医院院长</p>
+                            				</div>
+                            			</div>
+                            		</div>
+                            		<div class="pictures">
+                            			<div class="pictures-left">
+                            				<div class="pictures-left__header">
+                            					<img src="../images/liyunfei.png" />
+                            				</div>
+                            				<div class="pictures-left__footer">
+                            					<p style="text-align: center;">李云飞</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">山西美欧华整形美容医院院长</p>
+                            				</div>
+                            			</div>
+                            			<div class="pictures-right">
+                            				<div class="pictures-right__header">
+                            					<img src="../images/zhangziwei.png" />
+                            				</div>
+                            				<div class="pictures-right__footer">
+                            					<p style="text-align: center;">张自卫</p>
+                            					<p style="color: #c7a78e;font-size: 12px;text-align: center;margin-top: 5px;">郑州修行美林整形美容医院院长</p>
+                            				</div>
+                            			</div>
+                            		</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		
+		</div>
+	
+		<script type="text/javascript">
+			
+			var tabsSwiper = new Swiper('.swiper-container', {
+				speed: 500,
+				onSlideChangeStart: function() {
+					$(".tabs .active").removeClass('active');
+					$(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+				}
+			});
+			$(".tabs a").on('touchstart mousedown', function(e) {
+				e.preventDefault()
+				$(".tabs .active").removeClass('active')
+				$(this).addClass('active')
+				tabsSwiper.slideTo($(this).index())
+			});
+			$(".tabs a").click(function(e) {
+				e.preventDefault()
+			});
+			
+			
+			$('#demo05').navbarscroll({
+				defaultSelect:0,
+				endClickScroll:function(obj){
+					var tmpIndex = obj.index();
+					console.log(tmpIndex);
+					if(tmpIndex == 0){
+						
+						$('.history').show();
+						$('.briefintro').hide();
+					}else if(tmpIndex == 1){
+						$('.history').hide();
+						$('.briefintro').show();
+					}
+				}
+			});
+		
+			
+			
+		</script>
+	</body>
+</html>

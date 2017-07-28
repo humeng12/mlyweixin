@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" class="feedback">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的评价</title>
+		<link rel="stylesheet" type="text/css" href="mui/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="mui/css/feedback.css" />
+		<link rel="stylesheet" type="text/css" href="webuploader/css/webuploader.css" />
+        <link rel="stylesheet" type="text/css" href="webuploader/css/style.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
+			<h1 class="mui-title">我的评价</h1>
+		</header>
+		<div class="mui-content">
+			<div class="row mui-input-row">
+				<textarea id='question' class="mui-input-clear question" placeholder="宝贝满足你的期望了吗？说说它的优点和美中不足的地方吧"></textarea>
+			</div>
+			<p>图片(选填,提供问题截图,总大小10M以下)</p>
+			<div id="wrapper">
+				<div id="container">
+					<!--头部，相册选择和格式选择-->
+
+					<div id="uploader">
+						<div class="queueList">
+							<div id="dndArea" class="placeholder">
+								<div id="filePicker"></div>
+								<p>或将照片拖到这里，单次最多可选300张</p>
+							</div>
+						</div>
+						<div class="statusBar" style="display:none;">
+							<div class="progress">
+								<span class="text">0%</span>
+								<span class="percentage"></span>
+							</div>
+							<div class="btns">
+								<div id="filePicker2"></div>
+								<div class="uploadBtn">开始上传</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="webuploader/js/jquery.js"></script>
+		<script type="text/javascript" src="webuploader/js/webuploader.js"></script>
+		<script type="text/javascript" src="webuploader/js/upload.js"></script>
+		<script src="mui/js/mui.min.js"></script>
+		<script src=" mui/js/feedback.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui('.mui-scroll-wrapper').scroll();
+		</script>
+	</body>
+
+</html>

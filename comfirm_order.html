@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>确认订单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/public.css">
+	<link rel="stylesheet" type="text/css" href="css/main_style.css">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.js"></script>
+	<script type="text/javascript" src="js/fontsize.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+</head>
+<body class="bg-gray-f0">
+<!-- 顶部 -->
+<!-- <div class="head white pos_rel"><i class="iconfont f26">&#xe60b;</i><span class="f34">确认订单</span><a href="javascript:;" class="more pos_abs"><span class="nav_cir"></span><span class="nav_cir"></span><span class="nav_cir"></span></a></div> -->
+<!--<ul class="address bg-white mt10 mb10">
+	<li class="icon vertical_middle pl20 pr20"><i class="iconfont f48">&#xe602;</i></li>
+	<li class="vertical_middle f18">
+		<div>收件人：<span class="mr100">刘新苗</span>电话：<span>138556777</span>
+		</div>
+		<div>收货地址：<span>[默认]</span>河南省郑州市郑东新区升龙广场A座1号楼1单元1006室</div>
+	</li>
+	<li class="more txt-right vertical_middle pr20"><a class="iconfont f26" href="#">&#xe60f;</a></li>
+</ul>-->
+<div class="add_address f26 p20 bg-white mt10">新增收货地址<a class="fr add iconfont mt9 f26" href="add_address.html">+</a></div>
+<ul class="address f18 bg-white mt10 pt20 pb20">
+	<li class="icon vertical_middle pl20"><i class="iconfont radio">●</i></li>
+	<li class="vertical_middle">
+		<div>收件人：<span class="mr100">刘新苗</span>电话：<span>13855366777</span>
+		</div>
+		<div>收货地址：河南省郑州市升龙广场A座1单元1号楼1006室</div>
+	</li>
+	<li class="more txt-right vertical_middle pr20"><a class="iconfont" href="#">编辑</a></li>
+</ul>
+
+<dl class="commodity bg-white mb10 pt20 pb20" id="0011">
+	<a href="products_content.html"><dt class="full_img pl20 pr20"><img src="images/p-3.jpg"></dt>
+	<dd class="vertical_middle pr20">
+		<h4 class="normal f20">Braun/博朗欧乐 BType3744 电动牙刷博朗欧乐 BType3744 电动牙刷</h4>
+		<p class="f18 gray_90 mt5">颜色：<span>蓝色</span></p>
+		<div class="f30 mt10"><span class="red">￥<span class="price">1.01</span></span><span class="fr">x1</span></div>
+	</dd></a>
+</dl>
+<dl class="commodity bg-white mb10 pt20 pb20" id="0012">
+	<dt class="full_img pl20 pr20"><img src="images/p-3.jpg"></dt>
+	<dd class="vertical_middle pr20">
+		<h4 class="normal f20">Braun/博朗欧乐 BType3744 电动牙刷博朗欧乐 BType3744 电动牙刷</h4>
+		<p class="f18 gray_90 mt5">颜色：<span>蓝色</span></p>
+		<div class="f30 mt10"><span class="red">￥<span class="price">1.01</span></span><span class="fr">x1</span></div>
+	</dd>
+</dl>
+<div class="txt-center f30 bg-white pt10 pb10">总价：<span class="red">￥899.00</span></div>
+<a href="#" class="btn_pay m20 f30 white txt-center dis_block pt5 pb5">微信支付</a>
+<!-- <div>总计：<input type="hidden" id="totalcartnumb" /></div> -->
+<script>
+confirmTotalNum();
+
+/*function confirmTotalNum(){
+	var str='';
+	$('.mod_list li').each(function(){
+		if(str==''){
+			str=$(this).attr('id');
+		}else{
+			str=str+','+$(this).attr('id');
+		}
+	});
+	$('#totalcartnumb').val(str);
+}*/
+
+function confirmTotalNum(){
+	var str='';
+	$('.commodity').each(function(){
+		if(str==''){
+			str=$(this).attr('id');
+		}else{
+			str=str+','+$(this).attr('id');
+		}
+	});
+	$('#totalcartnumb').val(str);
+}
+
+	$(function(){
+		$('.address .radio').bind('click',function(){
+			$(this).html('●');
+			$(this).parent().parent().siblings('.address').find('.radio').html('');
+		});
+	});
+     
+     $(".pay").click(function(){
+     	alert('点击了支付页面');
+     });
+</script>
+</body>
+</html>

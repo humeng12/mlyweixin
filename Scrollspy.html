@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>关于我们</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!--<link rel="stylesheet" href="bootstrap/bootstrap.min.css">-->
+		<script src="bootstrap/jquery-1.11.1.min.js"></script>
+		<script src="bootstrap/bootstrap.min.js"></script>
+		<!--<link rel="stylesheet" href="AmazeUI-2.7.2/assets/css/amazeui.min.css">-->
+		<link rel="stylesheet" href="AmazeUI-2.7.2/css/app.css">
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="littlefish/css/swiper.min.css">
+        <link rel="stylesheet" href="littlefish/css/choumei.min.css">
+		<style type="text/css">
+			.am-gotop a {
+				display: inline-block;
+				text-decoration: none
+			}
+			
+			.am-gotop-default {
+				text-align: center;
+				margin: 10px 0
+			}
+			
+			.am-gotop-default a {
+				background-color: #0e90d2;
+				padding: .5em 1.5em;
+				border-radius: 0;
+				color: #fff
+			}
+			
+			.am-gotop-default a img {
+				display: none
+			}
+			
+			.am-gotop-fixed {
+				position: fixed;
+				right: 10px;
+				bottom: 10px;
+				z-index: 1010;
+				opacity: 0;
+				width: 32px;
+				min-height: 32px;
+				overflow: hidden;
+				border-radius: 0;
+				text-align: center
+			}
+			
+			.am-gotop-fixed.am-active {
+				opacity: .9
+			}
+			
+			.am-gotop-fixed.am-active:hover {
+				opacity: 1
+			}
+			
+			.am-gotop-fixed a {
+				display: block
+			}
+			
+			.am-gotop-fixed .am-gotop-title {
+				display: none
+			}
+			
+			.am-gotop-fixed .am-gotop-icon-custom {
+				display: inline-block;
+				max-width: 30px;
+				vertical-align: middle
+			}
+			
+			.am-gotop-fixed .am-gotop-icon {
+				width: 100%;
+				line-height: 32px;
+				background-color: #555;
+				vertical-align: middle;
+				color: #ddd
+			}
+			
+			.am-gotop-fixed .am-gotop-icon:hover {
+				color: #fff
+			}
+			
+			.am-with-fixed-navbar .am-gotop-fixed {
+				bottom: 60px
+			}
+			
+			/*下面是自定义属性*/						
+			#navbar-example .container-fluid .navbar-collapse ul a{
+				width: 20%;
+				text-decoration: none;
+		     }
+			
+			#navbar-example .container-fluid .navbar-collapse ul{
+				display: flex;
+				display: -webkit-flex;
+				list-style: none;
+				border: 1px solid #F6E1BE;		
+			}	
+			#navbar-example .container-fluid .navbar-collapse ul li{
+				border: 1px solid #F6E1BE;	
+			}	
+	     	#navbar-example .container-fluid .navbar-collapse ul a li p{
+				color: #000000;
+				text-align: center;
+			}
+			#navbar-example .container-fluid .navbar-collapse ul a li img{
+				width: 3rem;
+				height: 3rem;
+			    margin-left: 20%;
+			}			
+			h4 {
+				text-align: center;
+				color: #D58512;
+			}
+			.Profession p {
+				text-align: center;
+			}
+			.Profession{			
+             	background:url(images/shouye_nvsheng_bg.png)
+			}
+			
+			.Brand ul li:nth-child(6) p {
+				text-align: center;
+			}
+			
+			.Brand>ul{
+				background-image: url(images/cuture_bg.png);
+				background-size: 115.5% 107%;
+				background-position: 46% 60%;
+				width: 95%;
+				margin: 0 auto;
+				border-bottom: 1px solid #EDBE75;
+			}
+			
+	    	.Brand ul li:nth-child(1) {
+				padding: 2.8rem 1rem 0rem 1rem;
+			}
+			
+			.Brand ul li:nth-child(1) p {
+				padding: 1.5rem 0.5rem 0rem 0.5rem;
+				font-weight: lighter;
+			}
+					
+	    	.Brand ul li:nth-child(2) h5 {
+				padding: 1.5rem 1rem 0rem 1rem;
+			}
+			
+			.Brand ul li:nth-child(2) img{
+				width: 80%;
+				padding-left: 10%;
+			} 
+				
+			.Brand ul li:nth-child(2) p {
+				margin: 1rem;
+				font-weight: lighter;
+			}
+			
+			.Brand ul li:nth-child(3) h5 {
+				padding-left: 1rem;
+			}
+			
+			.Brand ul li:nth-child(3) img {
+				width: 80%;
+				padding-left: 10%;
+			}
+			
+			.Brand ul li:nth-child(3) p {
+				padding-left: 1rem;
+				font-weight: lighter;
+			}
+			
+			.Brand ul li:nth-child(4) h5 {
+				padding-left: 1rem;
+				margin-top: 1rem;
+			}
+			
+			.Brand ul li:nth-child(4) p {
+				padding-left: 1rem;
+				margin-top: 0.5rem;
+			}
+			
+			.Brand ul li:nth-child(5) img {
+				width: 98%;
+			}
+			
+			.Brand ul li:nth-child(5) h5 {
+				padding-left: 1rem;
+				margin-top: 1rem;
+			}
+			
+			.Brand ul li:nth-child(6) h5 {
+				padding-left: 1rem;
+				margin-top: 1rem;
+			}
+			
+			.Brand ul li:nth-child(6) .shiyan {
+				/*display: flex;*/
+				/*justify-content: 10rem;*/
+				margin: 0 auto;
+				writing-mode: vertical-rl;
+				/*从左向右 从右向左是 writing-mode: vertical-rl;*/
+				writing-mode: tb-rl;
+				/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+						
+			.Brand ul li:nth-child(6) .shiyan p {
+				color: #EDBE75;
+				font-size: 12.5px;
+				margin-top: 0;
+				margin-left: 0.2rem;
+				text-align: justify;
+			}
+			
+			
+			
+			.Bodhisattva>ul{
+				background-image: url(images/cuture_bg.png);
+				background-size: 115.5% 107%;
+				background-position: 46% 60%;
+				width: 95%;
+				margin: 0 auto;
+				border-bottom: 1px solid #EDBE75;
+			}
+			
+			.Bodhisattva ul li:nth-child(1) {
+				padding: 2.8rem 1rem 0rem 1rem;
+			}
+			
+			.Bodhisattva ul li:nth-child(1) p {
+				padding: 1.5rem 0.5rem 0rem 0.5rem;
+				font-weight: lighter;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+					<ul class="nav navbar-nav">
+						<a href="#Brand">
+							<li style="list-style: none;">
+							<img src="images/Brand.png" alt="品牌文化">
+							<p>品牌文化</p>
+						    </li>
+						</a>
+						<a href="#Bodhisattva">
+							<li>
+							<img src="images/Bodhisattva.png" alt="菩萨面相">
+							<p>菩萨面相</p>
+						    </li>
+						</a>
+						<a href="#Professional">
+						    <li>
+							<img src="images/Professional.png" alt="找专家">
+							<p>找专家</p>
+						    </li>
+						</a>
+					    <a href="#branch">
+					    	<li>
+							<img src="images/branch.png" alt="找分院">
+							<p>找分院</p>
+						     </li>
+					    </a>
+					    <a href="#goodthing">
+					        <li>
+							<img src="images/goodthing.png" alt="日行一善">
+							<p>日行一善</p>
+						    </li>
+					    </a>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div>
+			
+			<div class="Brand">
+				<ul>
+					<li>
+						<h5 style="font-size: 15px;margin-top: 5px;">修形文化 <i>XIUXINGWENHUA</i></h5>
+						<p style="font-size: 13px;">
+							TMOV国际医疗控股集团是一家致力于医疗整形、抗衰老产品研发、女性教育投资等服务女性一体化的集团运营公司，创始于1997年，经过20余年的发展历程，现已成为中国唯一一家以修形文化为主导的修形医疗美容连锁机构，拥有一支国际化专业的医师团队，其高超精湛的技术，细致周到的礼仪服务，高端先进的医疗设备，温馨优雅的蝶变环境，只为亿万爱美女性送去美丽与自信。
+						</p>
+					</li>
+					<li>
+						<h5 style="font-size: 14px;">五大板块图片 <i>WUDABANKUAITUPIAN</i><h5>
+                        <img src="images/five.png" alt="五大板块图片">
+		         		<p style="font-size: 13px;">
+		                                                            目前，修形美林以专业的技术引领爱美女性进入<span style="color: #EDBE75;">“医美私人定制”</span>时代，实现了医术+艺术+个性化设计的完美结合。极致打造具有东方审美的时尚魅力女人。
+		         		</p>
+					</li>
+					<li>
+						<h5 style="font-size: 14px;">分布区域 <i>FENBUQUYU</i></h5>
+						<img src="images/map.png" alt="我们的位置" width="100%">
+						<p style="font-size: 13px;">
+							修形美林，它以做全球最有影响力的的修形平台为愿景，先后在濮阳、鹤壁、郑州、青岛、太原、驻马店、晋城、淄博、威海等12个城市开设高端修形医疗美容连锁机构并运营，未来三年，将在济南、合肥、石家庄、北京、上海、新加坡以及韩国济州岛等地开设整形医院，<span style="color: #EDBE75;">2019年，修形美林计划在香港挂牌上市，正式进入资本市场，步入国际舞台，从而打造成国际医美行业中唯一的修形品牌。</span>未来，它将以人文精神把富有神圣使命的修形文化传播到世界的每个角落，打造成世界上独一无二的修形品牌。
+						</p>
+					</li>
+					<li>
+						<h5 style="font-size: 14px;">企业文化 <i>QIYEWENHUA</i></h5>
+						<p style="margin-left: 3%;font-size: 13px;"><strong style="color: #EDBE75;">愿景：</strong>做全球最有影响力的修形平台。</p>
+						<p style="margin-left: 3%;font-size: 13px;"><strong style="color: #EDBE75;">使命：</strong>使亿万女性身心灵丰盛,收获幸福美满人生!</p>
+						<p style="margin-left: 3%;font-size: 13px;"><strong style="color: #EDBE75;">价值观：</strong>修形 养心 服务女性之美!</p>
+						<p style="margin-left: 3%;font-size: 13px;"><strong style="color: #EDBE75;">精神：</strong>专注 创新 坚持。</p>
+						<p style="margin-left: 3%;font-size: 13px;"><strong style="color: #EDBE75;">宗旨：</strong>以人文精神,传播修形文化。</p>
+					</li>
+					<li>
+						<h5 style="font-size: 14px;">发展历程 <i>FAZHANLICHENG</i></h5>
+						<img src="images/history.png">
+					</li>
+					<li>
+						<h5 style="font-size: 14px;">修行美林誓言 <i>XIUXINGMEILINSHIYAN</i></h5>
+						<div class="shiyan">
+							<p>我是一颗修形的种子</p>
+							<p>我在天地间恒心立誓</p>
+							<p>积极配合TMOV家人</p>
+							<p>传播修形的阳光思想</p>
+							<p>让大爱精神永驻我心 </p>
+							<p>容纳他，接受自己，修炼平衡</p>
+							<p>加持传播TMOV是我之荣幸<p/>
+							<p>为此我们携手拥抱 </p>
+							<p>我会真心呵护，释放爱的能量</p>
+							<p>感悟真实的自己，传播修形精神</p>
+							<p>创造和谐世界，培养健康人生</p>
+							<p>今天我在这里种下善念</p>
+							<p>让慈悲之心生根发芽</p>
+							<p>传播修形、弘扬养心、创造生命价值</p>
+							<p>因此我会时刻审视自己，起心动念</p>
+							<p>明志于心，为大爱而修形存在</p>
+							<p>直到永远，永远，永远！</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<h4 id="Bodhisattva" style="margin-top: 10px;">菩萨面相</h4>
+			<div class="Bodhisattva">
+				<ul>
+					<li>
+						<h5 style="font-size: 15px;margin-top: 5px;">菩萨面相 <i>PUSAMIANXIANG</i><h5>
+						<img style="margin-left: -22.5px;" src="images/pusan.png"/>
+						<p>称赞女性美的极致用语，<span style="color: #EDBE75;">不是“美女”，而是“菩萨”。</span></p>
+						<p style="margin-top: -15px;">每当我们提及“菩萨相”，一个温婉可亲、端庄玉润的形象就会浮现脑海。佛经说，菩萨们历经一百大劫，才能成就庄严殊胜的“相好”。</p>
+						<p style="margin-top: -15px;"><span style="color: #EDBE75;">“相”</span>，是显而易见、一目了然的外貌特征，如佛有手指细长、皮肤润泽、身形端直、两肩圆满、两颊隆满等三十二种相。</p>
+						<p style="margin-top: -15px;"><span style="color: #EDBE75;">“好”</span>，是让人欢欣喜爱的外貌特征，如眉如初月、耳厚修长、和悦众生、毛孔散香、明光照身等八十种好。</p>
+						<p>生为女人，本来拥有这一切美好，可惜凡尘覆盖无法显现。所以女人一生修行的最高目标，就是重塑自我的“菩萨相”。从此，所到之处洒满阳光，所遇见之人心生欢喜，生活和事业的场地也洋溢正能量！</p>
+					</li>
+					<li>
+						<h4>菩萨面相之五福<i>  PUSAMIANXIANGZHIWUFU</i><h4>
+						<h4>菩萨面相之五福|长寿、富贵、康宁、好德、善报。</h4>
+						<h5>长寿：寿为富贵福禄之根本，人的寿命是第一位的。</h5>
+						<p>寿——菩萨面相之命宫（印堂丰充，运势顺遂）。</p>
+						<p>寿——菩萨面相之耳垂（肉厚亮泽，福寿绵长）。</p>
+					</li>
+					<li>
+						<h5>富贵：钱财富足而且地位尊贵。</h5>
+						<p>富——菩萨面相之富贵额（额头饱满丰盈）。</p>
+						<p>富——菩萨面相之富贵鼻（鼻梁圆润立体丰隆）。</p>
+						<p>富——菩萨面相之丰填法令纹（法令纹丰充后财运顺遂）。</p>
+					</li>
+					<li>
+						<h5>康宁：身体安康且心灵安宁。</h5>
+						<p>康宁——菩萨面相之卧蚕眼（爱情与事业双赢，且子女安康、财运顺达）。</p>
+					</li>
+					<li>
+						<h5>好德:生性仁善而且宽厚宁静。</h5>
+						<p>好德——菩萨面相之慈眉传神眼（眼神灵动传神，眼尾微翘，妩媚动人）</p>
+						<p>好德——菩萨面相之丰太阳穴（又称夫妻宫，增添福气，旺夫，旺家，旺自己）</p>
+						<p>好德——菩萨面相之苹果肌（苹果肌又称笑肌，甜美可人，减龄法宝）</p>
+						<p>好德——菩萨面相之丰唇（唇型丰盈饱满，红润弹性。）</p>
+					</li>
+					<li>
+						<h5>善报：身无病痛，心无挂碍，安详离开人间。</h5>
+						<p>善报——菩萨面相之俏润脸（微调符合现代审美的俏润脸型，脸部线条圆润饱满）</p>
+						<p>善报——菩萨面相之兜财下巴（下巴兜兜，钱财无忧）</p>
+						<p>善报——菩萨面相之丰面颊（脸型轮廓精致，自然娇俏）</p>
+					</li>
+				</ul>
+			</div>
+			
+			<h4 id="Bodhisattva" style="margin-top: 10px;">菩萨面相</h4>
+			<div class="Bodhisattva">
+				<ul>
+					<li>
+						<h5 style="font-size: 15px;margin-top: 5px;">菩萨面相 <i>PUSAMIANXIANG</i><h5>
+                        <img src="">
+		         		<p style="font-size: 13px;">
+		                                                          目前，修形美林以专业的技术引领爱美女性进入<span style="color: #EDBE75;">“医美私人定制”</span>时代，实现了医术+艺术+个性化设计的完美结合。极致打造具有东方审美的时尚魅力女人。
+		         		</p>
+					</li>
+					<li>
+						<h5>
+							菩萨面相  TMOV美欧华巅峰之作
+   						</h5>
+						<p>称赞女性美的极致用语，不是“美女”，而是“菩萨”。</p>
+						<p> 每当我们提及“菩萨相”，一个温婉可亲、端庄玉润的形象就会浮现脑海。佛经说，菩萨们历经一百大劫，才能成就庄严殊胜的“相好”。</p>
+						<p>“相”，是显而易见、一目了然的外貌特征，如佛有手指细长、皮肤润泽、身形端直、两肩圆满、两颊隆满等三十二种相。</p>
+						<p>“好”，是让人欢欣喜爱的外貌特征，如眉如初月、耳厚修长、和悦众生、毛孔散香、明光照身等八十种好。</p>
+						<p>生为女人，本来拥有这一切美好，可惜凡尘覆盖无法显现。所以女人一生修行的最高目标，就是重塑自我的“菩萨相”。从此，所到之处洒满阳光，所遇见之人心生欢喜，生活和事业的场地也洋溢正能量！</p>
+						<p> 每一个女人都是一尊菩萨，圣洁圆满。此刻，就请澄净你的心念、布施你的笑容、点燃你的觉照、开启你的般若、享用你的法喜，开启您的蜕变之旅！</p>
+						<p>TMOV美欧华医护团队，助您拥有福报相随的菩萨面相!</p>
+					</li>
+					<li>
+						<h4>菩萨面相之五福|长寿、富贵、康宁、好德、善报。</h4>
+						<h5>长寿：寿为富贵福禄之根本，人的寿命是第一位的。</h5>
+						<p>寿——菩萨面相之命宫（印堂丰充，运势顺遂）。</p>
+						<p>寿——菩萨面相之耳垂（肉厚亮泽，福寿绵长）。</p>
+
+					</li>
+					<li>
+						<h5>富贵：钱财富足而且地位尊贵。</h5>
+						<p>富——菩萨面相之富贵额（额头饱满丰盈）。</p>
+						<p>富——菩萨面相之富贵鼻（鼻梁圆润立体丰隆）。</p>
+						<p>富——菩萨面相之丰填法令纹（法令纹丰充后财运顺遂）。</p>
+
+					</li>
+					<li>
+
+						<h5>康宁：身体安康且心灵安宁。</h5>
+						<p>康宁——菩萨面相之卧蚕眼（爱情与事业双赢，且子女安康、财运顺达）。</p>
+					</li>
+					<li>
+
+						<h5>好德:生性仁善而且宽厚宁静。</h5>
+						<p>好德——菩萨面相之慈眉传神眼（眼神灵动传神，眼尾微翘，妩媚动人）</p>
+						<p>好德——菩萨面相之丰太阳穴（又称夫妻宫，增添福气，旺夫，旺家，旺自己）</p>
+						<p>好德——菩萨面相之苹果肌（苹果肌又称笑肌，甜美可人，减龄法宝）</p>
+						<p>好德——菩萨面相之丰唇（唇型丰盈饱满，红润弹性。）</p>
+					</li>
+					<li>
+						<h5>善报：身无病痛，心无挂碍，安详离开人间。</h5>
+						<p>善报——菩萨面相之俏润脸（微调符合现代审美的俏润脸型，脸部线条圆润饱满）</p>
+						<p>善报——菩萨面相之兜财下巴（下巴兜兜，钱财无忧）</p>
+						<p>善报——菩萨面相之丰面颊（脸型轮廓精致，自然娇俏）</p>
+					</li>
+				</ul>
+			</div>
+			
+			
+			<h4 id="Professional">TMOV美欧华巅峰之作</h4>
+			<div class="Profession">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="images/qrx.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/zzy.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/lbh.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/lyf.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/qrq.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/tx.png"  class="main-img"></div>
+						<div class="swiper-slide"><img src="images/zcd.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/zfp.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/zxj.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/zzc.png" class="main-img"></div>
+						<div class="swiper-slide"><img src="images/zzw.png" class="main-img"></div>
+					</div>
+				</div>
+				<div class="swiper-pagination" id="pagination"></div>
+				<script src="littlefish/js/swiper.min.js"></script>
+                <script src="littlefish/js/choumei.min.js"></script>
+			</div>
+			<h4 id="branch">找分院</h4>
+			<div class="branch">
+				<ul>
+					<li>
+						<h5>连锁机构</h5>
+						<p>
+							修形美林践行美丽事业二十余载，其修形足迹已遍布华夏南北，20年来，它已开设运营发展12家国际专业的整形连锁机构。至今，它以中原河南为核心，辐射延展至山东、山西、河北、江苏、合肥等省地。未来，修形美林将战略布局全国，走向世界，把修形文化的种子撒播到世界的每个角落。</p>
+					</li>
+					<li>
+						<h5>濮阳美林苑</h5>
+						<img src="images/py.jpg" alt="濮阳美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<h5>鹤壁美林苑</h5>
+						<img src="images/hb.jpg" alt="鹤壁美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<h5>郑州美林苑</h5>
+						<img src="images/zz.jpg" alt="郑州美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<h5>太原美林苑</h5>
+						<img src="images/sx.jpg" alt="太原美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<h5>青岛美林苑</h5>
+						<img src="images/qd.jpg" alt="青岛美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<h5>驻马店美林苑</h5>
+						<img src="images/zmd.jpg" alt="驻马店美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<h5>威海美林苑</h5>
+						<img src="images/wh.jpg" alt="威海美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<h5>淄博美林苑</h5>
+						<img src="images/zb.jpg" alt="淄博美林苑" style="width: 100%;">
+					</li>
+					<li>
+						<p>修形美林晋城、登封、商丘、漯河等分院后序选址中……</p>
+					</li>
+				</ul>
+			</div>
+			<h4 id="goodthing">日行一善</h4>
+			<div class="goodthing">
+				<ul>
+					<li>
+						<a href="https://mp.weixin.qq.com/s/L9F7P6cbfvisJKk7ZiJfpg"><img src="images/捐衣.jpg" alt="捐衣" style="width: 100%;"></a>
+					</li>
+					<li>
+						<a href="http://mp.weixin.qq.com/s/vJo4xKGemze9bQsUPA9uGA"><img src="images/捐书.jpg" alt="捐书" style="width: 100%;"></a>
+					</li>
+					<li>
+						<a href="http://mp.weixin.qq.com/s/lmPgMMHkoiU50AtazOoqlg"><img src="images/濮阳环保.jpg" alt="濮阳环保" style="width: 100%;"></a>
+					</li>
+					<li>
+						<a href="https://mp.weixin.qq.com/s/jCyH4WtgSjHfUcUTbLCStA"><img src="images/端午粽子.jpg" alt="端午粽子" style="width: 100%;"></a>
+					</li>
+					<li>
+						<a href="http://mp.weixin.qq.com/s/49nRFSiQRBTx_Bk16eqopg"><img src="images/福利院.jpg" alt="福利院" style="width: 100%;"></a>
+					</li>
+					<li>
+						<a href="http://mp.weixin.qq.com/s/cMH4kfgA-H26MUgzW--7iQ"><img src="images/鹤壁送果蔬.jpg" alt="鹤壁送果蔬" style="width: 100%;"></a>
+					</li>
+					<li>
+						<a href="http://mp.weixin.qq.com/s/sJHio61VUL51YNQcWNhDTw"><img src="images/留守儿童和孤寡老人.jpg" alt="留守儿童和孤寡老人" style="width: 100%;"></a>
+					</li>
+				</ul>
+			</div>
+			<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+				<a href="#top" title="">
+					<img class="am-gotop-icon-custom" src="http://amazeui.b0.upaiyun.com/assets/i/cpts/gotop/goTop.gif" />
+				</a>
+			</div>
+		</div>
+		<script src="AmazeUI-2.7.2/js/jquery-2.1.4.js"></script>
+		<script src="AmazeUI-2.7.2/js/amazeui.min.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<meta content="telephone=no" name="format-detection" />
+		<title>收支明细</title>
+		<link href="nav/css/main.css" rel="stylesheet" type="text/css">
+		<link href="nav/css/style.css" rel="stylesheet" type="text/css">
+		<link href="nav/css/shake.css" rel="stylesheet" type="text/css">
+		<link href="nav/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="nav/css/animate.min.css" rel="stylesheet" type="text/css">
+		<link href="nav/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="nav/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="nav/js/wo.js"></script>
+		<script>
+			$(document).ready(function() {
+				//控制tab选项滚动
+				var elm2 = $('.xx_tab');
+				var startPos = $(elm2).offset().top;
+				$.event.add(window, "scroll", function() {
+					var p = $(window).scrollTop();
+					$(elm2).css('position', ((p) > startPos) ? 'fixed' : 'static');
+					$(elm2).css('width', ((p) > startPos) ? '100%' : '');
+					$(elm2).css('top', ((p) > startPos) ? '0rem' : '');
+					$(elm2).css('opacity', ((p) > startPos) ? '0.95' : '');
+				});
+			});
+		</script>
+		<style type="text/css">
+		  .main .finance ul li a{
+		  display: flex;  
+		  display: -webkit-flex;  
+		  justify-content: space-between; 
+		  }
+			.my_tab {
+				height: 4rem;
+				line-height: 4rem;
+				width: 100%;
+				border-bottom: .1rem #b1b1b1 solid;
+				background-color: #fff;
+				position: relative;
+				z-index: 100;
+				display: flex;
+				display: -webkit-flex;
+			}
+			
+			.my_tab a {
+				width: 50%;
+				text-align: center;
+				height: 3.8rem;
+				font-size: 1.5rem;
+				color: #000;
+			}
+			
+			.my_tab a.active {
+				color: #ff8400 !important;
+				border-bottom: .2rem #ff8400 solid;
+			}
+		</style>
+	</head>   
+
+	<body style="background-color: #fff !important;">
+		<div class="warpe">
+			<div class="head">
+				我的积分记录
+			</div>
+			<div class="tabs my_tab sqh_tab xx_tab">
+				<a href="#" hidefocus="true" class="active">赚取积分记录</a>
+				<a href="#" hidefocus="true">消费积分记录</a>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="content-slide">
+							<div class="main">
+								<div class="finance">
+									<ul>
+										<li class="animated fadeInRight">
+											<a href="Information_xq2.html">
+												<div class="content_right">
+													<p>新手任务：完善信息</p>
+											    	<p><span class="puff_left">2017-7-11</p>
+												</div>
+												<div class="content_left">
+														<p>+30</p>
+												</div>	
+                                    </a>
+                                  </li>
+                                <li class="animated fadeInLeft">
+                                    <a href="Information_xq2.html">
+                                    	<div class="content_right">
+                                       <p>每日任务：移动端签到：</p>
+                                        <p><span class="puff_left">2017-7-11</p>
+                                    	</div>
+                                        <div class="content_left">
+                                        	  <p>+30</p>
+                                        </div>   
+                                    </a>
+                                </li>
+                                <li class="animated fadeInRight">
+                                    <a href="Information_xq2.html">
+                                    	<div class="content_right">
+                                    	<p>每日任务：分享到微信朋友圈/	QQ空间</p>
+                                        <p><span class="puff_left">2017-7-11</p>
+                                    	</div>
+                                        <div class="content_left">
+                                        	<p>+30</p>	
+                                        </div>          
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="content-slide">
+                        <div class="main">
+                           <div class="main">
+								<div class="finance">
+											<ul>
+										<li class="animated fadeInRight">
+											<a href="Information_xq2.html">
+												<div class="content_right">
+													<p>新手任务：完善信息</p>
+											    	<p><span class="puff_left">2017-7-11</p>
+												</div>
+												<div class="content_left">
+														<p>+30</p>
+												</div>	
+                                    </a>
+                                  </li>
+                                <li class="animated fadeInLeft">
+                                    <a href="Information_xq2.html">
+                                    	<div class="content_right">
+                                       <p>每日任务：移动端签到：</p>
+                                        <p><span class="puff_left">2017-7-11</p>
+                                    	</div>
+                                        <div class="content_left">
+                                        	  <p>+30</p>
+                                        </div>   
+                                    </a>
+                                </li>
+                                <li class="animated fadeInRight">
+                                    <a href="Information_xq2.html">
+                                    	<div class="content_right">
+                                    	<p>每日任务：分享到微信朋友圈/	QQ空间</p>
+                                        <p><span class="puff_left">2017-7-11</p>
+                                    	</div>
+                                        <div class="content_left">
+                                        	<p>+30</p>	
+                                        </div>          
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                        </div>
+                </div>
+            </div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="nav/js/idangerous.swiper.min.js"></script>
+		<script type="text/javascript">
+			var tabsSwiper = new Swiper('.swiper-container', {
+				speed: 500,
+				onSlideChangeStart: function() {
+					$(".tabs .active").removeClass('active');
+					$(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+				}
+			});
+			$(".tabs a").on('touchstart mousedown', function(e) {
+				e.preventDefault()
+				$(".tabs .active").removeClass('active')
+				$(this).addClass('active')
+				tabsSwiper.slideTo($(this).index())
+			})
+			$(".tabs a").click(function(e) {
+				e.preventDefault()
+			})
+		</script>
+	</body>
+
+</html>
