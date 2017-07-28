@@ -11,13 +11,15 @@
 		
 		<style>
 			
-			#detail div{ 
+			.detail .listdiv{
 				font-size:1.2em; 
-				height:3em; 
+				height:3rem; 
 				background:#fff; 
-				margin-bottom:0.6em; 
+				margin-bottom:0.6rem;
+				margin-left: 10px;
+				margin-right: 10px;
 			}
-			#detail div input{ 
+			.detail div input{ 
 				width:80%; height:100%; 
 				border:0; padding:0; 
 				margin-left:3em; 
@@ -37,6 +39,7 @@
 	<body>
 		
 		<div class="wrapper">
+			
 			<header class="header">
 				<a href="#" class="return floatL"></a>
 				<h3 class="floatL headtitle">个人资料</h3>
@@ -44,28 +47,28 @@
 			
 			
 			
-			<div id="detail">
-				<div style="margin-top: 70px;">
+			<div class="detail">
+				<div class="listdiv" style="margin-top: 20px;">
             		<input id="txt_UserNmae" type="text" placeholder="姓名">
 				</div>
 
-           		<div>
+           		<div class="listdiv">
 					<input id="six" type="text" placeholder="性别"></div>
         		<div>
 
-            	<div>
+            	<div class="listdiv">
 					<input id="birthday" type="text" placeholder="生日 "></div>
         		<div>
         			
-        		<div>
+        		<div class="listdiv">
 					<input id="address" type="text" placeholder="现住地址"></div>
         		<div>
         			
-        		<div>
+        		<div class="listdiv">
 					<input id="star" type="text" placeholder="星座"></div>
         		<div>
 
-				<div>
+				<div class="listdiv" style="margin-top: 20px;">
 					<a id="asubmit" type="text" class="btn">立即注册</a>
         		<div>
         		
