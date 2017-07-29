@@ -14,6 +14,21 @@ a{text-decoration:none;}
 
 
 
+/*@charset "utf-8";
+
+html {border:0px;}
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,Passlogin,table,td,img,div,p,dl,dt,dd{margin:0;padding:0;}
+body{margin:0; color:#313232; font-family: "冬青黑",Lucida Grande, Verdana, Lucida, Arial, Helvetica, sans-serif;font-size:14px; text-align: left;line-height:24px;background-clip:border-box;background-origin:border-box;border:0px;}
+h1,h2,h3,h4,h5,h6{ font-size:14px;margin:0px;padding:0px;font-weight: 900;}
+ul,li,dl,ul,ol{list-style:none;}
+select{font-size:14px; color:#313232;}
+input{font-size:14px; color:#313232;}
+select,input{vertical-align:middle; padding:0; margin:0; font-family:"微软雅黑"}
+cite,em{font-style:normal;}
+a{text-decoration:none;}
+a:active { background:#dfdfdf} 
+img{border:0px;}*/
+
 body{
 	color:#333;font-size:16px;
 	background:#FFF;

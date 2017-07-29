@@ -19,11 +19,13 @@
 		
 		<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
 		<script src="../js/swiper.min.js"></script>
+		<script src="../js/simpler-sidebar.min.js"></script>
     
 	    <style>
 
 	    	/*头部*/
 	    	.culture-header{
+	    		position: relative;
 	    		background-color: #575757;
 	    	}
 	    	.culture-header img{
@@ -250,13 +252,13 @@
 	                </a>
 	            </li>
 	            <li>
-	                <a href="javascript:void(0)" onclick="menubtn();">
+	                <a href="javascript:void(0);" onclick="menubtn();">
 	                    <p><img src="../images/menu_2.png" class="animated rotateIn"></p>
 	                    <span>医生团队</span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#">
+	                <a class="allproject" href="javascript:void(0);" onclick="menuproject();">
 	                    <p><img src="../images/menu_3.png" class="animated bounceIn"></p>
 	                    <span>所有项目</span>
 	                </a>
@@ -570,6 +572,127 @@
 			</div>
 		</div>
 
+
+		<style>
+			.projects {
+				position: relative;
+				margin-top: 60px;
+				background-color: #fff; 
+				display:none;
+			}
+			.project-content{ 
+				display:block !important;
+			}
+			
+			
+			.project-face{
+				width: 100%;
+				height: 8rem;
+				background-color: #5d6160;
+				border-bottom : 1px dashed #777b7a;
+			}
+			.project-face p{
+				color: #f9fbf3;
+				font-size: 1.5em;
+				padding-top: 15px;
+				padding-left: 25px;
+			}
+			.project-face ul li{
+				float: left;
+				margin-top: 10px;
+			}
+			.project-face ul li:nth-child(1){
+				margin-left: 25px;
+			}
+			.project-face ul li:nth-child(2){
+				margin-left: 20px;
+			}
+			.project-face ul li:nth-child(3){
+				margin-left: 20px;
+			}
+			.project-face ul li a{
+				color: #E6E6E6;
+				font-size: 1.3em;
+			}
+			
+		</style>
+		
+		<div class="projects" style="height: 100rem;">
+			<div class="project-face">
+				<p>面部微创整形</p>
+				<ul>
+					<li><a>丰太阳穴</a></li>
+					<li><a>丰面颊</a></li>
+					<li><a>酒窝成型</a></li>
+				</ul>
+				<ul>
+					<li><a>丰苹果肌</a></li>
+					<li><a>丰额头</a></li>
+					<li><a>瘦脸</a></li>
+				</ul>
+			</div>
+			<div class="project-face" style="background-color: #565a5d;height: 9.5rem;">
+				<p>注射微整形</p>
+				<ul>
+					<li><a>祛鱼尾纹</a></li>
+					<li><a>祛法令纹</a></li>
+					<li><a>去泪沟纹</a></li>
+				</ul>
+				<ul>
+					<li><a>玻尿酸注射</a></li>
+					<li><a>瘦脸针</a></li>
+					<li><a>美白针</a></li>
+				</ul>
+				<ul>
+					<li><a>Botox注射</a></li>
+				</ul>
+			</div>
+			<div class="project-face">
+				<p>美白嫩肤</p>
+				<ul>
+					<li><a>激光美肤</a></li>
+					<li><a>祛痘祛斑</a></li>
+					<li><a>彩光嫩肤</a></li>
+				</ul>
+				<ul>
+					<li><a>祛红血丝</a></li>
+				</ul>
+			</div>
+			<div class="project-face" style="background-color: #565a5d;height: 9.5rem;">
+				<p>面部五官整形</p>
+				<ul>
+					<li><a>PC双眼皮</a></li>
+					<li><a>开眼角</a></li>
+					<li><a>卧蚕塑形</a></li>
+				</ul>
+				<ul>
+					<li><a>韩式祛眼袋</a></li>
+					<li><a>假体隆鼻</a></li>
+					<li><a>鼻头整形</a></li>
+				</ul>
+				<ul>
+					<li><a>鼻翼缩小术</a></li>
+					<li><a>隆下巴</a></li>
+					<li><a>丰唇</a></li>
+				</ul>
+			</div>
+			<div class="project-face">
+				<p>胸部整形</p>
+				<ul>
+					<li><a>假体隆胸</a></li>
+					<li><a>自体脂肪隆胸</a></li>
+					<li><a>乳晕整形</a></li>
+				</ul>
+				<ul>
+					<li><a>乳房下垂矫正</a></li>
+					<li><a>乳晕漂红</a></li>
+					<li><a>乳头凹陷矫正</a></li>
+				</ul>
+				<ul>
+					<li><a>巨乳缩小术</a></li>
+				</ul>
+			</div>
+		</div>
 	
 		<script type="text/javascript">
 			
@@ -577,19 +700,16 @@
 			$('.sliderlist').bxSlider({
 				auto: false,
 				pager:false,
-				
+				mode: 'fade',
 				slideMargin: 10
 			});
-			
+				
 	
 			slidelist(null);
-			
 			function menubtn()
 			{
 				slidelist(3);
 			}
-		  	
-		  	
 		  	function slidelist(listindex)
 		  	{
 		  		var defaultindex = localStorage.getItem('listindex');
@@ -643,7 +763,24 @@
 				});
 		  	}
 			
-			
+		</script>
+		
+		<script>
+			$(document).ready()
+				
+				function menuproject()
+				{
+					$(".projects").addClass("project-content");
+				}
+				$(function() {
+					$('.projects').simplerSidebar({
+						opener: '.allproject',
+						sidebar: {
+							align: 'left',
+							width: 270
+						}
+					});
+				});
 		</script>
 	</body>
 </html>
