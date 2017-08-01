@@ -245,51 +245,51 @@
 			<img src="../images/culture-header.png"/>
 		</div>
 		
-		<div style="position: fixed;">
+		<div class="content" style="position: relative;">
 			
-		<div class="nav" style="margin-top: 0;padding-top: 7rem;">
-	        <ul>
-	            <li>
-	                <a href="#">
-	                    <p><img src="../images/menu_1.png" class="animated bounceIn"></p>
-	                    <span>最新优惠</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="javascript:void(0);" onclick="menubtn();">
-	                    <p><img src="../images/menu_2.png" class="animated rotateIn"></p>
-	                    <span>医生团队</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a class="allproject" href="javascript:void(0);" onclick="menuproject();">
-	                    <p><img src="../images/menu_3.png" class="animated bounceIn"></p>
-	                    <span>所有项目</span>
-	                </a>
-	            </li>
-	            <li>
-	                <a href="#">
-	                    <p><img src="../images/menu_4.png" class="animated rotateIn"></p>
-	                    <span>在线医师</span>
-	                </a>
-	            </li>
-	        </ul>
-        </div>
-        
-		<div class="wrapper" id="listswipe" style="z-index: 999;">
-			<div class="scroller">
-				<ul class="clearfix">
-					<li><a href="javascript:void(0)">修行历程</a></li>
-					<li><a href="javascript:void(0)">品牌资质</a></li>
-					<li><a href="javascript:void(0)">菩萨面相</a></li>
-					<li><a href="javascript:void(0)">医生团队</a></li>
-					<li><a href="javascript:void(0)">经典案例</a></li>
-					<li><a href="javascript:void(0)">日行一善</a></li>
-				</ul>
+			<div class="nav" style="margin-top: 0;padding-top: 7rem;">
+		        <ul>
+		            <li>
+		                <a href="#">
+		                    <p><img src="../images/menu_1.png" class="animated bounceIn"></p>
+		                    <span>最新优惠</span>
+		                </a>
+		            </li>
+		            <li>
+		                <a href="javascript:void(0);" onclick="menubtn();">
+		                    <p><img src="../images/menu_2.png" class="animated rotateIn"></p>
+		                    <span>医生团队</span>
+		                </a>
+		            </li>
+		            <li>
+		                <a class="allproject" href="javascript:void(0);" onclick="menuproject();">
+		                    <p><img src="../images/menu_3.png" class="animated bounceIn"></p>
+		                    <span>所有项目</span>
+		                </a>
+		            </li>
+		            <li>
+		                <a href="#">
+		                    <p><img src="../images/menu_4.png" class="animated rotateIn"></p>
+		                    <span>在线医师</span>
+		                </a>
+		            </li>
+		        </ul>
+	        </div>
+	        
+			<div class="wrapper" id="listswipe" style="z-index: 999;">
+				<div class="scroller">
+					<ul class="clearfix">
+						<li><a href="javascript:void(0)">修行历程</a></li>
+						<li><a href="javascript:void(0)">品牌资质</a></li>
+						<li><a href="javascript:void(0)">菩萨面相</a></li>
+						<li><a href="javascript:void(0)">医生团队</a></li>
+						<li><a href="javascript:void(0)">经典案例</a></li>
+						<li><a href="javascript:void(0)">日行一善</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		
-		<div class="maincontent">
+			
+			<div class="maincontent">
 			<!--历史-->
 			<div class="history">
 				<p style="text-align:left;letter-spacing: 1px;color: #666666;font-size: 13.5px;line-height:18px;margin-left: 10px;
@@ -820,7 +820,7 @@
 			function menuproject()
 			{
 				$(".projects").addClass("project-content");
-				//$('.projects').fadeIn();
+				$('.content').css('position','fixed');
 			}
 				
 				
