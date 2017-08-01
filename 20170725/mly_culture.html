@@ -239,6 +239,7 @@
 	    </style>
 	</head>
 	<body>
+		<div style="z-index: 777;">
 		<div class="culture-header">
 			<img src="../images/culture-header.png"/>
 		</div>
@@ -272,7 +273,6 @@
 	        </ul>
         </div>
         
-        
 		<div class="wrapper" id="listswipe">
 			<div class="scroller">
 				<ul class="clearfix">
@@ -285,8 +285,6 @@
 				</ul>
 			</div>
 		</div>
-		
-		
 		
 		<div class="maincontent">
 			<!--历史-->
@@ -571,18 +569,19 @@
 				
 			</div>
 		</div>
-
+		</div>
 
 		<style>
 			.projects {
-				/*position: relative;*/
+				position: relative;
 				margin-top: 30px;
 				background-color: #fff; 
 				display:none;
+				z-index: 778;
 			}
 			.project-content{ 
-				height: 200%;
-				display:block !important;
+				display:block;
+				z-index: 779;
 			}
 			
 			
@@ -742,12 +741,12 @@
 		</div>-->
 		
 		
-		<!--<script>
+		<script>
 			function menuproject()
 			{
 				$('.massion-layer').fadeIn();
 			}
-		</script>-->
+		</script>
 	
 		<script type="text/javascript">
 			
