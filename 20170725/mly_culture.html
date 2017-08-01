@@ -26,6 +26,7 @@
 	    	/*头部*/
 	    	.culture-header{
 	    		position: fixed;
+	    		pos-top: 0;
 	    		z-index: 1001;
 	    		background-color: #575757;
 	    	}
@@ -244,10 +245,9 @@
 		<div class="culture-header">
 			<img src="../images/culture-header.png"/>
 		</div>
-		
-		<div class="content" style="position: relative;">
+
 			
-			<div class="nav" style="margin-top: 0;padding-top: 7rem;">
+		<div class="nav" style="margin-top: 0;padding-top: 7rem;">
 		        <ul>
 		            <li>
 		                <a href="#">
@@ -276,7 +276,7 @@
 		        </ul>
 	        </div>
 	        
-			<div class="wrapper" id="listswipe" style="z-index: 999;">
+		<div class="wrapper" id="listswipe" style="z-index: 999;">
 				<div class="scroller">
 					<ul class="clearfix">
 						<li><a href="javascript:void(0)">修行历程</a></li>
@@ -289,7 +289,7 @@
 				</div>
 			</div>
 			
-			<div class="maincontent">
+		<div class="maincontent">
 			<!--历史-->
 			<div class="history">
 				<p style="text-align:left;letter-spacing: 1px;color: #666666;font-size: 13.5px;line-height:18px;margin-left: 10px;
@@ -573,7 +573,6 @@
 			</div>
 		</div>
 		
-		</div>
 		
 		<style>
 			.projects {
@@ -820,24 +819,6 @@
 			function menuproject()
 			{
 				$(".projects").addClass("project-content");
-				$('.content').css('position','fixed');
-			}
-				
-			window.addEventListener('load',load,false);
-			
-			function load (){
- 
-			    document.addEventListener('touchend',touch,false);
-			     
-			    function touch (event){
-			        var event = event || window.event;			         			 
-			        switch(event.type){
-			           
-			            case "touchend":
-			                $('.content').css('position','relative');
-			                break;			         
-			        }			         
-			    }
 			}
 				
 				
