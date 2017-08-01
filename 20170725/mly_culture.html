@@ -708,7 +708,7 @@
 		
 		
 		
-		<!--<style>
+		<style>
 			.massion-layer{
 				position:fixed;
 				top:0;
@@ -738,15 +738,15 @@
 			<div class="massion-layer-content">
 			</div>
 			<div class="massion-layer-bg"></div>
-		</div>-->
+		</div>
 		
 		
-		<script>
+		<!--<script>
 			function menuproject()
 			{
 				$('.massion-layer').fadeIn();
 			}
-		</script>
+		</script>-->
 	
 		<script type="text/javascript">
 			
@@ -824,12 +824,13 @@
 				
 				function menuproject()
 				{
-					$(".projects").addClass("project-content");
+//					$(".projects").addClass("project-content");
+					$('.massion-layer').fadeIn();
 				}
 				
 				
 				$(function() {
-					$('.projects').simplerSidebar({
+					$('.massion-layer').simplerSidebar({
 						opener: '.allproject',
 						sidebar: {
 							align: 'left',
