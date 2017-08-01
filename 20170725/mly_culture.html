@@ -239,7 +239,7 @@
 	    </style>
 	</head>
 	<body>
-		<div style="z-index: 777;">
+		
 		<div class="culture-header">
 			<img src="../images/culture-header.png"/>
 		</div>
@@ -569,7 +569,7 @@
 				
 			</div>
 		</div>
-		</div>
+		
 
 		<style>
 			.projects {
@@ -577,11 +577,11 @@
 				margin-top: 30px;
 				background-color: #fff; 
 				display:none;
-				z-index: 778;
+				opacity: 0.6;
 			}
 			.project-content{ 
+				margin-bottom: 5rem;
 				display:block;
-				z-index: 779;
 			}
 			
 			
@@ -618,6 +618,7 @@
 		</style>
 		
 		<div class="projects">
+		
 			<div class="project-face">
 				<p>面部微创整形</p>
 				<ul>
@@ -708,7 +709,7 @@
 		
 		
 		
-		<style>
+		<!--<style>
 			.massion-layer{
 				position:fixed;
 				top:0;
@@ -738,7 +739,7 @@
 			<div class="massion-layer-content">
 			</div>
 			<div class="massion-layer-bg"></div>
-		</div>
+		</div>-->
 		
 		
 		<!--<script>
@@ -824,18 +825,22 @@
 				
 				function menuproject()
 				{
-//					$(".projects").addClass("project-content");
-					$('.massion-layer').fadeIn();
+					$(".projects").addClass("project-content");
+					//$('.projects').fadeIn();
 				}
 				
 				
 				$(function() {
-					$('.massion-layer').simplerSidebar({
+					$('.projects').simplerSidebar({
 						opener: '.allproject',
 						sidebar: {
 							align: 'left',
 							width: 260
 						}
+					});
+					
+					$('.projects').addEventListener('touchmove',function(event){
+						console.log('9090');
 					});
 				});
 		</script>
