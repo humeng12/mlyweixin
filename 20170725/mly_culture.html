@@ -573,17 +573,14 @@
 
 		<style>
 			.projects {
-				position: relative;
 				margin-top: 30px;
 				background-color: #fff; 
 				display:none;
-				opacity: 0.6;
 			}
 			.project-content{ 
-				margin-bottom: 5rem;
+				position: fixed;
 				display:block;
 			}
-			
 			
 			.project-face{
 				width: 100%;
@@ -831,6 +828,33 @@
 				
 				
 				$(function() {
+					
+					var rollStart = $('.projects'), 
+			        rollSet = $('.projects'); 
+			        var offset = rollStart.offset();
+			        console.log(offset);
+			        objWindow = $(window);
+        			rollBox = rollStart.prev();
+        			console.log(objWindow.height());
+        			if (objWindow.height() > 300) { 
+        				
+			            objWindow.scroll(function() { 
+			                if (objWindow.scrollTop() > offset.top) { 
+			                    rollStart.css('position','fixed'); 
+			                    rollStart.stop().animate({ 
+			                        top: 0 
+			                    }, 
+			                    400) 
+			                } else { 
+			                    rollStart.css('position','static'); 
+			                    rollStart.stop().animate({ 
+			                        top: 0 
+			                    }, 
+			                    400) 
+			                } 
+			            }) 
+			        } 
+        
 					$('.projects').simplerSidebar({
 						opener: '.allproject',
 						sidebar: {
@@ -838,10 +862,7 @@
 							width: 260
 						}
 					});
-					
-					$('.projects').addEventListener('touchmove',function(event){
-						console.log('9090');
-					});
+				
 				});
 		</script>
 	</body>
