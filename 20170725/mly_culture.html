@@ -573,12 +573,13 @@
 
 		<style>
 			.projects {
+				
 				margin-top: 30px;
 				background-color: #fff; 
 				display:none;
 			}
 			.project-content{ 
-				position: fixed;
+				
 				display:block;
 			}
 			
@@ -614,7 +615,7 @@
 			
 		</style>
 		
-		<div class="projects">
+		<div class="projects" style="overflow-y:auto;">
 		
 			<div class="project-face">
 				<p>面部微创整形</p>
@@ -704,47 +705,6 @@
 			</div>
 		</div>
 		
-		
-		
-		<!--<style>
-			.massion-layer{
-				position:fixed;
-				top:0;
-				bottom:0;
-				left:0;
-				display:none;
-				width:100%;
-				z-index:888;
-			}
-			.massion-layer-bg{
-				width:100%;
-				height:100%;
-				background-color:#000;
-				opacity:0.3;
-			}
-			.massion-layer-content{
-				position:absolute;
-				width: 70%;
-				top: 0;
-				left: 0;
-				height: 200%;
-				z-index:999;
-				background-color:#FFFFFF;
-			}
-		</style>
-		<div class="massion-layer massion-active">
-			<div class="massion-layer-content">
-			</div>
-			<div class="massion-layer-bg"></div>
-		</div>-->
-		
-		
-		<!--<script>
-			function menuproject()
-			{
-				$('.massion-layer').fadeIn();
-			}
-		</script>-->
 	
 		<script type="text/javascript">
 			
@@ -818,52 +778,23 @@
 		</script>
 		
 		<script>
-			$(document).ready()
+			
 				
-				function menuproject()
-				{
-					$(".projects").addClass("project-content");
-					//$('.projects').fadeIn();
+			function menuproject()
+			{
+				$(".projects").addClass("project-content");
+				//$('.projects').fadeIn();
+			}
+				
+				
+			$('.projects').simplerSidebar({
+				opener: '.allproject',
+				sidebar: {
+					align: 'left',
+					width: 260
 				}
+			});
 				
-				
-				$(function() {
-					
-					var rollStart = $('.projects'), 
-			        rollSet = $('.projects'); 
-			        var offset = rollStart.offset();
-			        console.log(offset);
-			        objWindow = $(window);
-        			rollBox = rollStart.prev();
-        			console.log(objWindow.height());
-        			if (objWindow.height() > 300) { 
-        				
-			            objWindow.scroll(function() { 
-			                if (objWindow.scrollTop() > offset.top) { 
-			                    rollStart.css('position','fixed'); 
-			                    rollStart.stop().animate({ 
-			                        top: 0 
-			                    }, 
-			                    400) 
-			                } else { 
-			                    rollStart.css('position','static'); 
-			                    rollStart.stop().animate({ 
-			                        top: 0 
-			                    }, 
-			                    400) 
-			                } 
-			            }) 
-			        } 
-        
-					$('.projects').simplerSidebar({
-						opener: '.allproject',
-						sidebar: {
-							align: 'left',
-							width: 260
-						}
-					});
-				
-				});
 		</script>
 	</body>
 </html>
