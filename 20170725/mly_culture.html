@@ -823,6 +823,23 @@
 				$('.content').css('position','fixed');
 			}
 				
+			window.addEventListener('load',load,false);
+			
+			function load (){
+ 
+			    document.addEventListener('touchend',touch,false);
+			     
+			    function touch (event){
+			        var event = event || window.event;			         			 
+			        switch(event.type){
+			           
+			            case "touchend":
+			                $('.content').css('position','relative');
+			                break;			         
+			        }			         
+			    }
+			}
+				
 				
 			$('.projects').simplerSidebar({
 				opener: '.allproject',
