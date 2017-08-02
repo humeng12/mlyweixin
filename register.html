@@ -63,19 +63,17 @@
 	 <script src="weui/js/city-picker.js"></script>
 	  <script src="common/common.js"></script>
 	<script>
-		alert(get('logintime'));
-		/*var distime = Date() - logintime;
-		alert(distime);*/
-		if(get('islogin')==1){
-		    window.location.href="index.html";
-		}else{
-			$("#city").cityPicker({
-        title: "选择所在地区",
-        showDistrict: false,
-        onChange: function (picker, values, displayValues) {
-          console.log(values, displayValues);
-        }
-      });
+		
+//		if(get('islogin')==1){
+//		    window.location.href="index.html";
+//		}else{
+//			$("#city").cityPicker({
+//      title: "选择所在地区",
+//      showDistrict: false,
+//      onChange: function (picker, values, displayValues) {
+//        console.log(values, displayValues);
+//      }
+//    });
 		//replace(/\s+/g,"")
 //		getInfo();
 		//进行注册时进行的请求验证
@@ -170,18 +168,18 @@
 					async:false,  
 					cache:false,                 
 					success: function (result) {                     
-						
-						if(result['status'] == '0'){
-							
-							localStorage.setItem('registered','1');
-							localStorage.setItem('idstr',result['data']);
-						}
-						
-						setTimeout(function() {
-							
-							$.hideLoading();
-							$.toast(result['message'],"text");
-						},3000); 
+//						
+//						if(result['status'] == '0'){
+//							
+//							localStorage.setItem('registered','1');
+//							localStorage.setItem('idstr',result['data']);
+//						}
+//						
+//						setTimeout(function() {
+//							
+//							$.hideLoading();
+//							$.toast(result['message'],"text");
+//						},3000); 
 					}  
 				});  
 				
@@ -319,6 +317,6 @@
 	     	}
 	     	return result[1];
 	  	}
-		}
+//		}
 	</script>
 

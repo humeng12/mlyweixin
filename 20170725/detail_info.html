@@ -5,6 +5,15 @@
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 		<title>详细信息</title>
 		
+		
+		
+		<link rel="stylesheet" href="../css/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+
+		<script src="../js/jquery-2.1.4.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../weui/js/city-picker.js"></script>
+		
 		<style>
 			*{
 				margin: 0;padding: 0;
@@ -57,6 +66,7 @@
 			}
 			
 			.mt10{margin-top:10px;}
+			.mt20{margin-top: 20px;}
 			.ui-form {background-color: #fff; }
 			.centerMain{
 				width:100%;
@@ -107,7 +117,31 @@
 		      		padding-right: 10px; 
 		      	} 
 		    }
-				
+		    
+		    .ui-btn-wrap {
+  				padding: 15px 10px; 
+  			}
+  			@media (max-width: 320px) {
+    			.ui-btn-wrap {
+      				padding: 10px; 
+      			} 
+      		}
+      		
+			.confirm{ 
+				background-color:#04BE02; 
+				color:#fff; 
+				border-radius:3px; 
+				width:92%; 
+				height:40px; 
+				line-height:40px; 
+				text-align:center; 
+				font-size:16px; 
+				margin-left:4%;
+				margin-top:14px; 
+				border:none; 
+				font-family: 'Microsoft YaHei',Arial, Helvetica, sans-serif;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -129,7 +163,7 @@
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>性别</label>
-	                	<input type="text" placeholder="请选择性别"/>
+	                	<input type="text" onfocus="this.blur();" class="input" id="sex" placeholder="请选择性别"/>
             		</div>
         		</div>
         		
@@ -144,11 +178,54 @@
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>地址</label>
-	                	<input type="text" placeholder="详细地址"/>
+	                	<input type="text" onfocus="this.blur();" class="input" id="city" placeholder="详细地址"/>
             		</div>
         		</div>
         		
+        		
+        		<div class="ui-btn-wrap mt20 ui-form">
+            		<input type="button" class="confirm" value="提交">
+		        </div>
+        		
     		</form>
+    		
+    	
+    		<script>
+				$(document).on("click", "#sex", function() {
+					$.actions({
+						title: "性别",
+						onClose: function() {
+							console.log("close");
+						},
+						actions: [
+						{
+							text: "男",
+							className: "color-primary",
+							onClick: function() {
+							
+								$('#sex').val('男');
+							}
+						},
+						{
+							text: "女",
+							className: "color-primary",
+							onClick: function() {
+								$('#sex').val('女');
+							}
+						}
+						]
+					});
+				});
+				
+				$("#city").cityPicker({
+			        title: "选择所在地区",
+			        showDistrict: false,
+			        onChange: function (picker, values, displayValues) {
+			          console.log(values, displayValues);
+			        }
+			    });
+			    
+    		</script>
     	</div>
 	</body>
 </html>
