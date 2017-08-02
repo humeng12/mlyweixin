@@ -877,14 +877,16 @@
 		
 		<script>
 			
-			$("body").click(function(event){  
-				alert('111');
-				if($('.projects').is(':hidden'))
-				{
-					$('.maincontent').css('position','relative');
-				}else{
-					$('.maincontent').css('position','fixed');
-				}
+			$("body").click(function(event){
+				
+				setTimeout(function() {
+					if($('.projects').is(':hidden'))
+					{
+						$('.maincontent').css('position','relative');
+					}else{
+						$('.maincontent').css('position','fixed');
+					}	
+				},2000); 
 			});  
 
 			function menuproject()
