@@ -884,7 +884,10 @@
 				setTimeout(function() {
 							
 					if($('.project-content').is(':hidden'))
-					$('.maincontent').css('position','relative');	
+					{		
+						alert('222');
+							$('.maincontent').css('position','relative');	
+						}
 						},3000); 
 						
 			});
