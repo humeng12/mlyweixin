@@ -889,7 +889,9 @@
             
             
             function touchSatrtFunc(evt) {  
-               $('.maincontent').css('position',null);
+            	
+            	if($('.projects').is(':hidden'))
+               		$('.maincontent').css('position','relative');
             }  
 
 			function menuproject()
