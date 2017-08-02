@@ -877,10 +877,24 @@
 		
 		<script>
 
+			function isTouchDevice() {  
+                bindEvent();
+            }  
+            
+            function bindEvent() {  
+                document.addEventListener('touchstart', touchSatrtFunc, false);
+            } 
+            
+            
+            function touchSatrtFunc(evt) {  
+                evt.preventDefault(); 
+            }  
 
 			function menuproject()
 			{
-				//$('.maincontent').css('position','fixed');
+//				$('.maincontent').css('position','fixed');
+				
+				window.onload = isTouchDevice;  
 				
 				$(".projects").addClass("project-content");
 			}
