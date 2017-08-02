@@ -879,16 +879,11 @@
 			
 			$("body").click(function(event){  
 				
-				alert('111');
-				
-				setTimeout(function() {
-							
-					if($('.project-content').is(':hidden'))
-					{		
-						alert('222');
-							$('.maincontent').css('position','relative');	
-						}
-						},3000); 
+				if($('.project-content').is(':hidden'))
+				{		
+					alert('222');
+					$('.maincontent').css('position','relative');	
+				}
 						
 			});
 
