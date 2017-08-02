@@ -878,7 +878,8 @@
 		<script>
 			
 			$("body").click(function(event){  
-				$('.maincontent').css('position','relative');
+				if($('.project-content').is(':hidden'))
+					$('.maincontent').css('position','relative');
 			});
 
 			function menuproject()
