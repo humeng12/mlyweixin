@@ -876,23 +876,7 @@
 		</script>
 		
 		<script>
-			
-			window.onload = isTouchDevice;
-			
-			bindEvent();
-			
-			function bindEvent() {  
-                document.addEventListener('touchstart', touchSatrtFunc, false);  
-                //document.addEventListener('touchmove', touchMoveFunc, false);  
-                //document.addEventListener('touchend', touchEndFunc, false);  
-            }  
-            
-            
-            function touchSatrtFunc(evt) {  
-            	
-            	if($('.projects').is(':hidden'))
-               		$('.maincontent').css('position','relative');
-            }  
+
 
 			function menuproject()
 			{
