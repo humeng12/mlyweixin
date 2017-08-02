@@ -147,7 +147,7 @@
 	<body>
 		<header id="title">
       		<div class="back"></div>
-      		个人注册 
+      		详细信息
 		</header>
 		
 		
@@ -223,6 +223,11 @@
 			        onChange: function (picker, values, displayValues) {
 			          console.log(values, displayValues);
 			        }
+			    });
+			    
+			    
+			    $('.back').click(function(){
+			    	history.go(-1);
 			    });
 			    
     		</script>

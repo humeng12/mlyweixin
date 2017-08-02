@@ -379,7 +379,7 @@
 	           				</div>
 	           			</li>
 	           			<li style="margin-top: 20px;">
-	           				<div class="massion-content__li">
+	           				<div class="massion-content__li" onclick="infoclick();">
 	           					<p style="color: #5d5d5d;font-size: 16px;margin-top: 6px;margin-left: 4rem;">完善详细资料</p>
 		           				<p style="color: #646464;font-size: 12px;margin-top: 5px;margin-left: 4rem;">未完成 </p>
 		           				<b class="right" style="margin-top: 31px;right: 20px;">
@@ -415,11 +415,16 @@
     			
     		}
     		
+    		function infoclick()
+    		{
+    			window.location.href = "detail_info.html";
+    		}
+    		
     		$('#progressbar').LineProgressbar({
-			   percentage: 75,
-			   fillBackgroundColor: '#f1c40f',
-			   height: '15px',
-			   radius: '50px'
+			    percentage: 75,
+			    fillBackgroundColor: '#f1c40f',
+			    height: '15px',
+			    radius: '50px'
 			});
 			
 			function massion()
@@ -484,7 +489,7 @@
 		                draw1 = null;
 		                return true;
 		            }
-		
+
 		            if (j<percent1) {
 		                d1();
 		                j++;
