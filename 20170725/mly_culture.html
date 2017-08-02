@@ -25,6 +25,7 @@
 
 	    	/*头部*/
 	    	.culture-header{
+	    		display: block;
 	    		position: fixed;
 	    		left: 0;
 	    		right: 0;
@@ -246,7 +247,7 @@
 			.projects {
 				/*margin-top: 5rem;*/
 				/*background-color: #fff;*/ 
-				/*display:true;*/
+				display:none;
 				z-index: 1001;
 			}
 			.project-content{ 
@@ -877,30 +878,8 @@
 		
 		<script>
 
-			window.onload = isTouchDevice;  
-			
-			function isTouchDevice() {  
-                bindEvent();
-            }  
-            
-            function bindEvent() {  
-                document.addEventListener('touchstart', touchSatrtFunc, false);
-            } 
-            
-            
-            function touchSatrtFunc(evt) {
-                
-                alert($('.maincontent').css('display'));
-                if($('.projects').is(':hidden'))
-                {
-                	alert('111');
-                	$('.maincontent').css('position','relative');
-                }
-            }  
-
 			function menuproject()
 			{
-				$('.maincontent').css('position','fixed');
 				
 				$(".projects").addClass("project-content");
 			}
