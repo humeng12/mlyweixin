@@ -246,7 +246,7 @@
 			.projects {
 				/*margin-top: 5rem;*/
 				/*background-color: #fff;*/ 
-				display:true;
+				/*display:true;*/
 				z-index: 1001;
 			}
 			.project-content{ 
@@ -878,8 +878,13 @@
 		<script>
 			
 			$("body").click(function(event){  
-				if($('.project-content').is(':hidden'))
-					$('.maincontent').css('position','relative');
+				
+				setTimeout(function() {
+							
+					if($('.project-content').is(':hidden'))
+					$('.maincontent').css('position','relative');	
+						},3000); 
+						
 			});
 
 			function menuproject()
