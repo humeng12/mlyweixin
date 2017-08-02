@@ -877,6 +877,8 @@
 		
 		<script>
 
+			window.onload = isTouchDevice;  
+			
 			function isTouchDevice() {  
                 bindEvent();
             }  
@@ -886,15 +888,15 @@
             } 
             
             
-            function touchSatrtFunc(evt) {  
-                evt.preventDefault(); 
+            function touchSatrtFunc(evt) {
+            	
+                alert('111');
+                alert($('.projects').is(':hidden'));
             }  
 
 			function menuproject()
 			{
-//				$('.maincontent').css('position','fixed');
-				
-				window.onload = isTouchDevice;  
+				$('.maincontent').css('position','fixed');
 				
 				$(".projects").addClass("project-content");
 			}
