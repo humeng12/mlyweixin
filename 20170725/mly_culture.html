@@ -345,7 +345,7 @@
 				</div>
 			</div>
 			
-		<div class="maincontent" style="position: fixed;">
+		<div class="maincontent" style="position: relative;">
 			<!--历史-->
 			<div class="history">
 				<p style="text-align:left;letter-spacing: 1px;color: #666666;font-size: 13.5px;line-height:18px;margin-left: 10px;
@@ -877,6 +877,15 @@
 		
 		<script>
 			
+			$("body").click(function(event){  
+				if($('.projects').is(':hidden'))
+				{
+					$('.maincontent').css('position','relative');
+				}else{
+					$('.maincontent').css('position','fixed');
+				}
+			});  
+
 			function menuproject()
 			{
 				$(".projects").addClass("project-content");
