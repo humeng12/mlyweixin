@@ -877,15 +877,20 @@
 		
 		<script>
 			
-			$("body").click(function(event){  
-				
-				if($('.projects').is(':hidden'))
-				{		
-					alert('222');
-					$('.maincontent').css('position','');	
-				}
-						
-			});
+			window.onload = isTouchDevice;
+			
+			bindEvent();
+			
+			function bindEvent() {  
+                document.addEventListener('touchstart', touchSatrtFunc, false);  
+                //document.addEventListener('touchmove', touchMoveFunc, false);  
+                //document.addEventListener('touchend', touchEndFunc, false);  
+            }  
+            
+            
+            function touchSatrtFunc(evt) {  
+               $('.maincontent').css('position',null);
+            }  
 
 			function menuproject()
 			{
