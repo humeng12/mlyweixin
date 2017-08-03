@@ -94,6 +94,7 @@ html {
 	background-size:90%;
 	margin-top:10px;
 }
+.user_nav_list .money{background-image:url(../images/iconfont-jiaofei.png);background-repeat:no-repeat}
 .user_nav_list .u_nav_name{float:left;margin-left:1.5%;line-height:50px;font-size:15px}
 .user_nav_list .u_money{position:relative;font-size:13px;color:#666;line-height:51px;float:right}
 .user_nav_list .u_money i{color:#ff6063;font-style:normal}
