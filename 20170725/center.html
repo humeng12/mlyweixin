@@ -33,8 +33,7 @@
 		
 		
 		<header id="title" style="background-color: #FFFFFF;color: #000000;">
-    		<div class="back1"></div>
-    		<img src="../images/jiantou.png"/>
+    		<img class="goback" src="../images/jiantou.png"/>
     		个人中心
   		</header>
   		
@@ -176,6 +175,10 @@
 		
 		<script src="../mui/js/mui.min.js"></script>
 		<script>
+			
+			$('.goback').click(function(){
+				history.goTo(-1);
+			});
 			var slider = mui("#slider");
 			slider.slider({
 				interval: 5000
