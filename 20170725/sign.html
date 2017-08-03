@@ -1,148 +1,153 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-<title>签到送积分</title>
-<link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../bootstrap/sign.css">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+		<title>签到送积分</title>
+		
+		<link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../bootstrap/sign.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+		<link rel="stylesheet" href="../common/common.css" />
 
-<link rel="stylesheet" href="css/jquery-weui.min.css">
+		<script src="../js/jquery-2.1.4.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/sign.js"></script>
+		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 
-<script src="../js/jquery-2.1.4.js"></script>
-<script src="../js/jquery-weui.js"></script>
-<script src="../js/sign.js"></script>
-<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
-
-<script type="text/javascript">
-function initSign(year, month, signList){
-	//显示当前年份和月份 生成日历的工具类
-	var str = calUtil.drawCal(year,month+1,signList);
-	//显示当前日历
-	$("#calendar").html("").html(str);
-}
-$(function(){
-	//初始化签到表，为当前月份的签到情况
-	var iDate = new Date();
-    var year=iDate.getFullYear();
-    var month=iDate.getMonth();
-    var currentmonth=month+1;
-    var day=iDate.getDate();
-    var date=year+"-"+currentmonth+"-"+day;
-    $("#currDate").text(date);
+		<script type="text/javascript">
+			function initSign(year, month, signList){
+				//显示当前年份和月份 生成日历的工具类
+				var str = calUtil.drawCal(year,month+1,signList);
+				//显示当前日历
+				$("#calendar").html("").html(str);
+			}
+			$(function(){
+				//初始化签到表，为当前月份的签到情况
+				var iDate = new Date();
+			    var year=iDate.getFullYear();
+			    var month=iDate.getMonth();
+			    var currentmonth=month+1;
+			    var day=iDate.getDate();
+			    var date=year+"-"+currentmonth+"-"+day;
+			    $("#currDate").text(date);
    
-	var signList = [date,''];
+				var signList = [date,''];
    
-	initSign(iDate.getFullYear(), iDate.getMonth(), signList);
+				initSign(iDate.getFullYear(), iDate.getMonth(), signList);
 	
-	//上一个月的签到情况
-	$("#minusMonth").on("click", function(){
-		var currDate = $("#currDate").text();
-		var date = new Date(currDate);
-		//0表示1月份，再减一个月就得减年份
-		var year;
-		var month;
-		if(date.getMonth() == 0){
-			year = date.getFullYear() - 1;
-			month = 11;
-			var signList = "";
-			initSign(year, month, signList);
-		}else{
-			year = date.getFullYear();
-			month = date.getMonth()-1;
-			var signList = "";
-			initSign(year, month, signList);
+				//上一个月的签到情况
+				$("#minusMonth").on("click", function(){
+					var currDate = $("#currDate").text();
+					var date = new Date(currDate);
+					//0表示1月份，再减一个月就得减年份
+					var year;
+					var month;
+					if(date.getMonth() == 0){
+						year = date.getFullYear() - 1;
+						month = 11;
+						var signList = "";
+						initSign(year, month, signList);
+					}else{
+						year = date.getFullYear();
+						month = date.getMonth()-1;
+						var signList = "";
+						initSign(year, month, signList);
+					}
+				});
+				//下一个月的签到情况
+				$("#addMonth").on("click", function(){
+					var currDate = $("#currDate").text();
+					var date = new Date(currDate);
+					//11表示12月份，再加一个月就得加年份
+					var year;
+					var month;
+					if(date.getMonth() == 11){
+						year = date.getFullYear() + 1;//年份加1
+						month = 0;//月份重新赋值为0（表示1月）
+						var signList = "";
+						initSign(year, month, signList);
+					}else{
+						year = date.getFullYear();
+						month = date.getMonth()+1;
+						var signList = "";
+						initSign(year, month, signList);
+					}
+				});
+			});
+		</script>
+		<style type="text/css">
+		@media screen and (min-width:1024px) {
+			.rich_media {
+				width: 500px;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 20px;
+			}
 		}
-	});
-	//下一个月的签到情况
-	$("#addMonth").on("click", function(){
-		var currDate = $("#currDate").text();
-		var date = new Date(currDate);
-		//11表示12月份，再加一个月就得加年份
-		var year;
-		var month;
-		if(date.getMonth() == 11){
-			year = date.getFullYear() + 1;//年份加1
-			month = 0;//月份重新赋值为0（表示1月）
-			var signList = "";
-			initSign(year, month, signList);
-		}else{
-			year = date.getFullYear();
-			month = date.getMonth()+1;
-			var signList = "";
-			initSign(year, month, signList);
+		.rich_media #page-content .header img{
+		      width: 3rem;
+		      height: 2rem;
+		      margin-top: 0.5rem;
 		}
-	});
-});
-</script>
-<style type="text/css">
-@media screen and (min-width:1024px) {
-	.rich_media {
-		width: 500px;
-		margin-left: auto;
-		margin-right: auto;
-		padding: 20px;
-	}
-}
-.rich_media #page-content .header img{
-      width: 3rem;
-      height: 2rem;
-      margin-top: 0.5rem;
-}
-.header{
-	width: 100%;
-	height: 3rem;
-	background-color: #FAFAFA;
-	display: flex;
-	display: -webkit-flex;
-	line-height: 0.5rem;
-	margin-top: 0.3rem;
-}
-.text{
-	padding-top: 1rem;
-}
-.container-fluid{
-	margin-top: 1rem;
-}
-#calendar{
-	margin-top: 0.5rem;
-}
-</style>
-</head>
-<body style="background-color: #fff;">
-    <div class="rich_media">
-            <div id="page-content">
-            	<div class="header">
-            	<!--style="text-align: center;background-color: #2FAA00;height: 50px;margin-bottom: 20px;"-->
-          
-					<!--<span class="unsign" style="cursor: pointer;font-weight: 600;font-size: 20px;color: #fff;height: 50px;line-height: 50px;">未签到</span>
-					<span class="sign" style="cursor: pointer;font-weight: 600;font-size: 20px;color: #fff;height: 50px;line-height: 50px;display: none;">已签到</span>-->			    
-            	<img src="../images/money.png">
-            	<div class="text">
-            		 <p>我的积分:<span>1100</span></p>
-                     <p>签到送积分</p>
-            	</div>
-            	</div>
-			    <div class="container-fluid">
-			    	<div class="row-fluid">
-			    		<div class='sign_succ_calendar_title'>
-			    			<div class='calendar_month_span'>
-			    				<!--<span id='minusMonth' style='padding-right:50px;cursor: pointer;'><</span>-->
-			    				<span id='currDate'></span>
-			    			<!--	<span id='addMonth' style='padding-left:50px;cursor: pointer;'>></span>-->
-			    			</div>
-			    		</div>
-			    		<div id="calendar"></div>
-			    	</div>
-			    </div>
-			    <div class="signbutton" style="width:4rem;height: 2rem;margin:3rem auto;">
-			    	 <img src="../images/sign.png" style="width: 100%;">
-			    </div>
-            </div>
-    </div>
-</body>
+		.header{
+			width: 100%;
+			height: 3rem;
+			background-color: #FAFAFA;
+			display: flex;
+			display: -webkit-flex;
+			line-height: 0.5rem;
+			margin-top: 0.3rem;
+		}
+		.header .text{
+			padding-top: 1rem;
+		}
+		.header .text p:nth-child(2){
+			margin-top: 6px;
+		}
+		.container-fluid{
+			margin-top: 1rem;
+		}
+		#calendar{
+			margin-top: 0.5rem;
+		}
+		</style>
+	</head>
+	<body style="background-color: #FFFFFF;">
+		
+		<header id="title">
+    		<div class="back"> </div>
+    		签到
+  		</header>
+  
+	    <div class="rich_media">
+	        <div id="page-content">
+	            <div class="header">			    
+	            	<img src="../images/money.png">
+	            	<div class="text">
+	            		 <p>我的积分:<span>1100</span></p>
+	                     <p>签到送积分</p>
+	            	</div>
+	            </div>
+				<div class="container-fluid">
+				    <div class="row-fluid">
+				    	<div class='sign_succ_calendar_title'>
+				    		<div class='calendar_month_span'>
+				    			<span id='currDate'></span>
+				    		</div>
+				    	</div>
+				    <div id="calendar"></div>
+				</div>
+			</div>
+			<div class="signbutton" style="width:4rem;height: 2rem;margin:3rem auto;">
+				<img src="../images/sign.png" style="width: 100%;">
+			</div>
+	   </div>
+	</body>
 </html>
+
+
 <script type="text/javascript">
 
 	var signTime = localStorage.getItem('signTime');
