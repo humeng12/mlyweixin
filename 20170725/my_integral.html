@@ -6,11 +6,10 @@
 		<title>我的积分</title>
 		
 		<link rel="stylesheet" type="text/css" href="../common/common.css" />
-		
-		<link href="../css/amazeui.min.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../mui/css/mui.min.css">
 		
 		<script src="../js/jquery-2.1.4.js"></script>
-		<script src="../js/amazeui.min.js"></script>
+		<script src="../mui/js/mui.min.js"></script>
 		
 		<style>
 			
@@ -31,18 +30,7 @@
 			</ul>
   		</div>
   		
-  		<div class="listcontent">
-  			<div class="detail">
-				<h1>提现</h1>
-			    <h3>2016年1月22日&nbsp;&nbsp;&nbsp;&nbsp;16:30</h3>
-			    <p>+&nbsp;&nbsp;20.0</p>
-			</div>
-			<div class="detail">
-				<h1>新用户注册送现金</h1>
-			    <h3>2016年1月22日&nbsp;&nbsp;&nbsp;&nbsp;16:30</h3>
-			    <p>+&nbsp;&nbsp;20.0</p>
-			</div>
-  		</div>
+  		<div class="mui-content"></div>
 
 	</body>
 	
@@ -53,6 +41,20 @@
 			alert('1212');
 		});
 		
+		
+		mui.init({
+			gestureConfig:{
+				doubletap:true
+			},
+			subpages:[{
+				url:'record.html',
+				id:'record.html',
+				styles:{
+					top: '45px',
+					bottom: '0px',
+				}
+			}]
+		});
 	
 	</script>
 </html>
