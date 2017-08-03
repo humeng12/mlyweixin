@@ -38,5 +38,58 @@ html{ padding: 0; margin: 0;}
 
 
 
+/*菜单*/
+.user_nav_list{
+	border-top-width:1px;
+	border-left-width:1px;
+	border-top-style:solid;
+	border-left-style:solid;border-top-color:#EBEBEB;
+	border-left-color:#EBEBEB; 
+	background:#fff; 
+	margin:10px 0px;
+}
+.user_nav_list li{
+	border-right-width:1px;
+	border-bottom-width:1px;
+	border-right-style:solid;
+	border-bottom-style:solid;
+	border-right-color:#EBEBEB;
+	border-bottom-color:#EBEBEB;
+	height:50px;
+}
+.user_nav_list a{display:block;color:#666;text-decoration:none;width:100%;float:left}
+.user_nav_list .u_nav_icon{
+	float:left;
+	margin-left:2%;
+	height:30px;width:30px;
+	background-size:90%;
+	margin-top:10px;
+}
+.user_nav_list .u_nav_name{float:left;margin-left:1.5%;line-height:50px;font-size:15px}
+.user_nav_list .u_money{position:relative;font-size:13px;color:#666;line-height:51px;float:right}
+.user_nav_list .u_money i{color:#ff6063;font-style:normal}
+.user_nav_list .nt_icon{
+	background-image:url(../images/iconfont-jiantou.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:15px;
+	height:50px;width:32px;
+	float:right;
+	margin-right:1%;
+}
+.user_nav_list span.upload_num { 
+	width: 10px; height: 10px; 
+	line-height:10px; 
+	border-radius: 50%; 
+	background:#F00;
+    color: #cb2527; 
+    display: block; 
+    float:right; 
+    margin-top:20px;
+}
+
+
+
+
 
 
