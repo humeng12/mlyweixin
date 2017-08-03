@@ -1,11 +1,12 @@
 
-function set(key,value){
+function setInfo(key,value){
+	
     var curTime = new Date().getTime();
     localStorage.setItem(key,JSON.stringify({data:value,time:curTime}));
 }
 
 
-function get(key,exp){
+function getInfo(key,exp){
 	
     var data = localStorage.getItem(key);
     var dataObj = JSON.parse(data);
@@ -19,6 +20,7 @@ function get(key,exp){
 	        return dataObjDatatoJson;
 	    }	
     }else{
+    	
     	var dataObjDatatoJson = JSON.parse(dataObj.data);
 	    return dataObjDatatoJson;
     }

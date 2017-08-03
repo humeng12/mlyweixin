@@ -78,40 +78,40 @@
 			});
 		</script>
 		<style type="text/css">
-		@media screen and (min-width:1024px) {
-			.rich_media {
-				width: 500px;
-				margin-left: auto;
-				margin-right: auto;
-				padding: 20px;
+			@media screen and (min-width:1024px) {
+				.rich_media {
+					width: 500px;
+					margin-left: auto;
+					margin-right: auto;
+					padding: 20px;
+				}
 			}
-		}
-		.rich_media #page-content .header img{
-		      width: 3rem;
-		      height: 2rem;
-		      margin-top: 0.5rem;
-		}
-		.header{
-			width: 100%;
-			height: 3rem;
-			background-color: #FAFAFA;
-			display: flex;
-			display: -webkit-flex;
-			line-height: 0.5rem;
-			margin-top: 0.3rem;
-		}
-		.header .text{
-			padding-top: 1rem;
-		}
-		.header .text p:nth-child(2){
-			margin-top: 6px;
-		}
-		.container-fluid{
-			margin-top: 1rem;
-		}
-		#calendar{
-			margin-top: 0.5rem;
-		}
+			.rich_media #page-content .header img{
+			      width: 3rem;
+			      height: 2rem;
+			      margin-top: 0.5rem;
+			}
+			.header{
+				width: 100%;
+				height: 3rem;
+				background-color: #FAFAFA;
+				display: flex;
+				display: -webkit-flex;
+				line-height: 0.5rem;
+				margin-top: 0.3rem;
+			}
+			.header .text{
+				padding-top: 1rem;
+			}
+			.header .text p:nth-child(2){
+				margin-top: 6px;
+			}
+			.container-fluid{
+				margin-top: 1rem;
+			}
+			#calendar{
+				margin-top: 0.5rem;
+			}
 		</style>
 	</head>
 	<body style="background-color: #FFFFFF;">
@@ -150,6 +150,8 @@
 
 <script type="text/javascript">
 
+	$.showLoading('签到中...');
+	
 	var signTime = localStorage.getItem('signTime');
 
 	var datestr = getNowFormatDate();
@@ -171,6 +173,7 @@
 	  	
 	$(".signbutton").click(function(){
 
+		
 		if (data) {
 
 			if (signTime != null ) {
