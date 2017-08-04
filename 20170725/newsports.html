@@ -6,12 +6,19 @@
 		<title>热门活动</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<!--标准mui.css-->
-		<link rel="stylesheet" href="mui/css/mui.min.css">
+		<link rel="stylesheet" href="../mui/css/mui.min.css">
+		<link rel="stylesheet" href="../common/common.css"/>
 		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="mui/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../mui/css/app.css" />
 	</head>
 
 	<body>
+		
+		<header id="title" style="background-color: #FFFFFF;color: #000000;">
+    		<img class="goback" src="../images/jiantou.png"/>
+    		新品活动
+  		</header>
+  		
 		<div class="mui-content">		
 			<div class="mui-card">
 				<div class="mui-card-header mui-card-media">
@@ -21,7 +28,7 @@
 					</div>
 				</div>
 				<div class="mui-card-content" >
-					<img src="images/banner.png" alt="" width="100%"/>
+					<img src="../images/banner.png" alt="" width="100%"/>
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
@@ -40,7 +47,7 @@
 					</div>
 				</div>
 				<div class="mui-card-content" >
-					<img src="images/banner.png" alt="" width="100%"/>
+					<img src="../images/banner.png" alt="" width="100%"/>
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
@@ -59,7 +66,7 @@
 					</div>
 				</div>
 				<div class="mui-card-content" >
-					<img src="images/banner.png" alt="" width="100%"/>
+					<img src="../images/banner.png" alt="" width="100%"/>
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
@@ -68,6 +75,13 @@
 				</div>
 			</div>
 		</div>
-		<script src="mui/js/mui.min.js"></script>
+		<script src="../mui/js/mui.min.js"></script>
+		<script src="../js/jquery-2.1.4.js"></script>
+		
+		<script>
+			$('.goback').click(function(){
+				history.go(-1);
+			});
+		</script>
 	</body>
 </html>
