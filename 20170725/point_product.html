@@ -36,7 +36,7 @@
 		<div class="theme clearfloat" style="margin-top: 10px;">
 		    <div class="content clearfloat">
 		    	<div class="list clearfloat fl">
-					<a href="javascript:void(0);" onclick="exchange()">
+					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f1.jpg','利仁电火锅');">
 						<div class="tu clearfloat fr">
 						    <span></span>
 						    <img src="../images/1f1.jpg" />
@@ -48,7 +48,7 @@
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="">
+					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f2.jpg','九阳榨汁机家用果汁机');">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f2.jpg" />
@@ -60,7 +60,7 @@
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="">
+					<a href="javascript:void(0);" onclick="exchange(1500,'../images/1f3.jpg','亿嘉带盖马克杯');">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f3.jpg" />
@@ -73,7 +73,7 @@
 				</div>
 				
 				<div class="list clearfloat fl">
-					<a href="">
+					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f2.jpg','九阳榨汁机家用果汁机');">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f2.jpg" />
@@ -85,19 +85,19 @@
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="">
+					<a href="javascript:void(0);" onclick="exchange(1500,'../images/1f3.jpg','亿嘉 水杯 绿色兔子');">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f3.jpg" />
 						</div>
 						<div class="shang clearfloat fl box-s">
-							<p class="tit over">亿嘉 水杯 绿色兔子 FM491008TZM</p>
+							<p class="tit over">亿嘉 水杯 绿色兔子</p>
 							<p><span>积分:</span><span class="over red">1500</span></p>
 						</div>
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="">
+					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f1.jpg','利仁电火锅');">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f1.jpg" />
@@ -132,12 +132,12 @@
 		            </div>
 		           
 		            <div class="bottom clearfloat">
-		                <p class="fl">购买数量</p>
+		                <p class="fl">兑换数量</p>
 		                <div class="you clearfloat fl">
 		                    <ul style="width: 180px;">
 		                        <li id="down"><img src="../images/jian.jpg" /></li>
 		                        <li id="count">1</li>
-		                        <li onclick="document.getElementById('count').innerHTML++"><img src="../images/jia.jpg" /></li>
+		                        <li id="up"><img src="../images/jia.jpg" /></li>
 		                    </ul>
 		                </div>
 		            </div>
@@ -149,9 +149,15 @@
 		
 		<script>
 			
+			var tmpjifen = 0;
 			
-			function exchange()
+			function exchange(points,imgpath,proname)
 			{
+				tmpjifen = points;
+				
+				$('.am-share .am-share-sns .sdetail .top .tu img').attr('src',imgpath);
+				$('.am-share .am-share-sns .sdetail .top .you span').text(points+'积分');
+				
 				$(".am-share").addClass("am-modal-active");	
 				if($(".sharebg").length>0){
 					$(".sharebg").addClass("sharebg-active");
@@ -169,21 +175,25 @@
 			}
 			
 			
-			var down = document.getElementById("down");
-		    var count = document.getElementById("count");
-		    window.onload = function(){
-		        down.onclick = function(){
-		            if(count.innerHTML > 1){
-		                count.innerHTML--;
-		            }else{
-		                count.innerHTML = 1;
-		            }
-		        }
-		        $(".middle .xia li").click(function() {
-		            $(this).addClass('cur').siblings().removeClass('cur');
-		        });
-
-		    }
+			var count = $("#count");
+			var tmpcount = 1;
+			
+			$('.bottom #up').click(function(){
+				
+				tmpcount++;
+				$('.bottom #count').text(tmpcount);
+				$('.sdetail .top .you span').text(parseInt(tmpcount) * parseInt(tmpjifen) + '积分');
+			});
+			
+		    $('.bottom #down').click(function(){
+		    	if(tmpcount == 1){
+		    		
+		    	}else{
+		    		tmpcount--;
+		    	}
+		    	$('.bottom #count').text(tmpcount);
+		    	$('.sdetail .top .you span').text(parseInt(tmpcount) * parseInt(tmpjifen) + '积分');
+		    });
 		
 		</script>
 	</body>
