@@ -116,8 +116,10 @@
 		    <div class="am-share-footer">
 		        <button class="share_btn"><img src="../images/chahao.png" /></button>
 		    </div>
-		    <div class="am-share-sns box-s">
+		    <div class="am-share-sns">
+		    	
 		        <div class="sdetail clearfloat">
+		        	
 		            <div class="top clearfloat">
 		                <div class="tu clearfloat fl">
 		                    <span></span>
@@ -131,8 +133,8 @@
 		           
 		            <div class="bottom clearfloat">
 		                <p class="fl">购买数量</p>
-		                <div class="you clearfloat fr">
-		                    <ul>
+		                <div class="you clearfloat fl">
+		                    <ul style="width: 180px;">
 		                        <li id="down"><img src="../images/jian.jpg" /></li>
 		                        <li id="count">1</li>
 		                        <li onclick="document.getElementById('count').innerHTML++"><img src="../images/jia.jpg" /></li>
@@ -140,8 +142,9 @@
 		                </div>
 		            </div>
 		        </div>
+		        
 		    </div>
-		    <a href="shopcar.html" class="shop-btn db">兑换</a>
+		    <a href="" class="shop-btn">兑换</a>
 		</div>
 		
 		<script>
@@ -164,6 +167,24 @@
 					},300);
 				});
 			}
+			
+			
+			var down = document.getElementById("down");
+		    var count = document.getElementById("count");
+		    window.onload = function(){
+		        down.onclick = function(){
+		            if(count.innerHTML > 1){
+		                count.innerHTML--;
+		            }else{
+		                count.innerHTML = 1;
+		            }
+		        }
+		        $(".middle .xia li").click(function() {
+		            $(this).addClass('cur').siblings().removeClass('cur');
+		        });
+
+		    }
+		
 		</script>
 	</body>
 </html>

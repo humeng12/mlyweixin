@@ -3,7 +3,9 @@
 .am-share {
     border-radius: 0;
     bottom: -1rem;
+    height: 20rem;
     left: 0;
+    background-color: #FFFFFF;
     position: fixed;
     -webkit-transform: translateY(100%);
     -ms-transform: translateY(100%);
@@ -34,8 +36,8 @@
     top: 0;
     right: 0;
     border: none;
-    width: 4rem;
-    height: 3.5rem;
+    width: 5rem;
+    height: 4.5rem;
     border-radius: 0;
     cursor: pointer;
     transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s;
@@ -47,6 +49,7 @@
 .am-share-footer .share_btn img {
     width: 100%;
 }
+
 
 .am-share-sns {
     background-color: #fff;
@@ -88,8 +91,8 @@
 }
 
 .sdetail .top .tu {
-    width: 3rem;
-    height: 3rem;
+    width: 5.5rem;
+    height: 5.5rem;
     margin-top: -1rem;
     font-size: 0;
     border: 1px solid #dfdfdf;
@@ -113,6 +116,7 @@
 .sdetail .top .you .tit {
     width: 100%;
     font-size: 1em;
+    margin-left: 5px;
     color: #333333;
 }
 
@@ -120,6 +124,7 @@
     font-size: .5em;
     color: #f44623;
     display: block;
+    margin-left: 5px;
     margin-top: .5rem;
 }
 
@@ -127,19 +132,20 @@
 
 .sdetail .bottom {
     width: 100%;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .sdetail .bottom .you {
     width: 3rem;
-    height: 1rem;
+    height: 2rem;
 }
 
 .sdetail .bottom .you ul li {
     float: left;
-    height: 1rem;
-    line-height: .8rem;
-    width: 1rem;
+    margin-left: 3rem;
+    height: 2rem;
+    /*line-height: .8rem;*/
+    width: 2rem;
     text-align: center;
 }
 
@@ -148,15 +154,17 @@
 }
 
 .shop-btn {
+	position: absolute;
+	left: 0;
+	height: 5rem;
+	bottom: 0;
     width: 100%;
-    height: 4rem;
     line-height: 4rem;
-    margin-bottom: 1rem;
     text-align: center;
     background-color: #9dc1e5;
     color: #fff;
     font-size: 1em;
 }
-.db {
+/*.db {
     display: block;
-}
+}*/
