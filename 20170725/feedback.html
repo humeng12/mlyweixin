@@ -4,10 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>问题反馈</title>
-		<link rel="stylesheet" type="text/css" href="mui/css/mui.min.css" />
-		<link rel="stylesheet" type="text/css" href="mui/css/feedback.css" />
-		<link rel="stylesheet" href="css/weui.min.css">
-		<link rel="stylesheet" href="css/jquery-weui.min.css">
+		<link rel="stylesheet" type="text/css" href="../mui/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../mui/css/feedback.css" />
+		<link rel="stylesheet" type="text/css" href="../common/common.css" />
+		<link rel="stylesheet" href="../css/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
 		
 		<style>
 			
@@ -18,8 +19,8 @@
 	        }
 	        
 	        .z_photo img {
-	            width: 1rem;
-	            height: 1rem;
+	            width: 5rem;
+	            height: 5rem;
 	        }
 	        
 	         .z_addImg {
@@ -28,17 +29,17 @@
 	        }
         
 	        .z_file {
-	            width: 1rem;
-	            height: 1rem;
-	            background: url(images/z_add.png) no-repeat;
+	            width: 5rem;
+	            height: 5rem;
+	            background: url(../images/z_add.png) no-repeat;
 	            background-size: 100% 100%;
 	            float: left;
 	            margin-right: 0.2rem;
 	        }
 	        
 	        .z_file input::-webkit-file-upload-button {
-	            width: 1rem;
-	            height: 1rem;
+	            width: 5rem;
+	            height: 5rem;
 	            border: none;
 	            position: absolute;
 	            outline: 0;
@@ -56,10 +57,12 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">问题反馈</h1>
-		</header>
+		
+		<header id="title" style="background-color: #FFFFFF;color: #000000;">
+    		<img class="goback" src="../images/jiantou.png"/>
+    		问题反馈
+  		</header>
+  		
 		<div class="mui-content">
 			<div class="mui-content-padded">
 				<div class="mui-inline">问题和意见</div>
@@ -88,13 +91,18 @@
 	        <button type="button" onclick="btnclick();" class="mui-btn mui-btn-primary" >提交</button>
 	    </div>
     
-		<script src="js/jquery-2.1.4.js"></script>
-		<script src="mui/js/mui.min.js"></script>
-		<script src="mui/js/style.js"></script>
-		<script src="js/jquery-weui.js"></script>
+		<script src="../js/jquery-2.1.4.js"></script>
+		<script src="../mui/js/mui.min.js"></script>
+		<script src="../mui/js/style.js"></script>
+		<script src="../js/jquery-weui.js"></script>
 		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 		
 		<script>
+			
+			$('.goback').click(function(){
+				history.go(-1);
+			});
+			
 			
 			var imgsArr = new Array();
 			

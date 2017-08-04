@@ -20,6 +20,10 @@
   		</header>
 		
 		<script>
+			
+			$('.goback').click(function(){
+				history.go(-1);
+			});
 			mui.init({
 				gestureConfig:{
 					doubletap:true
