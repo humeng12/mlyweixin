@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>我的积分券</title>
+		<link href="../common/common.css" rel="stylesheet">
+		
+		<link rel="stylesheet" href="../mui/css/mui.min.css">
+		
+		<script src="../js/jquery-2.1.4.js"></script>
+		<script src="../mui/js/mui.min.js"></script>
+		
+		
+	</head>
+	<body>
+		
+		
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="margin-top: 20px;">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mylist" style="height: 9rem;border-bottom: 1px solid #CDCDCD;">
+						<div class="creditsexchange_contnet">
+							<img src="../images/Integralred.png"/>
+							<div class="right_content">
+								<div class="text">
+								<p>所有积分商品可用</p>
+								<p>有限期至2017-8-7</p>	
+							    </div>
+								<img src="../images/overdue.png"/>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<script>
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			
+					
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for(var i = cells.length, len = i + 3; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mylist';
+						li.style = 'height: 9rem;border-bottom: 1px solid #CDCDCD;';
+						li.innerHTML = "<div class='creditsexchange_contnet'><img src='../images/Integralred.png'/><div class='right_content'><div class='text'><p>所有积分商品可用</p><p>有限期至2017-8-7</p></div><img src='../images/overdue.png'/></div></div>";
+						table.insertBefore(li, table.firstChild);
+					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+				}, 1500);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+					
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					
+					for(var i = cells.length, len = i + 5; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mylist';
+						li.style = 'height: 9rem;border-bottom: 1px solid #CDCDCD;';
+						li.innerHTML = "<div class='creditsexchange_contnet'><img src='../images/Integralred.png'/><div class='right_content'><div class='text'><p>所有积分商品可用</p><p>有限期至2017-8-7</p></div><img src='../images/overdue.png'/></div></div>";
+						table.appendChild(li);
+					}
+				}, 1500);
+			}
+		</script>
+	</body>
+</html>
