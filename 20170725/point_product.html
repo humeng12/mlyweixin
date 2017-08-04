@@ -6,7 +6,7 @@
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 		
 		<link rel="stylesheet" type="text/css" href="../common/common.css" />
-		<link href="../mui/css/mui.min.css" rel="stylesheet" />
+		<link href="../common/mui.min.css" rel="stylesheet" />
 		
 		<script src="../js/jquery-2.1.4.js"></script>
 		
@@ -112,53 +112,8 @@
 		
 		
 		<style>
-			.am-share {
-    border-radius: 0;
-    bottom: -1rem;
-    left: 0;
-    position: fixed;
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
-    -webkit-transition: -webkit-transform 300ms;
-    transition: transform 300ms;
-    width: 100%;
-    z-index: 1110;
-}
+		
 
-.am-modal-active {
-    transform: translateY(0px);
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0)
-}
-
-.am-modal-out {
-    z-index: 1109;
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%)
-}
-
-.am-share-footer .share_btn {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    width: .8rem;
-    height: .8rem;
-    border-radius: 0;
-    cursor: pointer;
-    transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s;
-    vertical-align: middle;
-    white-space: nowrap;
-    font-family: "微软雅黑";
-}
-
-.am-share-footer .share_btn img {
-    width: 100%;
-}
 
 .am-share-sns {
     background-color: #fff;
@@ -307,9 +262,7 @@
     color: #fff;
     font-size: .5rem;
 }
-.db {
-    display: block;
-}
+
 		</style>
 		
 		<!--弹出购物车内容-->
@@ -363,6 +316,8 @@
 		</div>
 		
 		<script>
+			
+			
 			function exchange()
 			{
 				$(".am-share").addClass("am-modal-active");	
