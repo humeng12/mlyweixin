@@ -16,70 +16,6 @@
 				width: 100%;height: 100%;
 			}
 			
-			
-			
-			.theme .content .list .tu {
-			    width: 100%;
-			    height: 2.8rem;
-			    text-align: center;
-			    font-size: 0;
-			}
-
-			.theme .content .list .tu span {
-			    display: inline-block;
-			    height: 100%;
-			    line-height: 0;
-			    vertical-align: middle;
-			}
-			
-			.theme .content .list .tu img {
-			    width: 70%;
-			    vertical-align: middle;
-			    height: 250%;
-			    margin-top: 10px;
-			}
-			
-			.theme {
-			    width: 100%;
-			}
-			
-			.theme .content {
-			    width: 100%;
-			    background-color: #fff;
-			}
-			
-			.theme .content .list {
-			    width: 33.33%;
-			    height: 15rem;
-			    border-right: 1px solid #f1f1f1;
-			    float: left;
-			    border-bottom: 1px solid #f1f1f1;
-			}
-			
-			.theme .content .list .shang {
-			    padding: 8% 5% 5%;
-			    width: 100%;
-			    margin-top: 60px;
-			    text-align: center;
-			}
-			
-			.theme .content .list:nth-child(3n) {
-			    border-right: none;
-			}
-			
-			.theme .content .list .shang .tit {
-			    color: #000000;
-			    font-size: .3rem;
-			    width: 100%;
-			    margin-bottom: 0;
-			
-			}
-			
-			.red {
-			    color: red;
-			    font-weight: 600;
-			}
-
 		</style>
 	</head>
 	<body>
@@ -99,7 +35,7 @@
 		<div class="theme clearfloat" style="margin-top: 10px;">
 		    <div class="content clearfloat">
 		    	<div class="list clearfloat fl">
-					<a href="detail.html">
+					<a href="javascript:void(0);" onclick="exchange()">
 						<div class="tu clearfloat fr">
 						    <span></span>
 						    <img src="../images/1f1.jpg" />
@@ -111,7 +47,7 @@
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="detail.html">
+					<a href="">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f2.jpg" />
@@ -123,7 +59,7 @@
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="detail.html">
+					<a href="">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f3.jpg" />
@@ -136,7 +72,7 @@
 				</div>
 				
 				<div class="list clearfloat fl">
-					<a href="detail.html">
+					<a href="">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f2.jpg" />
@@ -148,7 +84,7 @@
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="detail.html">
+					<a href="">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f3.jpg" />
@@ -160,7 +96,7 @@
 					</a>
 				</div>
 				<div class="list clearfloat fl">
-					<a href="detail.html">
+					<a href="">
 						<div class="tu clearfloat fr">
 							<span></span>
 							<img src="../images/1f1.jpg" />
@@ -173,6 +109,277 @@
 				</div>
 		    </div>
 		</div>
-			
+		
+		
+		<style>
+			.am-share {
+    border-radius: 0;
+    bottom: -1rem;
+    left: 0;
+    position: fixed;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    width: 100%;
+    z-index: 1110;
+}
+
+.am-modal-active {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0)
+}
+
+.am-modal-out {
+    z-index: 1109;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%)
+}
+
+.am-share-footer .share_btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-family: "微软雅黑";
+}
+
+.am-share-footer .share_btn img {
+    width: 100%;
+}
+
+.am-share-sns {
+    background-color: #fff;
+    padding: 0 5% 5%;
+    height: auto;
+    zoom: 1;
+}
+
+.sharebg {
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+    display: none;
+}
+
+.sharebg-active {
+    opacity: 1;
+    display: block;
+}
+
+.am-share .bottom {
+    padding: 0;
+}
+
+.sdetail {
+    width: 100%;
+}
+
+.sdetail .top {
+    width: 100%;
+    padding-top: .4rem;
+}
+
+.sdetail .top .tu {
+    width: 3rem;
+    height: 3rem;
+    margin-top: -1rem;
+    font-size: 0;
+    border: 1px solid #dfdfdf;
+    text-align: center;
+}
+
+.sdetail .top .tu span {
+    display: inline-block;
+    height: 100%;
+    line-height: 0;
+    vertical-align: middle;
+}
+
+.sdetail .top .tu img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.sdetail .top .you {
+    width: 50%;
+    text-align: left;
+    margin-left: 3%;
+}
+
+.sdetail .top .you .tit {
+    width: 100%;
+    font-size: .5rem;
+    color: #333333;
+}
+
+.sdetail .top .you span {
+    font-size: .5rem;
+    color: #f44623;
+    display: block;
+    margin-top: .2rem;
+}
+
+.sdetail .middle {
+    width: 100%;
+    padding: .5rem 0 .3rem;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.sdetail .middle p,
+.sdetail p {
+    font-size: .5rem;
+    color: #001924;
+}
+
+.sdetail .middle .xia {
+    width: 100%;
+    margin-top: .3rem;
+}
+
+.sdetail .middle .xia ul li {
+    height: 1.3rem;
+    line-height: 1.3rem;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    width: 25%;
+    text-align: center;
+    float: left;
+    background-color: #f5f5f5;
+    color: #333333;
+    font-size: .45rem;
+}
+
+.sdetail .middle .xia ul li.cur {
+    background-color: #9dc1e5;
+    color: #fff;
+}
+
+.sdetail .bottom {
+    width: 100%;
+    margin-top: 5%;
+}
+
+.sdetail .bottom .you {
+    width: 3rem;
+    height: 1rem;
+}
+
+.sdetail .bottom .you ul li {
+    float: left;
+    height: 1rem;
+    line-height: .8rem;
+    width: 1rem;
+    text-align: center;
+}
+
+.sdetail .bottom .you ul li img {
+    width: 100%;
+}
+
+.shop-btn {
+    width: 100%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    background-color: #9dc1e5;
+    color: #fff;
+    font-size: .5rem;
+}
+.db {
+    display: block;
+}
+		</style>
+		
+		<!--弹出购物车内容-->
+		<div class="am-share">
+		    <div class="am-share-footer">
+		        <button class="share_btn"><img src="../images/chahao.png" /></button>
+		    </div>
+		    <div class="am-share-sns box-s">
+		        <div class="sdetail clearfloat">
+		            <div class="top clearfloat">
+		                <div class="tu clearfloat fl">
+		                    <span></span>
+		                    <img src="../images/1f1.jpg" />
+		                </div>
+		                <div class="you clearfloat fl">
+		                    <p class="tit">单反相机</p>
+		                    <span>100000积分</span>
+		                </div>
+		            </div>
+		            <div class="middle clearfloat">
+		                <p>颜色分类</p>
+		                <div class="xia clearfloat">
+		                    <ul>
+		                        <li class="ra3 cur">蓝色</li>
+		                        <li class="ra3">白色</li>
+		                    </ul>
+		                </div>
+		            </div>
+		            <div class="middle clearfloat">
+		                <p>机身内存</p>
+		                <div class="xia clearfloat">
+		                    <ul>
+		                        <li class="ra3 cur">120G</li>
+		                        <li class="ra3">60G</li>
+		                    </ul>
+		                </div>
+		            </div>
+		            <div class="bottom clearfloat">
+		                <p class="fl">购买数量</p>
+		                <div class="you clearfloat fr">
+		                    <ul>
+		                        <li id="down"><img src="../images/jian.jpg" /></li>
+		                        <li id="count">1</li>
+		                        <li onclick="document.getElementById('count').innerHTML++"><img src="../images/jia.jpg" /></li>
+		                    </ul>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <a href="shopcar.html" class="shop-btn db">确定</a>
+		</div>
+		
+		<script>
+			function exchange()
+			{
+				$(".am-share").addClass("am-modal-active");	
+				if($(".sharebg").length>0){
+					$(".sharebg").addClass("sharebg-active");
+				}else{
+					$("body").append('<div class="sharebg"></div>');
+					$(".sharebg").addClass("sharebg-active");
+				}
+				$(".sharebg-active,.share_btn").click(function(){
+					$(".am-share").removeClass("am-modal-active");	
+					setTimeout(function(){
+						$(".sharebg-active").removeClass("sharebg-active");	
+						$(".sharebg").remove();	
+					},300);
+				});
+			}
+		</script>
 	</body>
 </html>
