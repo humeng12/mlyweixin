@@ -11,50 +11,74 @@
 		<script src="../js/jquery-2.1.4.js"></script>
 		
 		<style>
+			
 			.content-img img{
 				width: 100%;height: 100%;
 			}
 			
-			.onnew {
+			
+			
+			.theme .content .list .tu {
 			    width: 100%;
-			    padding: 0 2%;
-			}
-			.clearfloat:after {
-			    display: block;
-			    clear: both;
-			    content: "";
-			    visibility: hidden;
-			    height: 0
-			}
-
-			.clearfloat {
-			    zoom: 1
-			}
-			.boutit {
-			    width: 50%;
-			    margin: 0 auto;
-			    position: relative;
-			    height: 1.2rem;
+			    height: 2.8rem;
 			    text-align: center;
+			    font-size: 0;
 			}
 
-			.boutit span {
-			    display: block;
-			    position: absolute;
-			    top: .55rem;
-			    width: 100%;
-			    border-top: 3px solid #00cc7d;
+			.theme .content .list .tu span {
+			    display: inline-block;
+			    height: 100%;
+			    line-height: 0;
+			    vertical-align: middle;
 			}
 			
-			.boutit samp {
-			    line-height: 1.2rem;
-			    color: #000000;
-			    position: relative;
-			    height: 1.2rem;
-			    padding: 0 3%;
-			    background-color: #efeff4;
-			    font-size: .45rem;
+			.theme .content .list .tu img {
+			    max-width: 100%;
+			    vertical-align: middle;
+			    max-height: 5rem;
+			    margin-top: 10px;
 			}
+			
+			.theme {
+			    width: 100%;
+			}
+			
+			.theme .content {
+			    width: 100%;
+			    background-color: #fff;
+			}
+			
+			.theme .content .list {
+			    width: 33.33%;
+			    height: 10rem;
+			    border-right: 1px solid #f1f1f1;
+			    float: left;
+			    border-bottom: 1px solid #f1f1f1;
+			}
+			
+			.theme .content .list .shang {
+			    padding: 8% 5% 5%;
+			    width: 100%;
+			    margin-top: 30px;
+			}
+			
+			.theme .content .list:nth-child(3n) {
+			    border-right: none;
+			}
+			
+			.theme .content .list .shang .tit {
+			    color: #000000;
+			    font-size: .3rem;
+			    width: 100%;
+			    margin-bottom: 0;
+			
+			}
+			
+			.red {
+			    color: red;
+			    font-weight: 600;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -71,10 +95,44 @@
 		</div>
 		
 		
-		<div class="onnew clearfloat">
-		    <div class="boutit clearfloat">
-		        <span></span>
-		        <samp>新品专区</samp>
+		<div class="theme clearfloat" style="margin-top: 10px;">
+		    <div class="content clearfloat">
+		    	<div class="list clearfloat fl">
+					<a href="detail.html">
+						<div class="tu clearfloat fr">
+						    <span></span>
+						    <img src="../images/1f1.jpg" />
+						</div>
+						<div class="shang clearfloat fl box-s">
+						    <p class="tit over">利仁电火锅</p>
+						    <p><span>积分:</span><span class="over db red">11000</span></p>
+						</div>
+					</a>
+				</div>
+				<div class="list clearfloat fl">
+					<a href="detail.html">
+						<div class="tu clearfloat fr">
+							<span></span>
+							<img src="../images/1f2.jpg" />
+						</div>
+						<div class="shang clearfloat fl box-s">
+							<p class="tit over">九阳榨汁机家用果汁机</p>
+							<p><span>积分:</span><span class="over db red">11000</span></p>
+						</div>
+					</a>
+				</div>
+				<div class="list clearfloat fl">
+					<a href="detail.html">
+						<div class="tu clearfloat fr">
+							<span></span>
+							<img src="../images/1f3.jpg" />
+						</div>
+						<div class="shang clearfloat fl box-s">
+							<p class="tit over">亿嘉带盖马克杯</p>
+							<p><span>积分:</span><span class="over db red">1500</span></p>
+						</div>
+					</a>
+				</div>
 		    </div>
 		</div>
 			

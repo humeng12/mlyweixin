@@ -15,9 +15,21 @@ body {
 	padding: 0; margin: 0; background:#eff2f9;
 }
 
+
 ol,ul,li {padding: 0;  margin: 0; list-style: none;}
 h2,h3,h4,h5,ul,li,p,hr {padding: 0;margin: 0;}
 input {outline: none;}
+
+
+.fl {
+	float: left;
+	display: inline;
+}
+
+.fr {
+	float: right;
+	display: inline;
+}
 
 html {
 	font-size: 16px !important;
@@ -190,6 +202,33 @@ html {
 }
 
 
+
+
+/*积分兑换*/
+.over {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.box-s {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.clearfloat:after {
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0
+}
+
+.clearfloat {
+	zoom: 1
+}
 
 
 
