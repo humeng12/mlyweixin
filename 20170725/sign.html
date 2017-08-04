@@ -116,8 +116,8 @@
 	</head>
 	<body style="background-color: #FFFFFF;">
 		
-		<header id="title">
-    		<div class="back"> </div>
+  		<header id="title" style="background-color: #FFFFFF;color: #000000;border-bottom: 1px solid #CDCDCD;">
+    		<img class="goback" src="../images/jiantou.png"/>
     		签到
   		</header>
   
@@ -150,7 +150,9 @@
 
 <script type="text/javascript">
 
-	$.showLoading('签到中...');
+	$('.goback').click(function(){
+		history.go(-1);
+	});
 	
 	var signTime = localStorage.getItem('signTime');
 
