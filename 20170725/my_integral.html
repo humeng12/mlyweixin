@@ -25,7 +25,7 @@
     		我的积分
   		</header>
   		
-  		<div class="butt">
+  		<div class="butt" style="margin-top: 3px;">
 			<ul class="butt_list">
 			    <li><span class="tttext">积分商城</span></li>
 			    <li><span class="tttext">兑换记录</span></li>
@@ -41,6 +41,11 @@
 			alert('1212');
 		});
 		
+		$('.goback').click(function(){
+			
+			history.go(-1);
+		});
+		
 		
 		mui.init({
 			gestureConfig:{
@@ -49,7 +54,7 @@
 			subpages:[{
 				url:'record.html',
 				styles:{
-					top: '70px',
+					top: '130px',
 					bottom: '0px',
 				}
 			}]
