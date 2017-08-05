@@ -425,43 +425,43 @@
 			var access_code = getQueryStringByName('code');
 			
 			
-//			if (wxopenid == "" || wxopenid == null)
-//			{ 
-//				if (access_code == null || access_code == "")  
-//				{
-//					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6b235d0ef54f8644&redirect_uri='+encodeURI(fromurl)+"&response_type=code&scope=snsapi_base&state=265215#wechat_redirect";  
-//					
-//					window.location.href = url;
-//				}
-//				else
-//				{
-//					$.ajax({  
-//						type:'get',  
-//						url:'http://chenxiaolong.top/shoph/1/mly/public/api/getOpenid',
-//						async:false,  
-//						cache:false,  
-//						data:{code:access_code},  
-//						dataType:'json',  
-//						success:function(result){  
-//
-//							var data = result['data'];
-//							alert(data['openid']);
-//							if (data != null && data.hasOwnProperty('openid')){  
-//
-//								localStorage.setItem('wxopenid',data['openid']);      
-//
-//								getlogininfo(data['openid']); 
-//							}   
-//							else  
-//							{   
-//								location.href = fromurl; 
-//							}  
-//						}  
-//					}); 
-//				}
-//			}else{
-//				getlogininfo(wxopenid);
-//			}
+			if (wxopenid == "" || wxopenid == null)
+			{ 
+				if (access_code == null || access_code == "")  
+				{
+					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6b235d0ef54f8644&redirect_uri='+encodeURI(fromurl)+"&response_type=code&scope=snsapi_base&state=265215#wechat_redirect";  
+					
+					window.location.href = url;
+				}
+				else
+				{
+					$.ajax({  
+						type:'get',  
+						url:'http://chenxiaolong.top/shoph/1/mly/public/api/getOpenid',
+						async:false,  
+						cache:false,  
+						data:{code:access_code},  
+						dataType:'json',  
+						success:function(result){  
+
+							var data = result['data'];
+							alert(data['openid']);
+							if (data != null && data.hasOwnProperty('openid')){  
+
+								localStorage.setItem('wxopenid',data['openid']);      
+
+								getlogininfo(data['openid']); 
+							}   
+							else  
+							{   
+								location.href = fromurl; 
+							}  
+						}  
+					}); 
+				}
+			}else{
+				getlogininfo(wxopenid);
+			}
 		
 			function getlogininfo(wxopenid){    
 	
@@ -525,83 +525,83 @@
 				$('.massion-active').hide();
 			});
 			
-			var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
-		    window.hasLoaded = 0;
-		    window.loading = false;
-		    window.ulp = ulp;
-		    function ulp(percent){
-		        window.loading = true;
-		        var i = 0, draw = null;
-		        draw = setInterval(function(){
-		            if (window.hasLoaded > 100) {
-		                window.loading = false;
-		                clearInterval(draw);
-		                draw = null;
-		                return true;
-		            }
-		
-		            if (i<percent) {
-		                d();
-		                i++;
-		                window.hasLoaded += 1;
-		            } else {
-		                clearInterval(draw);
-		                draw = null;
-		            }
-		        }, 100);
-		    }
-
-		    function d(){
-		 
-		        var loaded = window.hasLoaded * 2 / 100 * Math.PI, cw = 102, hcw = 51;
-		        ctx.clearRect (0,0,cw,cw);
-		        ctx.beginPath();
-		        ctx.arc(hcw,hcw,hcw-4, 0, loaded, false);
-		        ctx.lineWidth = 8;
-		        ctx.strokeStyle = '#ff6000';
-		        ctx.stroke();
-		    }
-		    ulp(12);
-		    
-		    
-		    var c1 = document.getElementById('loadingProgress1'),ctx1 = c1.getContext('2d');
-		    window.hasLoaded1 = 0;
-		    window.loading1 = false;
-		    window.ulp1 = ulp1;
-		    function ulp1(percent1){
-		        window.loading1 = true;
-		        var j = 0, draw1 = null;
-		        draw1 = setInterval(function(){
-		            if (window.hasLoaded1 > 100) {
-		                window.loading1 = false;
-		                clearInterval(draw1);
-		                draw1 = null;
-		                return true;
-		            }
-
-		            if (j<percent1) {
-		                d1();
-		                j++;
-		                window.hasLoaded1 += 1;
-		            } else {
-		                clearInterval(draw1);
-		                draw1 = null;
-		            }
-		        }, 100);
-		    }
-		    function d1(){
-		    	
-		        var lp = document.getElementById('loadedNum1');
-		        lp.innerHTML = window.hasLoaded;
-		        var loaded1 = window.hasLoaded1 * 2 / 100 * Math.PI, cw1 = 102, hcw1 = 51;
-		        ctx1.clearRect (0,0,cw1,cw1);
-		        ctx1.beginPath();
-		        ctx1.arc(hcw1,hcw1,hcw1-4, 0, loaded1, false);
-		        ctx1.lineWidth = 8;
-		        ctx1.strokeStyle = '#ff6000';
-		        ctx1.stroke();
-		    }
-		    ulp1(12);
+//			var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
+//		    window.hasLoaded = 0;
+//		    window.loading = false;
+//		    window.ulp = ulp;
+//		    function ulp(percent){
+//		        window.loading = true;
+//		        var i = 0, draw = null;
+//		        draw = setInterval(function(){
+//		            if (window.hasLoaded > 100) {
+//		                window.loading = false;
+//		                clearInterval(draw);
+//		                draw = null;
+//		                return true;
+//		            }
+//		
+//		            if (i<percent) {
+//		                d();
+//		                i++;
+//		                window.hasLoaded += 1;
+//		            } else {
+//		                clearInterval(draw);
+//		                draw = null;
+//		            }
+//		        }, 100);
+//		    }
+//
+//		    function d(){
+//		 
+//		        var loaded = window.hasLoaded * 2 / 100 * Math.PI, cw = 102, hcw = 51;
+//		        ctx.clearRect (0,0,cw,cw);
+//		        ctx.beginPath();
+//		        ctx.arc(hcw,hcw,hcw-4, 0, loaded, false);
+//		        ctx.lineWidth = 8;
+//		        ctx.strokeStyle = '#ff6000';
+//		        ctx.stroke();
+//		    }
+//		    ulp(12);
+//		    
+//		    
+//		    var c1 = document.getElementById('loadingProgress1'),ctx1 = c1.getContext('2d');
+//		    window.hasLoaded1 = 0;
+//		    window.loading1 = false;
+//		    window.ulp1 = ulp1;
+//		    function ulp1(percent1){
+//		        window.loading1 = true;
+//		        var j = 0, draw1 = null;
+//		        draw1 = setInterval(function(){
+//		            if (window.hasLoaded1 > 100) {
+//		                window.loading1 = false;
+//		                clearInterval(draw1);
+//		                draw1 = null;
+//		                return true;
+//		            }
+//
+//		            if (j<percent1) {
+//		                d1();
+//		                j++;
+//		                window.hasLoaded1 += 1;
+//		            } else {
+//		                clearInterval(draw1);
+//		                draw1 = null;
+//		            }
+//		        }, 100);
+//		    }
+//		    function d1(){
+//		    	
+//		        var lp = document.getElementById('loadedNum1');
+//		        lp.innerHTML = window.hasLoaded;
+//		        var loaded1 = window.hasLoaded1 * 2 / 100 * Math.PI, cw1 = 102, hcw1 = 51;
+//		        ctx1.clearRect (0,0,cw1,cw1);
+//		        ctx1.beginPath();
+//		        ctx1.arc(hcw1,hcw1,hcw1-4, 0, loaded1, false);
+//		        ctx1.lineWidth = 8;
+//		        ctx1.strokeStyle = '#ff6000';
+//		        ctx1.stroke();
+//		    }
+//		    ulp1(12);
 		       
     	</script>
 	</body>
