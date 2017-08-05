@@ -418,49 +418,50 @@
     	<script>
     		//wxopenid nickname headimgurl
     		var wxopenid = localStorage.getItem('wxopenid'); 
+			alert(wxopenid);
 			
 			var fromurl = window.location.href;  
 			
 			var access_code = getQueryStringByName('code');
 			
 			
-			if (wxopenid == "" || wxopenid == null)
-			{ 
-				if (access_code == null || access_code == "")  
-				{
-					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6b235d0ef54f8644&redirect_uri='+encodeURI(fromurl)+"&response_type=code&scope=snsapi_base&state=265215#wechat_redirect";  
-					
-					window.location.href = url;
-				}
-				else
-				{
-					$.ajax({  
-						type:'get',  
-						url:'http://chenxiaolong.top/shoph/1/mly/public/api/getOpenid',
-						async:false,  
-						cache:false,  
-						data:{code:access_code},  
-						dataType:'json',  
-						success:function(result){  
-
-							var data = result['data'];
-							alert(data['openid']);
-							if (data != null && data.hasOwnProperty('openid')){  
-
-								localStorage.setItem('wxopenid',data['openid']);      
-
-								getlogininfo(data['openid']); 
-							}   
-							else  
-							{   
-								location.href = fromurl; 
-							}  
-						}  
-					}); 
-				}
-			}else{
-				getlogininfo(wxopenid);
-			}
+//			if (wxopenid == "" || wxopenid == null)
+//			{ 
+//				if (access_code == null || access_code == "")  
+//				{
+//					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6b235d0ef54f8644&redirect_uri='+encodeURI(fromurl)+"&response_type=code&scope=snsapi_base&state=265215#wechat_redirect";  
+//					
+//					window.location.href = url;
+//				}
+//				else
+//				{
+//					$.ajax({  
+//						type:'get',  
+//						url:'http://chenxiaolong.top/shoph/1/mly/public/api/getOpenid',
+//						async:false,  
+//						cache:false,  
+//						data:{code:access_code},  
+//						dataType:'json',  
+//						success:function(result){  
+//
+//							var data = result['data'];
+//							alert(data['openid']);
+//							if (data != null && data.hasOwnProperty('openid')){  
+//
+//								localStorage.setItem('wxopenid',data['openid']);      
+//
+//								getlogininfo(data['openid']); 
+//							}   
+//							else  
+//							{   
+//								location.href = fromurl; 
+//							}  
+//						}  
+//					}); 
+//				}
+//			}else{
+//				getlogininfo(wxopenid);
+//			}
 		
 			function getlogininfo(wxopenid){    
 	
