@@ -416,49 +416,53 @@
     
     
     	<script>
+    		//wxopenid nickname headimgurl
+    		alert(localStorage.getItem('wxopenid'));
+    		alert(localStorage.getItem('nickname'));
+    		alert(localStorage.getItem('headimgurl'));
     		
-    		var wxopenid = localStorage.getItem('wxopenid'); 
-			
-			var fromurl = location.href;  
-			
-			var access_code = getQueryStringByName('code');
-			
-			if (wxopenid == "" || wxopenid == null)
-			{ 
-				if (access_code == null || access_code == "")  
-				{
-					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5be0ef8a6f12a155&redirect_uri='+encodeURIComponent(fromurl)+"&response_type=code&scope=snsapi_base&state=4896#wechat_redirect";  			
-					location.href=url; 
-				}
-				else
-				{
-					$.ajax({  
-						type:'get',  
-						url:'http://47.93.217.112/shoph/1/mly/public/api/getOpenid',   
-						async:false,  
-						cache:false,  
-						data:{code:access_code},  
-						dataType:'json',  
-						success:function(result){  
-
-							var data = result['data'];
-								
-							if (data != null && data.hasOwnProperty('openid')){  
-
-								localStorage.setItem('wxopenid',data['openid']);      
-
-								getlogininfo(data['openid']); 
-							}   
-							else  
-							{   
-								location.href = fromurl; 
-							}  
-						}  
-					}); 
-				}
-			}else{
-				getlogininfo(wxopenid);
-			}
+//  		var wxopenid = localStorage.getItem('wxopenid'); 
+//			
+//			var fromurl = location.href;  
+//			
+//			var access_code = getQueryStringByName('code');
+//			
+//			if (wxopenid == "" || wxopenid == null)
+//			{ 
+//				if (access_code == null || access_code == "")  
+//				{
+//					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5be0ef8a6f12a155&redirect_uri='+encodeURIComponent(fromurl)+"&response_type=code&scope=snsapi_base&state=4896#wechat_redirect";  			
+//					location.href=url; 
+//				}
+//				else
+//				{
+//					$.ajax({  
+//						type:'get',  
+//						url:'http://47.93.217.112/shoph/1/mly/public/api/getOpenid',   
+//						async:false,  
+//						cache:false,  
+//						data:{code:access_code},  
+//						dataType:'json',  
+//						success:function(result){  
+//
+//							var data = result['data'];
+//								
+//							if (data != null && data.hasOwnProperty('openid')){  
+//
+//								localStorage.setItem('wxopenid',data['openid']);      
+//
+//								getlogininfo(data['openid']); 
+//							}   
+//							else  
+//							{   
+//								location.href = fromurl; 
+//							}  
+//						}  
+//					}); 
+//				}
+//			}else{
+//				getlogininfo(wxopenid);
+//			}
 			
 			
 			//获取登陆用户的信息
