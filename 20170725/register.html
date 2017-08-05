@@ -142,7 +142,6 @@
 	   	});	
 		
 		
-		
 		function getInfo()
 		{
 			var wxopenid = localStorage.getItem('wxopenid'); 
@@ -162,7 +161,7 @@
 				{
 					$.ajax({  
 						type:'get',  
-						url:'http://47.93.217.112/shoph/1/mly/public/api/getOpenid',   
+						url:'http://humeng.ngrok.cc/laravel/1/mly/public/api/getOpenid',   
 						async:false,  
 						cache:false,  
 						data:{code:access_code},  
@@ -196,7 +195,7 @@
 
 	    	$.ajax({  
                 type:'get',  
-                url: 'http://47.93.217.112/shoph/1/mly/public/api/getUserBaseInfo',  
+                url: 'http://humeng.ngrok.cc/laravel/1/mly/public/api/getUserBaseInfo',  
                 data: {wxopenid:wxopenid},  
                 dataType:'json',  
                 async:false,  
