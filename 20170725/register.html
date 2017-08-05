@@ -46,8 +46,6 @@
 
 	<script>
 		
-		localStorage.clear();
-		
 		if(localStorage.getItem('registered') == '1'){
 			
 		    window.location.href = "member_center.html";
@@ -111,7 +109,7 @@
 				
 				$.ajax({  
 					type:'post',  
-					url: 'http://chenxiaolong.ngrok.cc/shop/1/zmdmly/public/api/register',  
+					url: 'http://47.93.217.112/shoph/1/mly/public/api/register',  
 					dataType:'json',  
 					data: {
 						openid:wxopenid,
