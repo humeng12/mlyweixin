@@ -425,6 +425,7 @@
 			
 			var fromurl = location.href;  
 			
+			alert(fromurl);
 			var access_code = getQueryStringByName('code');
 			
 			alert(access_code);
@@ -434,7 +435,8 @@
 				if (access_code == null || access_code == "")  
 				{
 					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5be0ef8a6f12a155&redirect_uri='+encodeURIComponent(fromurl)+"&response_type=code&scope=snsapi_base&state=4896#wechat_redirect";  			
-					location.href=url; 
+					
+					location.href = url;
 				}
 				else
 				{
@@ -494,7 +496,7 @@
 		    }
     	</script>
     	
-    	<!--<script>
+    	<script>
     		
     		
     		$('.header').click(function(){
@@ -566,7 +568,7 @@
 		        ctx.strokeStyle = '#ff6000';
 		        ctx.stroke();
 		    }
-		    ulp(12);
+//		    ulp(12);
 		    
 		    
 		    var c1 = document.getElementById('loadingProgress1'),ctx1 = c1.getContext('2d');
@@ -606,8 +608,8 @@
 		        ctx1.strokeStyle = '#ff6000';
 		        ctx1.stroke();
 		    }
-		    ulp1(12);
+//		    ulp1(12);
 		       
-    	</script>-->
+    	</script>
 	</body>
 </html>
