@@ -446,7 +446,7 @@
 						success:function(result){  
 
 							var data = result['data'];
-							alert(data['openid']);
+							alert(data['res']);
 							if (data != null && data.hasOwnProperty('openid')){  
 
 								localStorage.setItem('wxopenid',data['openid']);      
