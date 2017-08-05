@@ -430,7 +430,7 @@
 			{ 
 				if (access_code == null || access_code == "")  
 				{
-					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6b235d0ef54f8644&redirect_uri='+encodeURI(fromurl)+"&response_type=code&scope=snsapi_base&state=265215#wechat_redirect";  
+					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6b235d0ef54f8644&redirect_uri='+encodeURIComponent(fromurl)+"&response_type=code&scope=snsapi_base&state=265215#wechat_redirect";  
 					
 					window.location.href = url;
 				}
