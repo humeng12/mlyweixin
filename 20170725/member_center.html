@@ -418,7 +418,8 @@
     
     	<script>
     		//wxopenid nickname headimgurl
-    		/*var wxopenid = localStorage.getItem('wxopenid'); 
+    		localStorage.clear();
+    		var wxopenid = localStorage.getItem('wxopenid'); 
 		
 			var fromurl = window.location.href;  
 			
@@ -445,7 +446,8 @@
 						success:function(result){  
 
 							var data = result['data'];
-							alert(data['res']);
+							alert(data['access_token']);
+							
 							if (data != null && data.hasOwnProperty('openid')){  
 
 								wxopenid = data['openid'];
@@ -461,7 +463,7 @@
 				}
 			}else{
 				getlogininfo(wxopenid);
-			}*/
+			}
 		
 			function getlogininfo(wxopenid){    
 	
