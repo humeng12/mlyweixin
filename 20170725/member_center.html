@@ -430,6 +430,8 @@
 			
 			alert(access_code);
 			
+			alert(encodeURIComponent(fromurl));
+			
 			if (wxopenid == "" || wxopenid == null)
 			{ 
 				if (access_code == null || access_code == "")  
@@ -568,7 +570,7 @@
 		        ctx.strokeStyle = '#ff6000';
 		        ctx.stroke();
 		    }
-//		    ulp(12);
+		    ulp(12);
 		    
 		    
 		    var c1 = document.getElementById('loadingProgress1'),ctx1 = c1.getContext('2d');
@@ -608,7 +610,7 @@
 		        ctx1.strokeStyle = '#ff6000';
 		        ctx1.stroke();
 		    }
-//		    ulp1(12);
+		    ulp1(12);
 		       
     	</script>
 	</body>
