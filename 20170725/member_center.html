@@ -296,7 +296,7 @@
 				<div class="splash1">
 				    <div class="splash-inner1">
 				        <div class="loading-circle1" id="loadingCircle1">
-				            <p><span id="loadedNum1" v-text="loadedNum1"></span>%</p>
+				            <p><span id="loadedNum1"></span>%</p>
 				            <canvas class="mask1" id="loadingProgress1" width="102" height="102"></canvas>
 				            <canvas class="bg1" width="102" height="102"></canvas>
 				        </div>
@@ -564,14 +564,6 @@
 			        ctx1.stroke();
 			    }
 			    ulp1(tmpstr);
-			    
-			    
-			    new Vue({
-			    	el:'.percentage',
-			    	data:{
-			    		loadedNum1:tmpstr
-			    	}
-			    });
 			    
 //			    $('.percentage .percentage-right #loadedNum1').val(tmpstr);
 			    
