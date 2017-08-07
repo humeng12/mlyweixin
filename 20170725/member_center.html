@@ -204,17 +204,19 @@
 			.splash1 .loading-circle1>canvas.mask1 {z-index: 2; transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);}
 			.splash1 .loading-circle1>p {z-index: 3;  width: 49%; height: 49%; text-align: center; line-height: 100px; font-size: 30px; font-weight: lighter; color: #999;}
 			
-		
+		.content .sc_div ul li a{
+			-webkit-tap-highlight-color:transparent;
+		}
 		</style>
 	</head>
 	<body>
 		
-		<div class="header">
-			<img src="../images/ad2.jpg"/>
+		<div class="header" id="headinfo">
+			<img :src='imgurl'/>
 			<div class="header-right">
-				<p class="myname" v-text="myname"></p>
-				<p class="cardnum">会员卡号:  <i v-text="cardnum"></i></p>
-				<p class="jifen">累计积分:  <i v-text="jifen"></i></p>
+				<p class="myname" v-text="nickname"></p>
+				<p class="cardnum">会员卡号:  <i v-text='cardnum'></i></p>
+				<p class="jifen">累计积分:  <i v-text='jifen'></i></p>
 				<b class="right"><i class="right-arrow1"></i><i class="right-arrow2"></i></b>
 			</div>
 		</div>
@@ -253,7 +255,7 @@
 		                </a>
 		            </li>
 		            <li>
-		                <a href="#">
+		                <a href="plastic_Encyclopedia.html">
 		                    <p><img src="../images/zhengxing.png" class="animated rotateIn"></p>
 		                    <span>整形百科</span>
 		                </a>
@@ -264,7 +266,7 @@
 		
 		<div class="rank">
 			<div>
-				<p>你当前累计积分排行 <span style="color: #eed620;font-size: 20px;">25</span> 位，击败了 <span style="color: #eed620;font-size: 20px;">75%</span> 的会员</p>
+				<p>你当前累计积分排行第 <span style="color: #eed620;font-size: 20px;" v-text='nums'></span> 位，击败了 <span style="color: #eed620;font-size: 20px;" v-text='rank'></span> 的会员</p>
 				<div id="progressbar"></div>
 			</div>
 			<!--<div>
@@ -417,142 +419,103 @@
     
     
     	<script>
-    		//wxopenid nickname headimgurl
-    		localStorage.clear();
-    		var wxopenid = localStorage.getItem('wxopenid'); 
-		
-			var fromurl = window.location.href;  
-			
-			var access_code = getQueryStringByName('code');
-			
-			
-			if (wxopenid == "" || wxopenid == null)
-			{ 
-				if (access_code == null || access_code == "")  
-				{
-					var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx01d524b6a46a3884&redirect_uri='+encodeURIComponent(fromurl)+"&response_type=code&scope=snsapi_base&state=265215#wechat_redirect";  
-					
-					window.location.href = url;
-				}
-				else
-				{
-					$.ajax({  
-						type:'get',  
-						url:'http://chenxiaolong.top/shoph/1/mly/public/api/getOpenid',
-						async:false,  
-						cache:false,  
-						data:{code:access_code},  
-						dataType:'json',  
-						success:function(result){  
+    		
+    		var openid = '';
+    		openid = localStorage.getItem('openid');
 
-							var data = result['data'];
-							alert(data['access_token']);
-							
-							if (data != null && data.hasOwnProperty('openid')){  
+    		if (openid == '' || !openid || openid == null) {
+    			$.ajax({  
+					type:'get',  
+					url:'http://chenxiaolong.top/shoph/1/mly/public/user',
+					async:false,  
+					cache:false,
+					success:function(data){
+	 					
+	 					openid = data;
+	 					localStorage.setItem('openid',data);
+	 					
+	 					getUserBaseInfo(data);
+					}  
+				});
+    		}else{
 
-								wxopenid = data['openid'];
-								localStorage.setItem('wxopenid',data['openid']);
-								getlogininfo(data['openid']); 
-							}   
-							else  
-							{   
-								location.href = fromurl; 
-							}  
-						}  
-					}); 
-				}
-			}else{
-				getlogininfo(wxopenid);
-			}
-		
-			function getlogininfo(wxopenid){    
-	
-		    	$.ajax({  
-	                type:'get',  
-	                url: 'http://chenxiaolong.top/shoph/1/mly/public/api/getUserBaseInfo',  
-	                data: {wxopenid:wxopenid},  
-	                dataType:'json',  
-	                async:false,  
-	                cache:false,                 
-	                success: function (result) {                     
-	                    
-	                    var data = result['data'];
-	
-	                    if (data != null && data.hasOwnProperty('nickname')){ 
-	
-	                    	localStorage.setItem('nickname',data['nickname']); 
-	                    	localStorage.setItem('headimgurl',data['headimgurl']);
-	                    	
-	                    	
-	                    	setBaseInfo(wxopenid,data['nickname'],data['headimgurl']);
-	
-	                    }else{
-	                    	
-	                    }
-	                }  
-	            });  
-		    }
-			
-			
-			setBaseInfo('111111111','胡猛','2222222');
-			
-			function setBaseInfo(wxopenid,nickname,headimgurl)
+    			$.ajax({
+    				type:'get',
+    				url:'http://chenxiaolong.top/shoph/1/mly/public/api/getUserIntegral',
+    				data:{userid:localStorage.getItem('userid')},
+    				dataType:'json',
+    				success:function(data){
+
+    					var nickname = localStorage.getItem('nickname');
+		    			var imgurl = localStorage.getItem('headimgurl');
+		    			var cardnum = localStorage.getItem('cardnum');
+
+		    			initBaseInfo(nickname,imgurl,data['data']['integral'],cardnum);
+
+		    			getUserRank();
+
+    				}
+    			});
+    		}
+    		
+    		function getUserRank()
+    		{
+    			$.ajax({
+    				type:'get',
+    				url:'http://chenxiaolong.top/shoph/1/mly/public/api/getUserRank',
+    				data:{userid:localStorage.getItem('userid')},
+    				dataType:'json',
+    				success:function(data){
+
+    					var nums = data['data']['nums'];
+    					var rank = data['data']['rank'];
+
+    					new Vue({
+    						el:'.rank',
+    						data:{
+    							nums:nums-rank,
+    							rank:((rank/nums)*100).toFixed(1) + '%'
+    						}
+    					});
+    				}
+    			});
+    		}
+
+			function getUserBaseInfo(weixinid)
 			{
-				
-				var userid = localStorage.getItem('userid');
-				
-				if(userid){
-					$.ajax({  
-		                type:'post',  
-		                url: 'http://humeng.ngrok.cc/laravel/1/mly/public/api/getUserIntegral',
-		                data: {userid:userid},  
-		                dataType:'json',  
-		                async:false,  
-		                cache:false,                 
-		                success: function (result) {                     
-		                    
-		                   	var data = result['data'];	               
-		                  	
-		                  	handerBaseInfo(data['cardnum'],data['integral']);
-					
-		            		handerCircle();
-		                }  
-		            });  
-				}else{
-					$.ajax({  
-		                type:'post',  
-		                url: 'http://humeng.ngrok.cc/laravel/1/mly/public/api/register',
-		                data: {wxopenid:wxopenid,nickname:nickname,headimgurl:headimgurl},  
-		                dataType:'json',  
-		                async:false,  
-		                cache:false,                 
-		                success: function (result) {                     
-		                    
-		                   	var data = result['data'];
-		                   	
-		                   	localStorage.setItem('userid',data['userid']);
-		                  	
-		                  	handerBaseInfo(data['cardnum'],20);
-					
-		            		handerCircle();  
-		                }  
-		            });  	
-				}
+				$.ajax({
+
+					type:'get',
+					url:'http://chenxiaolong.top/shoph/1/mly/public/api/getBaseInfo',
+					data:{openid:weixinid},
+					dataType:'json',
+					success:function(data){
+
+						localStorage.setItem('nickname',data['data']['nickname']);
+						localStorage.setItem('headimgurl',data['data']['imgurl']);
+						localStorage.setItem('qrcode',data['data']['qrcode']);
+						localStorage.setItem('cardnum',data['data']['cardnum']);
+						localStorage.setItem('userid',data['data']['id']);
+
+						initBaseInfo(data['data']['nickname'],data['data']['imgurl'],data['data']['integral'],data['data']['cardnum']);
+					}
+				});
 			}
-			
-			
-			function handerBaseInfo(cardnum,jifen)
+
+
+			function initBaseInfo(nickname,imgurl,jifen,cardnum)
 			{
 				new Vue({
-              		el:'.header-right',
-	              	data:{
-		                myname:'000',
-		                cardnum:cardnum,
-		                jifen:jifen
-	             	}
-            	});
+					el:'#headinfo',
+					data:{
+						nickname:nickname,
+						imgurl:imgurl,
+						jifen:jifen,
+						cardnum:cardnum
+					}
+				});
+
 			}
-			
 			
 			function handerCircle()
 			{
