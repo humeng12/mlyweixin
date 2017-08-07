@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
 <title>每日签到</title>
-<link rel="stylesheet" href="../calendar/css/bootstrap3/css/bootstrap.min.css">
-<link rel="stylesheet" href="../calendar/css/style.css">
-<link rel="stylesheet" href="../calendar/css/qiandao_style.css">
+	<link rel="stylesheet" href="../calendar/css/bootstrap3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../calendar/css/style.css">
+	<link rel="stylesheet" href="../calendar/css/qiandao_style.css">
+	
+	<link rel="stylesheet" href="../css/weui.min.css">
+	<link rel="stylesheet" href="../css/jquery-weui.min.css">
+	
 </head>
 <body>
 <div class="container">
@@ -19,7 +23,7 @@
 					<div id="calendar"></div>
 				</div>
 				<div class="text-center">
-					<button class="btn btn-qiandao" onClick="signIn()">马上签到</button>
+					<button class="btn btn-qiandao" onClick="signIn();">马上签到</button>
 				</div>
 			</div>
 		</div>
@@ -31,15 +35,12 @@
 	<div class="text-center pt10">您已经连续签到&nbsp;<span class="text-green">10</span>&nbsp;天</div>
 	<div class="text-center ptb15"><img src="../images/gift.png" style="width:125px;margin-left:20px;"></div>
 </div>
-<script src="../calendar/js/jquery-1.10.2.min.js"></script>
-<script src="../calendar/js/calendar.js"></script>
+	<script src="../calendar/js/jquery-1.10.2.min.js"></script>
+	<script src="../calendar/js/calendar.js"></script>
+	
+	<script src="../js/jquery-weui.js"></script>
+	<script src="../weui/js/weui.min.js"></script>
 <script>
-function  signIn(){
-	$(".maskbox").fadeIn();
-	$(".qdbox").fadeIn();
-	$(".maskbox").height($(document).height());
-
-}
 $(".maskbox").click(function(){
 	$(".maskbox").fadeOut();
 	$(".qdbox").fadeOut();
@@ -74,65 +75,73 @@ $(function(){
 			signed(data['signdate']);
 		}
 	}
+	
+//	function  signIn(){
+//		$(".maskbox").fadeIn();
+//		$(".qdbox").fadeIn();
+//		$(".maskbox").height($(document).height());
+//	
+//	}
 	  	
-	$(".signbutton").click(function(){
+	function signIn(){
 
-		if (data) {
-
-			if (signTime != null ) {
-
-				if (DateDiff(datestr,signTime) == 0) {
-					$.toast('今日已签到',"text");
-					return;
-				}
-			}
-		}
-
-		var userid = localStorage.getItem('idstr'); 
-
-        $.showLoading('签到中...');
-
-	   	$.ajax({  
-            type:'post',  
-            url: 'http://47.93.217.112/shoph/1/mly/public/api/taskSign',  
-			//url: 'http://humeng.ngrok.cc/laravel/1/mly/public/api/taskSign',
-            data: {
-                idstr:userid,
-                signdate:datestr
-            },
-            dataType:'json',  
-            async:false,  
-            cache:false,                 
-            success: function (result) {  
-
-                setTimeout(function() {
-							
-					$.hideLoading();
-					$.toast(result['message'],"text");
-				},3000); 
-
-                if(result['status']== '0'){
-             		
-             		localStorage.setItem('signInfo',JSON.stringify(result['data']));
-             		localStorage.setItem('signTime',datestr);
-
-                    $('.unsign').hide();
-		            $('.sign').show();
-		              
-                }
-                else{
-                    	
-                    $('.unsign').show();
-			        $('.sign').hide();
-                }
-            },
-            error:function(data){
-            	$.hideLoading();
-            	
-            	$.toast('签到失败',"text");
-            }
-        });  
-	});
+		alert('12121');
+//		if (data) {
+//
+//			if (signTime != null ) {
+//
+//				if (DateDiff(datestr,signTime) == 0) {
+//					$.toast('今日已签到',"text");
+//					return;
+//				}
+//			}
+//		}
+//
+//		var userid = localStorage.getItem('userid'); 
+//
+//      $.showLoading('签到中...');
+//
+//	   	$.ajax({  
+//          type:'post',  
+//          url: 'http://chenxiaolong.top/shoph/1/mly/public/api/taskSign',
+//          data: {
+//              idstr:userid,
+//              signdate:datestr
+//          },
+//          dataType:'json',  
+//          async:false,  
+//          cache:false,                 
+//          success: function (result) {  
+//
+//              setTimeout(function() {
+//							
+//					$.hideLoading();
+//					$.toast(result['message'],"text");
+//					
+//				},3000); 
+//
+//              if(result['status']== '0'){
+//           		
+//           		localStorage.setItem('signInfo',JSON.stringify(result['data']));
+//           		localStorage.setItem('signTime',datestr);
+//
+//                  $('.unsign').hide();
+//		            $('.sign').show();
+//		              
+//              }
+//              else{
+//                  	
+//                  $('.unsign').show();
+//			        $('.sign').hide();
+//              }
+//          },
+//          error:function(data){
+//          	$.hideLoading();
+//          	
+//          	$.toast('签到失败',"text");
+//          }
+//      });  
+	)
 
 
 	function getNowFormatDate() {
@@ -149,9 +158,6 @@ $(function(){
 	        strDate = "0" + strDate;
 	    }
 	    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-
-	    //" " + date.getHours() + seperator2 + date.getMinutes()
-	            //+ seperator2 + date.getSeconds()
 
 	    return currentdate;
 	}

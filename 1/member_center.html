@@ -313,8 +313,61 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		<div class="pointsrank" style="background-color: #FFFFFE;margin-top: 1rem;height: 20rem;position: relative;">
+	    	<p style="padding-top: 1rem;">积分排行榜</p>
+	    	<div class="ranklist" v-for='item in items'>
+	    		<div class="ranklist_left">
+		    		<img src="../images/Brand.png" alt="" style="width: 2rem;height:2rem">
+		    		<img :src='item.imgurl' style="width: 2rem;height:2rem">
+		    		<p v-text="item.nickname"></p>	
+	    		</div>
+	    		<div class="ranklist_right">
+	    			<p v-text="item.integral"></p>
+	    		</div>
+	    	</div>
+	   
+	    	<div class="rank-footer">
+				<p>查看累计积分排行</p>
+				<b class="right" style="margin-top: 15rem;"><i class="right-arrow1"></i><i class="right-arrow2"></i></b>
+		    </div>
+	    </div>
 
 		<style>
+			
+			.pointsrank .rank-footer p{
+				position: absolute;
+				top: 17.8rem;
+				left: 65%;
+				color: #a6a6a6;
+			}
+			.percentage .rank-footer p{
+				position: absolute;
+				top: 13.8rem;
+				left: 65%;
+				color: #a6a6a6;
+			}
+			.pointsrank .ranklist .ranklist_left{
+				 width: 28%;
+				 display: flex;
+                 justify-content: space-between; 
+                 align-items: center;
+			}
+			.pointsrank .ranklist{
+				 display: flex;
+                 justify-content: space-between;                
+                 margin: 1rem 1rem 1rem;
+                 height: 4rem;
+                 align-items: center;
+			}
+			.pointsrank p{
+				text-align: center;
+			}
+			.ranklist_right p{
+				color: #DD3D3D;
+			}
+			
 			.massion-layer{
 				position:fixed;
 				top:0;
@@ -433,9 +486,6 @@
     		var rankstr = '';
     		
     		var openid = localStorage.getItem('openid');
-    		
-    		openid = null;
-    	
 
     		if (openid == '' || !openid || openid == null) {
     			
@@ -490,7 +540,7 @@
     					var nums = data['data']['nums'];
     					var rank = data['data']['rank'];
     					
-    					rankstr = parseInt((rank/nums)*100);
+    					rankstr = parseInt(((nums-rank)/nums)*100);
     					
     					
     					handerCircle(rankstr);
@@ -498,8 +548,9 @@
     					new Vue({
     						el:'.rank',
     						data:{
-    							nums:nums-rank,
-    							rank:rankstr + '%'
+    							nums:rank,
+    							rank:rankstr + '%',
+    							items:data['data']['topthree']
     						}
     					});
     				}
