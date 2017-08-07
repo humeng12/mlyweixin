@@ -474,7 +474,7 @@
     					rankstr = ((rank/nums)*100).toFixed(1);
     					
     					
-    					handerCircle();
+    					handerCircle(rankstr);
 
     					new Vue({
     						el:'.rank',
@@ -524,14 +524,14 @@
 
 			}
 			
-			function handerCircle()
+			function handerCircle(tmpstr)
 			{
 				
 				new Vue({
 					
 					el:'.percentage-right',
 					data:{
-						loadedNum1:rankstr + '%'
+						loadedNum1:tmpstr + '%'
 					}
 				});
 				
