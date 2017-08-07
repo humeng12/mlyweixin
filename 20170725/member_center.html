@@ -421,6 +421,7 @@
     	<script>
     		
     		var openid = '';
+    		var rankstr = '';
     		openid = localStorage.getItem('openid');
 
     		if (openid == '' || !openid || openid == null) {
@@ -469,12 +470,17 @@
 
     					var nums = data['data']['nums'];
     					var rank = data['data']['rank'];
+    					
+    					rankstr = ((rank/nums)*100).toFixed(1);
+    					
+    					
+    					handerCircle();
 
     					new Vue({
     						el:'.rank',
     						data:{
     							nums:nums-rank,
-    							rank:((rank/nums)*100).toFixed(1) + '%'
+    							rank:rankstr + '%'
     						}
     					});
     				}
@@ -498,6 +504,7 @@
 						localStorage.setItem('userid',data['data']['id']);
 
 						initBaseInfo(data['data']['nickname'],data['data']['imgurl'],data['data']['integral'],data['data']['cardnum']);
+						
 					}
 				});
 			}
@@ -595,7 +602,7 @@
 			        ctx1.strokeStyle = '#ff6000';
 			        ctx1.stroke();
 			    }
-			    ulp1(12);
+			    ulp1(rankstr);
 			}
 			
     	</script>
