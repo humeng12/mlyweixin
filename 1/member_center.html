@@ -423,6 +423,8 @@
     		var openid = '';
     		var rankstr = '';
     		
+    		var openid = localStorage.getItem('openid');
+    		
     		openid = null;
     	
 
@@ -442,7 +444,7 @@
 					},
 					error:function(data){
 						
-						
+						window.location.href = 'http://chenxiaolong.top/shoph/1/mly/public/outhuser';
 					}
 				});
     		}else{
