@@ -471,7 +471,7 @@
     					var nums = data['data']['nums'];
     					var rank = data['data']['rank'];
     					
-    					rankstr = ((rank/nums)*100).toFixed(0);
+    					rankstr = parseInt((rank/nums)*100);
     					
     					
     					handerCircle(rankstr);
@@ -564,8 +564,6 @@
 			        ctx1.stroke();
 			    }
 			    ulp1(tmpstr);
-			    
-//			    $('.percentage .percentage-right #loadedNum1').val(tmpstr);
 			    
 			    
 			    var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
