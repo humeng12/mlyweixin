@@ -425,7 +425,7 @@
     		
     		openid = localStorage.getItem('openid');
     		
-    		alert(openid);
+    		openid = null;
 
     		if (openid == '' || !openid || openid == null) {
     			$.ajax({  
@@ -450,8 +450,6 @@
     				data:{userid:localStorage.getItem('userid')},
     				dataType:'json',
     				success:function(data){
-    					
-    					alert(localStorage.getItem('nickname'));
 
     					var nickname = localStorage.getItem('nickname');
 		    			var imgurl = localStorage.getItem('headimgurl');
