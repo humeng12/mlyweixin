@@ -422,6 +422,9 @@
     		
     		var openid = '';
     		var rankstr = '';
+    		
+    		alert(localStorage.getItem('userid'));
+    		
     		openid = localStorage.getItem('openid');
 
     		if (openid == '' || !openid || openid == null) {
@@ -496,6 +499,8 @@
 					data:{openid:weixinid},
 					dataType:'json',
 					success:function(data){
+						
+						alert(data['data']['nickname']);
 
 						localStorage.setItem('nickname',data['data']['nickname']);
 						localStorage.setItem('headimgurl',data['data']['imgurl']);
