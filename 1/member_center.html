@@ -424,6 +424,8 @@
     		var rankstr = '';
     		
     		openid = localStorage.getItem('openid');
+    		
+    		alert(openid);
 
     		if (openid == '' || !openid || openid == null) {
     			$.ajax({  
@@ -433,6 +435,7 @@
 					cache:false,
 					success:function(data){
 	 					
+	 					alert(data);
 	 					openid = data;
 	 					localStorage.setItem('openid',data);
 	 					
@@ -447,6 +450,8 @@
     				data:{userid:localStorage.getItem('userid')},
     				dataType:'json',
     				success:function(data){
+    					
+    					alert(localStorage.getItem('nickname'));
 
     					var nickname = localStorage.getItem('nickname');
 		    			var imgurl = localStorage.getItem('headimgurl');
