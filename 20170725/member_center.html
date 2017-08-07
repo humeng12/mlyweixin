@@ -296,7 +296,7 @@
 				<div class="splash1">
 				    <div class="splash-inner1">
 				        <div class="loading-circle1" id="loadingCircle1">
-				            <p><span id="loadedNum1">66</span></p>
+				            <p><span id="loadedNum1"></span></p>
 				            <canvas class="mask1" id="loadingProgress1" width="102" height="102"></canvas>
 				            <canvas class="bg1" width="102" height="102"></canvas>
 				        </div>
@@ -530,43 +530,43 @@
 				$('.percentage .percentage-right #loadedNum1').val(tmpstr + '%');
 				
 				
-				var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
-			    window.hasLoaded = 0;
-			    window.loading = false;
-			    window.ulp = ulp;
-			    function ulp(percent){
-			        window.loading = true;
-			        var i = 0, draw = null;
-			        draw = setInterval(function(){
-			            if (window.hasLoaded > 100) {
-			                window.loading = false;
-			                clearInterval(draw);
-			                draw = null;
-			                return true;
-			            }
-			
-			            if (i<percent) {
-			                d();
-			                i++;
-			                window.hasLoaded += 1;
-			            } else {
-			                clearInterval(draw);
-			                draw = null;
-			            }
-			        }, 100);
-			    }
-	
-			    function d(){
-			 
-			        var loaded = window.hasLoaded * 2 / 100 * Math.PI, cw = 102, hcw = 51;
-			        ctx.clearRect (0,0,cw,cw);
-			        ctx.beginPath();
-			        ctx.arc(hcw,hcw,hcw-4, 0, loaded, false);
-			        ctx.lineWidth = 8;
-			        ctx.strokeStyle = '#ff6000';
-			        ctx.stroke();
-			    }
-			    ulp(12);
+//				var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
+//			    window.hasLoaded = 0;
+//			    window.loading = false;
+//			    window.ulp = ulp;
+//			    function ulp(percent){
+//			        window.loading = true;
+//			        var i = 0, draw = null;
+//			        draw = setInterval(function(){
+//			            if (window.hasLoaded > 100) {
+//			                window.loading = false;
+//			                clearInterval(draw);
+//			                draw = null;
+//			                return true;
+//			            }
+//			
+//			            if (i<percent) {
+//			                d();
+//			                i++;
+//			                window.hasLoaded += 1;
+//			            } else {
+//			                clearInterval(draw);
+//			                draw = null;
+//			            }
+//			        }, 100);
+//			    }
+//	
+//			    function d(){
+//			 
+//			        var loaded = window.hasLoaded * 2 / 100 * Math.PI, cw = 102, hcw = 51;
+//			        ctx.clearRect (0,0,cw,cw);
+//			        ctx.beginPath();
+//			        ctx.arc(hcw,hcw,hcw-4, 0, loaded, false);
+//			        ctx.lineWidth = 8;
+//			        ctx.strokeStyle = '#ff6000';
+//			        ctx.stroke();
+//			    }
+//			    ulp(12);
 			    
 			    
 			    var c1 = document.getElementById('loadingProgress1'),ctx1 = c1.getContext('2d');
