@@ -526,49 +526,10 @@
 			
 			function handerCircle(tmpstr)
 			{
-				var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
-			    window.hasLoaded = 0;
-			    window.loading = false;
-			    window.ulp = ulp;
-			    function ulp(percent){
-			        window.loading = true;
-			        var i = 0, draw = null;
-			        draw = setInterval(function(){
-			            if (window.hasLoaded > 100) {
-			                window.loading = false;
-			                clearInterval(draw);
-			                draw = null;
-			                return true;
-			            }
-			
-			            if (i<percent) {
-			                d();
-			                i++;
-			                window.hasLoaded += 1;
-			            } else {
-			                clearInterval(draw);
-			                draw = null;
-			            }
-			        }, 100);
-			    }
-	
-			    function d(){
-			 
-			        var loaded = window.hasLoaded * 2 / 100 * Math.PI, cw = 102, hcw = 51;
-			        ctx.clearRect (0,0,cw,cw);
-			        ctx.beginPath();
-			        ctx.arc(hcw,hcw,hcw-4, 0, loaded, false);
-			        ctx.lineWidth = 8;
-			        ctx.strokeStyle = '#ff6000';
-			        ctx.stroke();
-			    }
-			    ulp(12);
-			    
-			    
 			    var c1 = document.getElementById('loadingProgress1'),ctx1 = c1.getContext('2d');
 			    window.hasLoaded1 = 0;
 			    window.loading1 = false;
-			    window.ulp = ulp1;
+			    window.ulp1 = ulp1;
 			    function ulp1(percent1){
 			        window.loading1 = true;
 			        var j = 0, draw1 = null;
@@ -605,6 +566,45 @@
 			    ulp1(tmpstr);
 			    
 			    $('.percentage .percentage-right #loadedNum1').val(tmpstr + '%');
+			    
+			    
+			    var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
+			    window.hasLoaded = 0;
+			    window.loading = false;
+			    window.ulp = ulp;
+			    function ulp(percent){
+			        window.loading = true;
+			        var i = 0, draw = null;
+			        draw = setInterval(function(){
+			            if (window.hasLoaded > 100) {
+			                window.loading = false;
+			                clearInterval(draw);
+			                draw = null;
+			                return true;
+			            }
+			
+			            if (i<percent) {
+			                d();
+			                i++;
+			                window.hasLoaded += 1;
+			            } else {
+			                clearInterval(draw);
+			                draw = null;
+			            }
+			        }, 100);
+			    }
+	
+			    function d(){
+			 
+			        var loaded = window.hasLoaded * 2 / 100 * Math.PI, cw = 102, hcw = 51;
+			        ctx.clearRect (0,0,cw,cw);
+			        ctx.beginPath();
+			        ctx.arc(hcw,hcw,hcw-4, 0, loaded, false);
+			        ctx.lineWidth = 8;
+			        ctx.strokeStyle = '#ff6000';
+			        ctx.stroke();
+			    }
+			    ulp(12);
 			}
 			
     	</script>
