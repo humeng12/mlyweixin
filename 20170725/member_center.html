@@ -296,7 +296,7 @@
 				<div class="splash1">
 				    <div class="splash-inner1">
 				        <div class="loading-circle1" id="loadingCircle1">
-				            <p><span id="loadedNum1">0</span>%</p>
+				            <p><span id="loadedNum1" v-text="loadeNum1"></span></p>
 				            <canvas class="mask1" id="loadingProgress1" width="102" height="102"></canvas>
 				            <canvas class="bg1" width="102" height="102"></canvas>
 				        </div>
@@ -526,6 +526,16 @@
 			
 			function handerCircle()
 			{
+				
+				new Vue({
+					
+					el:'.percentage-right',
+					data:{
+						loadedNum1:rankstr + '%'
+					}
+				});
+				
+				
 				var c = document.getElementById('loadingProgress'),ctx=c.getContext('2d');
 			    window.hasLoaded = 0;
 			    window.loading = false;
@@ -602,8 +612,7 @@
 			        ctx1.strokeStyle = '#ff6000';
 			        ctx1.stroke();
 			    }
-			    alert(rankstr);
-			    ulp1(66);
+			    ulp1(rankstr);
 			}
 			
     	</script>
