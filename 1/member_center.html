@@ -419,15 +419,15 @@
     
     
     	<script>
-    		
+				
     		var openid = '';
     		var rankstr = '';
     		
-    		openid = localStorage.getItem('openid');
-    		
     		openid = null;
+    	
 
     		if (openid == '' || !openid || openid == null) {
+    			
     			$.ajax({  
 					type:'get',  
 					url:'http://chenxiaolong.top/shoph/1/mly/public/user',
@@ -435,12 +435,15 @@
 					cache:false,
 					success:function(data){
 	 					
-	 					alert(data);
-	 					openid = data;
-	 					localStorage.setItem('openid',data);
+	 					openid = data['message'];
+	 					localStorage.setItem('openid',openid);
 	 					
-	 					getUserBaseInfo(data);
-					}  
+	 					getUserBaseInfo(openid);
+					},
+					error:function(data){
+						
+						
+					}
 				});
     		}else{
 
