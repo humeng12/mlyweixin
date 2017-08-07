@@ -424,8 +424,6 @@
     		var rankstr = '';
     		
     		openid = localStorage.getItem('openid');
-    		
-    		alert(openid);
 
     		if (openid == '' || !openid || openid == null) {
     			$.ajax({  
@@ -434,8 +432,6 @@
 					async:false,  
 					cache:false,
 					success:function(data){
-	 					
-	 					alert(data);
 	 					
 	 					openid = data;
 	 					localStorage.setItem('openid',data);
