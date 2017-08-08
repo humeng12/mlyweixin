@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的邀请码</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		
+		
+		<link rel="stylesheet" type="text/css" href="../common/common.css" />
+		
+		<link rel="stylesheet" href="../css/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+	
+		<script src="../js/jquery-2.1.4.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../weui/js/weui.min.js"></script>
+		
+		
+		<style>
+			.content{
+				position: relative;
+				width: 90%;
+				margin-left: 5%;
+				margin-top: 60px;
+				height: 42rem;
+				background-color: #FFFFFF;
+				z-index: 888;
+			}
+			
+			.headimg{
+				width: 80px;
+				height: 80px;
+				border-radius: 40px;
+				background-color: #007AFF;
+				position: absolute;
+				margin-top: -40px;
+				z-index: 889;
+			}
+			
+			.content img{
+				width: 80%;
+				margin-left: 10%;
+				height: auto !important; 
+				background-color: #007AFF;
+				margin-top: 50px;
+			}
+			.content p{
+				text-align: center;
+				margin-top: 10px;
+			}
+			.createbtn{
+				width: 60%;
+				margin-left: 20%;
+				margin-top: 10px;
+				height: 4rem;
+				margin-bottom: 30px;
+				border-radius: 10px;
+				color: #FFFFFF;
+				background-color: #0084C7;
+				border: hidden;
+			}
+		</style>
+		
+	</head>
+	<body>
+  	    
+  	    <div style="text-align: center;margin-left: -80px;">
+  	    	<img class="headimg"/>
+  	    </div>
+  	    
+  	    <div class="content">
+  	    	<img src=""/>
+  	    	<p>扫描此二维码,关注微信公众号</p>
+  	    	<button class="createbtn">点击重新生成二维码</button>
+  	    </div>
+  	    
+	</body>
+	
+	<script>
+		
+		var imgurl = localStorage.getItem('headimgurl');
+		
+		$('.headimg').attr('src',imgurl);
+		
+		var userid = localStorage.getItem('userid');
+		
+		var qrcode = localStorage.getItem('qrcodeurl');
+		if(!qrcode){
+			
+			$.ajax({
+				type:"get",
+				url:"http://chenxiaolong.top/shoph/1/mly/public/getQrcode",
+				async:true,
+				data:{userid:userid},
+				success:function(data){
+					
+					localStorage.setItem('qrcodeurl',data);
+					
+					$('.content img').attr('src',data);
+				}
+			});
+		}else{
+			$('.content img').attr('src',qrcode);
+		}
+		
+		
+		
+		$('.createbtn').click(function(){
+			
+			$.showLoading('生成中...');
+			
+			$('.createbtn').attr('disabled',"true");
+			
+			$.ajax({
+				type:"get",
+				url:"http://chenxiaolong.top/shoph/1/mly/public/getQrcode",
+				async:true,
+				data:{userid:userid},
+				success:function(data){
+					$.hideLoading();
+					
+					localStorage.setItem('qrcodeurl',data);
+					
+					$('.content img').attr('src',data);
+					
+					$('.createbtn').removeAttr("disabled");
+					
+				}
+			});
+		});
+		
+		
+	</script>
+</html>

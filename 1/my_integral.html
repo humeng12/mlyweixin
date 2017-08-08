@@ -19,11 +19,6 @@
 	</head>
 	<body>
 		
-		
-		<header id="title" style="background-color: #FFFFFF;color: #000000;">
-    		<img class="goback" src="../images/jiantou.png"/>
-    		我的积分
-  		</header>
   		
   		<div class="butt" style="margin-top: 3px;">
 			<ul class="butt_list">
@@ -46,12 +41,6 @@
 			window.location.href = 'record.html';
 		});
 		
-		$('.goback').click(function(){
-			
-			history.go(-1);
-		});
-		
-		
 		mui.init({
 			gestureConfig:{
 				doubletap:true
@@ -59,7 +48,7 @@
 			subpages:[{
 				url:'integral_record.html',
 				styles:{
-					top: '130px',
+					top: '70px',
 					bottom: '0px',
 				}
 			}]

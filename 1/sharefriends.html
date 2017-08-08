@@ -2,53 +2,66 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>邀请赚积分</title>
-		   <link rel="stylesheet"  href="../css/common.css"/>
-		   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>邀请赚积分规则</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		
+		
+		<link rel="stylesheet" type="text/css" href="../common/common.css" />
+		
+		<script src="../js/jquery-2.1.4.js"></script>
+		
 		<style type="text/css">
-			    body{
-			    	background:url(../images/shouye_nvsheng_bg.png) no-repeat;
-			    	text-align: center;
-			    }
-		       .content ul li img:nth-child(1){
-		       	     width: 5rem;
-		       	     height: 5rem;
-		       	     padding-top: 5rem;
-		       }
-		       .content ul li p strong{
-		       	   color: #E9C341;
-		       }
-		       .content ul li p{
-		       	   color: #FFFFFF;
-		       }  
-		       .content ul li p:nth-child(1){
-		       	  /* color: #000000;*/
-		       	   font-size: 2rem;
-		       	   color: #0079FF;
-		       }
-		        .content ul li img:nth-child(4){
-		       	     width: 1rem;
-		       	     height: 1rem;
-		       }
+			.contentimg img{
+				width: 100%;
+			}
+			
+			.contenttip{
+				margin-top: 10px;
+				width:90%;
+				margin-left: 5%;
+                height:25rem;
+                border: 1px solid #CDCDCD;
+                border-radius: 10px;
+			}
+			.btn{
+				width: 60%;
+				margin-left: 20%;
+				margin-top: 10px;
+				height: 4rem;
+				margin-bottom: 30px;
+				border-radius: 10px;
+				color: #FFFFFF;
+				background-color: #0084C7;
+				border: hidden;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="content">
-			<ul>
-				<li><img src="../images/ad2.jpg" alt=""></li>
-				<li><p>我是<strong>斗战圣佛---至尊宝</strong></p></li>
-				<li><p>我为<strong>修行美林</strong>代言</p></li>
-				<li><img src="../images/logo.png" alt=""></li>
-				<li><p>修行美林</p></li>				
-				<li><img src="../images/scan.png" alt=""></li>
-				<li><p>扫描此二维码，关注微信公众号</p></li>
-				<li><p>此二维码为临时二维码，有效期至2017-09-02 17:41届时系统将会更新新的临时二维码</p></li>
-			</ul>		
+  	    
+  	    <div class="contentimg">
+			<img src="../images/sendpoints.png">
 		</div>
+		
+		<div class="contenttip">
+			<p style="margin-top: 5px;margin-left: 10px;">奖励规则</p>
+           	<p style="margin-left: 10px;padding-right: 10px;">1.邀请您的好友加入美林苑，好友通过您的专属请求链接成功注册并激活账户，您将获得20个积分。</p>
+           	<p style="margin-left: 10px;padding-right: 10px;">2.切勿更改以上您专属的邀请链接，一旦更改可能导致积分不能奖励到您的账号。</p>
+           	<p style="margin-left: 10px;padding-right: 10px;">3.注意事项：禁止通过各种作弊手段进行虚假邀请注册好友获得积分，一旦反作弊系统检测到有作弊行为，我们将取消您的积分，情节严重者，我们直接对账号进行封号处理。</p>
+           	<p style="margin-left: 10px;padding-right: 10px;">4.美林苑拥有最终活动解释权。</p>
+		</div>
+		
+		
+		<button class="btn">立即参与</button>
+		
 	</body>
+	
+	<script>
+		
+		
+		$('.btn').click(function(){
+			
+			window.location.href = 'invitecode.html';
+		});
+		
+	</script>
 </html>
-<script type="text/javascript">
-	//当前微信的openid
-	var wxopenid = localStorage.getItem('wxopenid'); 
-	//获得扫码者的微信id
-</script>
