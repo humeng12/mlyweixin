@@ -546,7 +546,7 @@
     					var nickname = localStorage.getItem('nickname');
 		    			var imgurl = localStorage.getItem('headimgurl');
 		    			var cardnum = localStorage.getItem('cardnum');
-
+						localStorage.setItem('myintegral',data['data']['integral']);
 		    			initBaseInfo(nickname,imgurl,data['data']['integral'],cardnum);
 
 		    			getUserRank();
@@ -610,6 +610,7 @@
 						localStorage.setItem('qrcode',data['data']['qrcode']);
 						localStorage.setItem('cardnum',data['data']['cardnum']);
 						localStorage.setItem('userid',data['data']['id']);
+						localStorage.setItem('myintegral',data['data']['integral']);
 
 						initBaseInfo(data['data']['nickname'],data['data']['imgurl'],data['data']['integral'],data['data']['cardnum']);
 						
