@@ -247,14 +247,19 @@
 		    {
 		    	var userid = localStorage.getItem('userid');
 		    	
+		    	$('.shop-btn').attr('disabled',"true");
+		    	
 		    	$.ajax({
 		    		type:"get",
-		    		url:"",
+		    		url:"http://chenxiaolong.top/shoph/1/mly/public/giftTrade",
 		    		async:true,
 		    		data:{userid:userid,giftid:proid,giftname:proname,giftnum:tmpcount,giftscore:tmpjifen},
 		    		success:function(data){
-		    			
+		    			$('.shop-btn').removeAttr("disabled");
 		    			mui.toast(data['message'],{ duration:'short', type:'div' });
+		    		},
+		    		error:function(data){
+		    			$('.shop-btn').removeAttr("disabled");
 		    		}
 		    	});
 		    }

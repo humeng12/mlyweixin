@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="../mui/css/mui.min.css">
         <link rel="stylesheet" type="text/css" href="../common/common.css" />
         
+        <script src="../js/jquery-2.1.4.js"></script>
         <script src="../mui/js/mui.min.js"></script>
 		
 	</head>
@@ -17,13 +18,13 @@
 			<div class="mui-scroll">
 				<ul class="mui-table-view mui-table-view-chevron">
 					<li class="mylist">
-						<div class="listcontent">
+						<!--<div class="listcontent">
 				  			<div class="detail">
 								<h1>提现</h1>
 							    <h3>2016年1月22日&nbsp;&nbsp;&nbsp;&nbsp;16:30</h3>
 							    <p>+&nbsp;&nbsp;20.0</p>
 							</div>
-				  		</div>
+				  		</div>-->
 			  		</li>
 				</ul>
 			</div>
@@ -31,6 +32,13 @@
 		
 		
 		<script>
+			
+			var table = document.body.querySelector('.mui-table-view');
+			
+			var isdata = false;
+			
+			var page = 0;
+			
 			mui.init({
 				pullRefresh: {
 					container: '#pullrefresh',
@@ -44,21 +52,60 @@
 				}
 			});
 			
+			
+			function getData()
+			{
+				$.ajax({
+					type:"get",
+					url:"http://chenxiaolong.top/shoph/1/mly/public/getIntegralRecord",
+					async:true,
+					data:{userid:localStorage.getItem('userid'),page:page},
+					success:function(data){
+						
+						
+						var record = data['data'];
+						
+						if(record.length >= 10)
+							
+							isdata = true;
+						
+						if (!record) {
+							isdata = false;
+						}
+
+						for(var i = 0; i < record.length; i++) {
+							var li = document.createElement('li');
+							li.className = 'mylist';
+							li.innerHTML = "<div class='listcontent'><div class='detail'><h1>"+record[i]['describe']+"</h1><h3>"+record[i]['create_time']+"</h3><p>+&nbsp;&nbsp;"+record[i]['score']+"</p></div></div>";
+							table.insertBefore(li, table.firstChild);
+						}
+					
+					}
+				});	
+			}
+			
+			
+			getData();
+			
 				  		
 			/**
 			 * 下拉刷新具体业务实现
 			 */
 			function pulldownRefresh() {
+				
 				setTimeout(function() {
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for(var i = cells.length, len = i + 3; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mylist';
-						li.innerHTML = "<div class='listcontent'><div class='detail'><h1>提现</h1><h3>2016年1月22日&nbsp;&nbsp;&nbsp;&nbsp;16:30</h3><p>+&nbsp;&nbsp;20.0</p></div></div>";
-						table.insertBefore(li, table.firstChild);
-					}
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+					
+					$.ajax({
+						type:"get",
+						url:"http://chenxiaolong.top/shoph/1/mly/public/getIntegralRecord",
+						async:true,
+						data:{userid:localStorage.getItem('userid')},
+						success:function(data){
+							
+							mui('#pullrefresh').pullRefresh().endPulldownToRefresh();		
+						}
+					});
+					
 				}, 1500);
 			}
 			var count = 0;
@@ -67,15 +114,19 @@
 			 */
 			function pullupRefresh() {
 				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2));
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for(var i = cells.length, len = i + 5; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mylist';
-						li.innerHTML = "<div class='listcontent'><div class='detail'><h1>提现</h1><h3>2016年1月22日&nbsp;&nbsp;&nbsp;&nbsp;16:30</h3><p>+&nbsp;&nbsp;20.0</p></div></div>";
-						table.appendChild(li);
+					
+					page++;
+
+					if(isdata){
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > page));	
 					}
+					else
+					{
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > (page-1)));	
+					}
+						
+					getData();
+
 				}, 1500);
 			}
 		</script>
