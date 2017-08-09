@@ -339,6 +339,7 @@
 						<li><a href="javascript:void(0)">修行历程</a></li>
 						<li><a href="javascript:void(0)">品牌资质</a></li>
 						<li><a href="javascript:void(0)">菩萨面相</a></li>
+						<li><a href="javascript:void(0)">连锁机构</a></li>
 						<li><a href="javascript:void(0)">医生团队</a></li>
 						<li><a href="javascript:void(0)">经典案例</a></li>
 						<li><a href="javascript:void(0)">日行一善</a></li>
@@ -665,7 +666,75 @@
 				</div>
 				
 			</div>
+		
+			<!--连锁-->
+			<div class="liansuo" style="position: relative;">
+				
+				<p style="margin-left: 15px;margin-top: 20px;font-size: 16px;">TMOV美欧华  修行美林.旗下连锁</p>
+				
+				<a style="position: absolute;">濮阳修行美林</a>
+				<a style="position: absolute;">驻马店修行美林</a>
+				<a style="position: absolute;">青岛TMOV美欧华</a>
+				<a style="position: absolute;">威海修行美林</a>
+				
+				<a style="position: absolute;">鹤壁修行美林</a>
+				<a style="position: absolute;">郑州修行美林</a>
+				<a style="position: absolute;">山西TMOV美欧华</a>
+				<a style="position: absolute;">淄博修行美林</a>
+				
+				<img style="width: 100%;" src="../images/liansuo.png"/>
+				
+				
+			</div>
 		</div>
+		
+		
+		<style>
+			.liansuo a{
+				color: #FFFFFF;
+				font-size: 16px;
+			}
+			
+			.liansuo a:nth-child(2){
+				top: 7rem;
+				left: 3.5rem;
+			}
+			
+			.liansuo a:nth-child(3){
+				top: 17rem;
+				left: 3.5rem;
+			}
+			
+			.liansuo a:nth-child(4){
+				top: 28rem;
+				left: 3rem;
+			}
+			.liansuo a:nth-child(5){
+				top: 38rem;
+				left: 3rem;
+			}
+			
+			.liansuo a:nth-child(6){
+				top: 7rem;
+				right: 3rem;
+			}
+			
+			.liansuo a:nth-child(7){
+				top: 17rem;
+				right: 3rem;
+			}
+			
+			.liansuo a:nth-child(8){
+				top: 28rem;
+				right: 2rem;
+			}
+			
+			.liansuo a:nth-child(9){
+				top: 38rem;
+				right: 3rem;
+			}
+			
+		</style>
 		
 		
 		<div class="projects" style="overflow-y:auto;">
@@ -834,6 +903,7 @@
 							$('.pusanmianxiang').hide();
 							$('.classiccase').hide();
 							$('.brand').hide();
+							$('.liansuo').hide();
 						}else if(tmpIndex == 1){
 							$('.brand').fadeIn(100);
 							$('.briefintro').hide();
@@ -841,6 +911,7 @@
 							$('.pusanmianxiang').hide();
 							$('.classiccase').hide();
 							$('.history').hide();
+							$('.liansuo').hide();
 						}else if(tmpIndex == 2){
 							$('.history').hide();
 							$('.briefintro').hide();
@@ -848,27 +919,39 @@
 							$('.pusanmianxiang').fadeIn(100);
 							$('.classiccase').hide();
 							$('.brand').hide();
+							$('.liansuo').hide();
 						}else if(tmpIndex == 3){
 							$('.history').hide();
-							$('.briefintro').fadeIn();
+							$('.briefintro').hide();
 							$('.goodthing').hide();
 							$('.pusanmianxiang').hide(100);
 							$('.classiccase').hide();
 							$('.brand').hide();
+							$('.liansuo').fadeIn(100);
 						}else if(tmpIndex == 5){
-							$('.history').hide();
-							$('.briefintro').hide();
-							$('.goodthing').fadeIn(100);
-							$('.pusanmianxiang').hide();
-							$('.classiccase').hide();
-							$('.brand').hide();
-						}else if(tmpIndex == 4){
-							$('.classiccase').fadeIn(100);
 							$('.history').hide();
 							$('.briefintro').hide();
 							$('.goodthing').hide();
 							$('.pusanmianxiang').hide();
+							$('.classiccase').fadeIn(100);
 							$('.brand').hide();
+							$('.liansuo').hide();
+						}else if(tmpIndex == 4){
+							$('.classiccase').hide();
+							$('.history').hide();
+							$('.briefintro').fadeIn(100);
+							$('.goodthing').hide();
+							$('.pusanmianxiang').hide();
+							$('.brand').hide();
+							$('.liansuo').hide();
+						}else if(tmpIndex == 6){
+							$('.classiccase').hide();
+							$('.history').hide();
+							$('.briefintro').hide();
+							$('.goodthing').fadeIn(100);
+							$('.pusanmianxiang').hide();
+							$('.brand').hide();
+							$('.liansuo').hide();
 						}
 					}
 				});
