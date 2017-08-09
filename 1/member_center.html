@@ -275,12 +275,12 @@
 		</div>
 		
 		<style type="text/css">
-			.votebox{width:70%;margin-left:20%;margin-top: 20px;text-align:left;position:relative;}
+			.votebox{width:80%;margin-left:20%;margin-top: 20px;text-align:left;position:relative;}
 			.barbox{height:16px;line-height:16px;overflow:hidden;}
 			.barbox dt a{color:#0048CC;}
 			.barbox dd{float:left;}
 			.barbox dd.last{color:#999;}
-			.barbox dd.barline{width:200px;background-color: #0e76d9;height:16px;overflow:hidden;display:inline;border-radius:8px;}
+			.barbox dd.barline{width:80%;background-color: #0e76d9;height:16px;overflow:hidden;display:inline;border-radius:8px;}
 			.barbox dd.barline div.charts{height:16px;overflow:hidden;background-color: #f49011;border-radius:8px;}
 		</style>
 		<div class="rank">
@@ -324,28 +324,16 @@
 				</div>
 			</div>
 		</div>
-	 
-	    <div class="pointsrank" style="background-color: #FFFFFE;margin-top: 1rem;height: 21rem;position: relative;">
-	    	<p style="padding-top: 1rem;font-size: 16px;text-align: center;">积分排行榜</p>
-	    	<div class="ranklist" v-for='item in items'>
-	    		<div class="ranklist_left">
-		    		<img src="../images/Brand.png" style="width: 2rem;height:2rem">
-		    		<img :src='item.imgurl' style="width: 4rem;height:4rem;border-radius: 2rem;margin-left: 20px;">
-		    		<p v-text="item.nickname" style="margin-left: 30px;"></p>
-	    		</div>
-	    		<div class="ranklist_right">
-	    			<p v-text="item.integral" style="margin-right: 10px;font-size: 13px;"></p>
-	    		</div>
-	    	</div>
-	   
-	    	<div class="rank-footer">
-				<p style="margin-top:13px;">查看累计积分排行</p>
-				<b class="right" style="margin-top: 16rem;"><i class="right-arrow1"></i><i class="right-arrow2"></i></b>
-		    </div>
-	    </div>
-
+		
 		<style>
-
+			
+			p{ white-space:nowrap;}
+			.listleftimg{
+				width: 2rem;height:2rem;
+			}
+			.listheadimg{
+				width: 4rem;height:4rem;border-radius: 2rem;margin-left: 20px;
+			}
 			.pointsrank .rank-footer p{
 				position: absolute;
 				top: 17.8rem;
@@ -374,6 +362,28 @@
 			.ranklist_right p{
 				color: #DD3D3D;
 			}
+		</style>
+	 
+	    <div class="pointsrank" style="background-color: #FFFFFE;margin-top: 1rem;height: 21rem;position: relative;display: none;">
+	    	<p style="padding-top: 1rem;font-size: 16px;text-align: center;">积分排行榜</p>
+	    	<div class="ranklist" v-for='item in items'>
+	    		<div class="ranklist_left">
+		    		<img class="listleftimg" src="../images/Brand.png">
+		    		<img class="listheadimg" :src='item.imgurl'>
+		    		<p v-text="item.nickname" style="margin-left: 30px;"></p>
+	    		</div>
+	    		<div class="ranklist_right">
+	    			<p v-text="item.integral" style="margin-right: 10px;font-size: 13px;"></p>
+	    		</div>
+	    	</div>
+	   
+	    	<div class="rank-footer">
+				<p style="margin-top:13px;">查看累计积分排行</p>
+				<b class="right" style="margin-top: 16rem;"><i class="right-arrow1"></i><i class="right-arrow2"></i></b>
+		    </div>
+	    </div>
+
+		<style>
 
 			.massion-layer{
 				position:fixed;
@@ -563,6 +573,9 @@
     					$('.charts').attr('style',"width:"+rankstr+'%');
     					
     					handerCircle(rankstr);
+    					
+    					
+    					$('.pointsrank').show();
 
     					new Vue({
     						el:'.rank',
@@ -599,6 +612,8 @@
 						localStorage.setItem('userid',data['data']['id']);
 
 						initBaseInfo(data['data']['nickname'],data['data']['imgurl'],data['data']['integral'],data['data']['cardnum']);
+						
+						getUserRank();
 						
 					}
 				});
