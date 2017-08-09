@@ -275,12 +275,26 @@
 		    </div>
 		</div>
 		
+		<style type="text/css">
+			.votebox{width:70%;margin-left:20%;margin-top: 20px;text-align:left;position:relative;}
+			.barbox{height:16px;line-height:16px;overflow:hidden;}
+			.barbox dt a{color:#0048CC;}
+			.barbox dd{float:left;}
+			.barbox dd.last{color:#999;}
+			.barbox dd.barline{width:200px;background-color: #0e76d9;height:16px;overflow:hidden;display:inline;border-radius:8px;}
+			.barbox dd.barline div.charts{height:16px;overflow:hidden;background-color: #f49011;border-radius:8px;}
+		</style>
 		<div class="rank">
 			<div>
 				<p>你当前累计积分排行第 <span style="color: #eed620;font-size: 20px;" v-text='nums'></span> 位，击败了 <span style="color: #eed620;font-size: 20px;" v-text='rank'></span> 的会员</p>
-				<div id="progressbar"></div>
-			</div>
-			<div>
+
+				<div class="votebox">
+					<dl class="barbox">
+						<dd class="barline">
+							<div w="0" style="width:0px;" class="charts"></div>
+						</dd>
+					</dl>
+				</div>
 			</div>
 		</div>
 
@@ -475,7 +489,18 @@
     
     
     	<script>
-				
+    		
+			function animate1(){
+
+				$(".charts").each(function(i,item){
+					var a=parseInt($(item).attr("w"));
+					$(item).animate({
+						width: a+"%"
+					},1000);
+				});
+			}
+
+
     		var openid = '';
     		var rankstr = '';
     		
@@ -535,7 +560,8 @@
     					var rank = data['data']['rank'];
     					
     					rankstr = parseInt(((nums-rank)/nums)*100);
-    				
+    					
+    					$('.charts').attr('style',"width:"+rankstr+'%');
     					
     					handerCircle(rankstr);
 

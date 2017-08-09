@@ -13,6 +13,8 @@
 		
 		<script src="../js/jquery-2.1.4.js"></script>
 		
+		<script src="../common/vue.js"></script>
+		
 	</head>
 	<body>
 		
@@ -95,20 +97,24 @@
 		        <samp>礼品兑换</samp>
 		    </div>
 		    
-		    <div class="content clearfloat" style="margin-top: 15px;">
-		    	<div class="list clearfloat fl">
-					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f1.jpg','利仁电火锅');">
+		    <div class="content clearfloat" id="gifts" style="margin-top: 15px;">
+		    	
+		    	<div class="list clearfloat fl" v-for="item in gift">
+					<a href="javascript:void(0);" onclick="exchange(this);">
+						<p id="giftid" v-text="item.id" style="display: none;"></p>
 						<div class="tu clearfloat fr">
 						    <span></span>
-						    <img src="../images/1f1.jpg" />
+						    <img :src="item.pro_pic"/>
 						</div>
 						<div class="shang clearfloat fl box-s">
-						    <p class="tit over">利仁电火锅</p>
-						    <p><span>积分:</span><span class="over red">11000</span></p>
+						    <p class="tit over" v-text="item.pro_name">利仁电火锅</p>
+						    
+						    <p><span>积分:</span><span class="over red" v-text="item.exchange_integral">11000</span></p>
 						</div>
 					</a>
 				</div>
-				<div class="list clearfloat fl">
+				
+				<!--<div class="list clearfloat fl">
 					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f2.jpg','九阳榨汁机家用果汁机');">
 						<div class="tu clearfloat fr">
 							<span></span>
@@ -168,7 +174,7 @@
 							<p><span>积分:</span><span class="over red">11000</span></p>
 						</div>
 					</a>
-				</div>
+				</div>-->
 		    </div>
 		</div>
 		
@@ -210,34 +216,61 @@
 			<script src="../mui/js/mui.min.js"></script>
 		
 		<script>
+			
 			var slider = mui("#slider");
 			slider.slider({
 				interval: 5000
 			});
 			
+			
+			
+			$.ajax({
+				type:"get",
+				url:"http://chenxiaolong.top/shoph/1/mly/public/getGifts",
+				async:true,
+				data:{},
+				dataType:'json',
+				success:function(data){
+					
+					if(data['data']){
+						
+						new Vue({
+							el:'#gifts',
+							data:{
+								gift:data['data']
+							}
+						});
+					}
+				}
+			});
+			
 			var tmpjifen = 0;
 			
-			function exchange(points,imgpath,proname)
-			{
-				tmpjifen = points;
+			function exchange(obj)
+			{	
+				console.log(obj.selectedindex);
 				
-				$('.am-share .am-share-sns .sdetail .top .tu img').attr('src',imgpath);
-				$('.am-share .am-share-sns .sdetail .top .you span').text(points+'积分');
+//				console.log(obj.index);
 				
-				$(".am-share").addClass("am-modal-active");	
-				if($(".sharebg").length>0){
-					$(".sharebg").addClass("sharebg-active");
-				}else{
-					$("body").append('<div class="sharebg"></div>');
-					$(".sharebg").addClass("sharebg-active");
-				}
-				$(".sharebg-active,.share_btn").click(function(){
-					$(".am-share").removeClass("am-modal-active");	
-					setTimeout(function(){
-						$(".sharebg-active").removeClass("sharebg-active");	
-						$(".sharebg").remove();	
-					},300);
-				});
+//				tmpjifen = points;
+//				
+//				$('.am-share .am-share-sns .sdetail .top .tu img').attr('src',imgpath);
+//				$('.am-share .am-share-sns .sdetail .top .you span').text(points+'积分');
+//				
+//				$(".am-share").addClass("am-modal-active");	
+//				if($(".sharebg").length>0){
+//					$(".sharebg").addClass("sharebg-active");
+//				}else{
+//					$("body").append('<div class="sharebg"></div>');
+//					$(".sharebg").addClass("sharebg-active");
+//				}
+//				$(".sharebg-active,.share_btn").click(function(){
+//					$(".am-share").removeClass("am-modal-active");	
+//					setTimeout(function(){
+//						$(".sharebg-active").removeClass("sharebg-active");	
+//						$(".sharebg").remove();	
+//					},300);
+//				});
 			}
 			
 			

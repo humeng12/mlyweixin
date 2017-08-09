@@ -10,6 +10,10 @@
 		<link rel="stylesheet" href="../common/common.css"/>
 		<!--App自定义的css-->
 		<link rel="stylesheet" type="text/css" href="../mui/css/app.css" />
+		
+		
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+
 	</head>
 
 	<body>
@@ -71,8 +75,46 @@
 				</div>
 			</div>
 		</div>
+      
 		<script src="../mui/js/mui.min.js"></script>
 		<script src="../js/jquery-2.1.4.js"></script>
+		<script src="../common/share.js"></script>
 		
+		<script>
+			
+			var fromurl = window.location.href;
+
+			$.ajax({  
+			    type:'post',  
+			    url: 'http://chenxiaolong.top/shoph/1/mly/public/api/getSignPackage',  
+			    dataType:'json',  
+			    data: {
+			      url:fromurl
+			    },                  
+			    success: function (result) {
+				  
+			      wx.config({
+			        debug: true,
+			        appId: 'wx6b235d0ef54f8644',
+			        timestamp: result['timestamp'], 
+			        nonceStr:result['nonceStr'],
+			        signature:result['signature'],
+			        jsApiList:[
+			          'checkJsApi',
+			          'onMenuShareTimeline',
+			          'onMenuShareAppMessage',
+			          'onMenuShareQQ',
+			          'onMenuShareQQZ',
+			          'onMenuShareWeibo',
+			          'hideMenuItems',
+			          'showMenuItems',
+			          'hideAllNonBaseMenuItem',
+			          'showAllNonBaseMenuItem'
+			        ]
+			      });
+			    }  
+			});  
+  
+		</script>
 	</body>
 </html>
