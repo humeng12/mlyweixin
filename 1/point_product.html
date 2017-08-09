@@ -6,10 +6,11 @@
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 		
 		<link rel="stylesheet" type="text/css" href="../common/common.css" />
-		<link rel="stylesheet" href="../mui/css/mui.min.css">
 		<link href="../common/detail.css" rel="stylesheet" />
 		<!--轮播图的css-->
 		<link rel="stylesheet" href="../mui/css/mui.min.css">
+		
+		<script src="../mui/js/mui.min.js"></script>
 		
 		<script src="../js/jquery-2.1.4.js"></script>
 		
@@ -104,77 +105,15 @@
 						<p id="giftid" v-text="item.id" style="display: none;"></p>
 						<div class="tu clearfloat fr">
 						    <span></span>
-						    <img :src="item.pro_pic"/>
+						    <img id="proimg" :src="item.gift_pic"/>
 						</div>
 						<div class="shang clearfloat fl box-s">
-						    <p class="tit over" v-text="item.pro_name">利仁电火锅</p>
+						    <p class="tit over" v-text="item.gift_name" id="proname">利仁电火锅</p>
 						    
-						    <p><span>积分:</span><span class="over red" v-text="item.exchange_integral">11000</span></p>
+						    <p><span>积分:</span><span class="over red" v-text="item.exchange_integral" id="projifen">11000</span></p>
 						</div>
 					</a>
 				</div>
-				
-				<!--<div class="list clearfloat fl">
-					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f2.jpg','九阳榨汁机家用果汁机');">
-						<div class="tu clearfloat fr">
-							<span></span>
-							<img src="../images/1f2.jpg" />
-						</div>
-						<div class="shang clearfloat fl box-s">
-							<p class="tit over">九阳榨汁机家用果汁机</p>
-							<p><span>积分:</span><span class="over red">11000</span></p>
-						</div>
-					</a>
-				</div>
-				<div class="list clearfloat fl">
-					<a href="javascript:void(0);" onclick="exchange(1500,'../images/1f3.jpg','亿嘉带盖马克杯');">
-						<div class="tu clearfloat fr">
-							<span></span>
-							<img src="../images/1f3.jpg" />
-						</div>
-						<div class="shang clearfloat fl box-s">
-							<p class="tit over">亿嘉带盖马克杯</p>
-							<p><span>积分:</span><span class="over red">1500</span></p>
-						</div>
-					</a>
-				</div>
-				
-				<div class="list clearfloat fl">
-					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f2.jpg','九阳榨汁机家用果汁机');">
-						<div class="tu clearfloat fr">
-							<span></span>
-							<img src="../images/1f2.jpg" />
-						</div>
-						<div class="shang clearfloat fl box-s">
-							<p class="tit over">九阳榨汁机家用果汁机</p>
-							<p><span>积分:</span><span class="over red">11000</span></p>
-						</div>
-					</a>
-				</div>
-				<div class="list clearfloat fl">
-					<a href="javascript:void(0);" onclick="exchange(1500,'../images/1f3.jpg','亿嘉 水杯 绿色兔子');">
-						<div class="tu clearfloat fr">
-							<span></span>
-							<img src="../images/1f3.jpg" />
-						</div>
-						<div class="shang clearfloat fl box-s">
-							<p class="tit over">亿嘉 水杯 绿色兔子</p>
-							<p><span>积分:</span><span class="over red">1500</span></p>
-						</div>
-					</a>
-				</div>
-				<div class="list clearfloat fl">
-					<a href="javascript:void(0);" onclick="exchange(11000,'../images/1f1.jpg','利仁电火锅');">
-						<div class="tu clearfloat fr">
-							<span></span>
-							<img src="../images/1f1.jpg" />
-						</div>
-						<div class="shang clearfloat fl box-s">
-							<p class="tit over">利仁电火锅</p>
-							<p><span>积分:</span><span class="over red">11000</span></p>
-						</div>
-					</a>
-				</div>-->
 		    </div>
 		</div>
 		
@@ -211,7 +150,7 @@
 		        </div>
 		        
 		    </div>
-		    <a href="" class="shop-btn">兑换</a>
+		    <a href="javascript:void(0);" onclick="btnclick()" class="shop-btn">兑换</a>
 		</div>
 			<script src="../mui/js/mui.min.js"></script>
 		
@@ -246,31 +185,39 @@
 			
 			var tmpjifen = 0;
 			
+			var proid = 0;
+			
+			var proname = '';
+			
 			function exchange(obj)
 			{	
-				console.log(obj.selectedindex);
 				
-//				console.log(obj.index);
+				proid = $(obj).find('#giftid').text();
+				proname = $(obj).find('#proname').text();
+				var proimg = $(obj).find('#proimg').attr('src');
+				var projifen = $(obj).find('#projifen').text();
 				
-//				tmpjifen = points;
-//				
-//				$('.am-share .am-share-sns .sdetail .top .tu img').attr('src',imgpath);
-//				$('.am-share .am-share-sns .sdetail .top .you span').text(points+'积分');
-//				
-//				$(".am-share").addClass("am-modal-active");	
-//				if($(".sharebg").length>0){
-//					$(".sharebg").addClass("sharebg-active");
-//				}else{
-//					$("body").append('<div class="sharebg"></div>');
-//					$(".sharebg").addClass("sharebg-active");
-//				}
-//				$(".sharebg-active,.share_btn").click(function(){
-//					$(".am-share").removeClass("am-modal-active");	
-//					setTimeout(function(){
-//						$(".sharebg-active").removeClass("sharebg-active");	
-//						$(".sharebg").remove();	
-//					},300);
-//				});
+				tmpjifen = projifen;
+				
+				$('.am-share .am-share-sns .sdetail .top .tu img').attr('src',proimg);
+				$('.am-share .am-share-sns .sdetail .top .you span').text(projifen+'积分');
+				
+				$('.sdetail .top .you p').text(proname); 
+				
+				$(".am-share").addClass("am-modal-active");
+				if($(".sharebg").length>0){
+					$(".sharebg").addClass("sharebg-active");
+				}else{
+					$("body").append('<div class="sharebg"></div>');
+					$(".sharebg").addClass("sharebg-active");
+				}
+				$(".sharebg-active,.share_btn").click(function(){
+					$(".am-share").removeClass("am-modal-active");	
+					setTimeout(function(){
+						$(".sharebg-active").removeClass("sharebg-active");	
+						$(".sharebg").remove();	
+					},300);
+				});
 			}
 			
 			
@@ -293,6 +240,24 @@
 		    	$('.bottom #count').text(tmpcount);
 		    	$('.sdetail .top .you span').text(parseInt(tmpcount) * parseInt(tmpjifen) + '积分');
 		    });
+		    
+		    
+		    
+		    function btnclick()
+		    {
+		    	var userid = localStorage.getItem('userid');
+		    	
+		    	$.ajax({
+		    		type:"get",
+		    		url:"",
+		    		async:true,
+		    		data:{userid:userid,giftid:proid,giftname:proname,giftnum:tmpcount,giftscore:tmpjifen},
+		    		success:function(data){
+		    			
+		    			mui.toast(data['message'],{ duration:'short', type:'div' });
+		    		}
+		    	});
+		    }
 		
 		</script>
 	</body>
