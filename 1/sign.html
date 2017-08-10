@@ -4,69 +4,148 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
 <title>每日签到</title>
-	<link rel="stylesheet" href="../calendar/css/bootstrap3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../calendar/css/style.css">
-	<link rel="stylesheet" href="../calendar/css/qiandao_style.css">
-	
-	<link rel="stylesheet" href="../css/weui.min.css">
-	<link rel="stylesheet" href="../css/jquery-weui.min.css">
-	
+<link rel="stylesheet" href="../calendar/css/bootstrap3/css/bootstrap.min.css">
+<link rel="stylesheet" href="../calendar/css/style.css">
+<link rel="stylesheet" href="../calendar/css/qiandao_style.css">
+<script src="../calendar/js/jquery-1.10.2.min.js"></script>
+<script src="../calendar/js/calendar.js"></script>
 </head>
+<script type="text/javascript">
+	function initSign(year, month, signList){
+		//显示当前年份和月份
+		$("#currDate").text(year+"-"+((month+1)<10?"0"+(month+1):(month+1)));
+		var str = calUtil.drawCal(year,month+1,signList);
+		//显示当前日历
+		$("#calendar").html("").html(str);
+   	}
+	$(function(){
+		//初始化签到表，为当前月份的签到情况
+		var iDate = new Date();
+	    var year=iDate.getFullYear();
+	    var month=iDate.getMonth();
+	    var currentmonth=month+1;
+	    var day=iDate.getDate();
+	    
+	    var date=year+"-"+currentmonth+"-"+day;
+	    
+		var signList = [date];
+		
+		initSign(iDate.getFullYear(), iDate.getMonth(),signList);
+	
+		//上一个月的签到情况
+		$("#minusMonth").on("click", function(){
+			var currDate = $("#currDate").text();
+			var date = new Date(currDate);
+			//0表示1月份，再减一个月就得减年份
+			var year;
+			var month;
+			if(date.getMonth() == 0){
+				year = date.getFullYear() - 1;
+				month = 11;
+				var signList = "";
+				initSign(year, month, signList);
+			}else{
+				year = date.getFullYear();
+				month = date.getMonth()-1;
+				var signList = "";
+				initSign(year, month, signList);
+			}
+		});
+		//下一个月的签到情况
+		$("#addMonth").on("click", function(){
+			var currDate = $("#currDate").text();
+			var date = new Date(currDate);
+			//11表示12月份，再加一个月就得加年份
+			var year;
+			var month;
+			if(date.getMonth() == 11){
+				year = date.getFullYear() + 1;//年份加1
+				month = 0;//月份重新赋值为0（表示1月）
+				var signList = "";
+				initSign(year, month, signList);
+			}else{
+				year = date.getFullYear();
+				month = date.getMonth()+1;
+				var signList = "";
+				initSign(year, month, signList);
+			}
+		});
+	});
+</script>
 <body>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 clearPadding">
 			<div class=""><img src="../images/qdBanner.jpg" class="img-responsive"></div>
-			
+			<div class="title" style="text-align: center;">
+			<span id='minusMonth' style='padding-right:50px;cursor: pointer;'>上月</span>
+			<span id='currDate'></span>
+			<span id='addMonth' style='padding-left:50px;cursor: pointer;'>下月</span>
+			</div>
 			<div class="calendar">
 				<div class="calenbox">
 					<div id="calendar"></div>
 				</div>
 				<div class="text-center">
-					<button class="btn btn-qiandao" onClick="signIn();">马上签到</button>
+					<button name='button' type='button' class="btn btn-qiandao" onClick="signIn()">马上签到</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-	<div class="maskbox"></div>
-	<div class="qdbox">
-		<div class="text-center text-green font18"><strong>签到成功！</strong></div>
-		<div class="text-center pt10">您已经连续签到&nbsp;<span class="text-green">10</span>&nbsp;天</div>
-		<div class="text-center ptb15"><img src="../images/gift.png" style="width:125px;margin-left:20px;"></div>
-	</div>
-	
-	<script src="../calendar/js/jquery-1.10.2.min.js"></script>
-	<script src="../calendar/js/calendar.js"></script>
-	
-	<script src="../js/jquery-weui.js"></script>
-	<script src="../weui/js/weui.min.js"></script>
-	<script>
-		
-		$(".maskbox").click(function(){
-			$(".maskbox").fadeOut();
-			$(".qdbox").fadeOut();
-		});
-		
-		
-		$(function(){
-		  	var signList=[{"signDay":"10"},{"signDay":"11"},{"signDay":"12"},{"signDay":"13"},{"signDay":"16"}];
-		   	calUtil.init(signList);
-		});
-		
+<div class="maskbox"></div>
+<div class="qdbox">
+	<div class="text-center text-green font18"><strong>签到成功！</strong></div>
+	<div class="text-center pt10">您已经连续签到&nbsp;<span class="text-green">10</span>&nbsp;天</div>
+	<div class="text-center ptb15"><img src="../images/gift.png" style="width:125px;margin-left:20px;"></div>
+</div>
 
+	<script type="text/javascript">
+		
+		
+		function initSign(year, month, signList){
+			//显示当前年份和月份
+			$("#currDate").text(year+"-"+((month+1)<10?"0"+(month+1):(month+1)));
+			var str = calUtil.drawCal(year,month+1,signList);
+			//显示当前日历
+			$("#calendar").html("").html(str);
+		}
+		
+		//签到的按钮方法
+	    var lastsigndate =localStorage.getItem('lastsigndate');
+
+	    var now= new Date();
+        var year=now.getFullYear();     
+        var month=now.getMonth()+1;
+        var date=now.getDate();
+        if(month.toString().length==1){
+         	month="0"+month;
+        }
+        if(date.toString().length==1){
+         	date="0"+date;
+        }
+        var todaysign=year+"-"+month+"-"+date;
+		if(todaysign==lastsigndate){ 
+			
+			 $('button').text('已经签到');
+			 
+			 document.all("button").disabled=true;
+		}
+	
+	  	function  signIn(){
+	
+	 	
+		var signTime = localStorage.getItem('signTime');
+		
 		var datestr = getNowFormatDate();
-		
-		function  signIn(){
-
-			var userid = localStorage.getItem('userid');
 	
-	        $.showLoading('签到中...');
-	        
-	        
-	       	$.ajax({  
+	       //签到日期
+			var userid = localStorage.getItem('idstr'); 
+	         
+	        var userid = 11; 
+	           	$.ajax({  
 	            type:'post',  
-	            url: 'http://chenxiaolong.top/shoph/1/mly/public/api/taskSign',
+	            url: 'http://chenxiaolong.top/shoph/1/mly/public/api/taskSign',  
 	            data: {
 	                idstr:userid,
 	                signdate:datestr
@@ -75,43 +154,31 @@
 	            async:false,  
 	            cache:false,                 
 	            success: function (result) {  
-	
-	                setTimeout(function() {
-								
-						$.hideLoading();
-						$.toast(result['message'],"text");
-
-//						$(".maskbox").fadeIn();
-//						$(".qdbox").fadeIn();
-//						$(".maskbox").height($(document).height());
-						
-					},3000); 
-	            },
-	            error:function(data){
-	            	$.hideLoading();
-	            	
+	              if(result['status']== '0'){
+	              	
+	                	if(result['message']=='今日已签到'){
+	                		$('button').text('已经签到');
+	                		document.all("button").disabled=true;
+	                		return;
+	                	}else if(result['message']=='签到成功'){
+	              	     	$('button').text('已经签到');  
+	                	    var num=result['data']['signdate'].length-1;
+	                	    var lastsigndate=result['data']['signdate'][num]['sign_date'];               	     
+	                        localStorage.setItem('lastsigndate',lastsigndate);
+	              	     	document.all("button").disabled=true;
+	              		return;
+	              	}else{
+	              		alert('签到失败');
+	              		return;
+	              	}
+	             }
+	           },   
+	            error:function(data){            	
 	            	$.toast('签到失败',"text");
 	            }
-	        }); 
+	        });   	
 		}
-		
-		function getNowFormatDate() {
-
-			var date = new Date();
-			var seperator1 = "-";
-			var seperator2 = ":";
-			var month = date.getMonth() + 1;
-			var strDate = date.getDate();
-			if (month >= 1 && month <= 9) {
-			    month = "0" + month;
-			}
-			if (strDate >= 0 && strDate <= 9) {
-			    strDate = "0" + strDate;
-			}
-			var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-		
-			return currentdate;
-		}
-	</script>
+   
+</script>
 </body>
 </html>

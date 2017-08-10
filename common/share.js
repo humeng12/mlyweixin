@@ -30,7 +30,7 @@ wx.ready(function () {
     wx.onMenuShareAppMessage({
       title: '互联网之子11',
       desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
-      link: 'http://123.56.1.100/test/register.html',
+      link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
       imgUrl: 'http://123.56.1.100/weixin/111.jpg',
       trigger: function (res) {
         alert('用户点击发送给朋友');
@@ -52,7 +52,7 @@ wx.ready(function () {
     wx.onMenuShareTimeline({
       title: '互联网之子',
       desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
-      link: 'http://47.93.217.112/shop/1/register.html',
+      link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
       imgUrl: 'http://47.93.217.112/shoph/1/mly/public/storage/uploads/77.jpg',
       trigger: function (res) {
         alert('用户点击分享到朋友圈');
@@ -74,7 +74,7 @@ wx.ready(function () {
     wx.onMenuShareQQ({
       title: '互联网之子',
       desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
-      link: 'http://47.93.217.112/shop/1/register.html',
+      link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
       imgUrl: 'http://47.93.217.112/shoph/1/mly/public/storage/uploads/77.jpg',
       trigger: function (res) {
         alert('用户点击分享到QQ');
@@ -102,7 +102,7 @@ wx.ready(function () {
     wx.onMenuShareQZone({
       title: '互联网之子',
       desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
-      link: 'http://47.93.217.112/shop/1/register.html',
+      link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
       imgUrl: 'http://47.93.217.112/shoph/1/mly/public/storage/uploads/77.jpg',
       success: function (res) {
         alert(JSON.stringify(res));
@@ -122,7 +122,7 @@ wx.ready(function () {
     wx.onMenuShareWeibo({
       title: '互联网之子',
       desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
-      link: 'http://47.93.217.112/shop/1/register.html',
+      link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
       imgUrl: 'http://47.93.217.112/shoph/1/mly/public/storage/uploads/77.jpg',
       trigger: function (res) {
         alert('用户点击分享到朋友圈');

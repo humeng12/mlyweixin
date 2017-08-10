@@ -377,10 +377,12 @@
 	    		</div>
 	    	</div>
 	   
-	    	<div class="rank-footer">
-				<p style="margin-top:13px;">查看累计积分排行</p>
-				<b class="right" style="margin-top: 16rem;"><i class="right-arrow1"></i><i class="right-arrow2"></i></b>
-		    </div>
+	   		<a href="ranking.html">
+	   			<div class="rank-footer">
+					<p style="margin-top:13px;">查看累计积分排行</p>
+					<b class="right" style="margin-top: 16rem;"><i class="right-arrow1"></i><i class="right-arrow2"></i></b>
+			    </div>
+	   		</a>
 	    </div>
 
 		<style>
@@ -489,7 +491,7 @@
 	           			</li>
 	           		</ul>
 	           		<div class="massion-content__fotter">
-	           			<button class="dismissdiv">我知道了</button>
+	           			<button class="dismissdiv" onclick="dismissBtn()">我知道了</button>
 	           		</div>
 	           	</div>
 	        </div>
@@ -746,9 +748,11 @@
 				$('.massion-layer').fadeIn();
 			}
 			
-			$('.dismissdiv').click(function(){
+			function dismissBtn()
+			{
 				$('.massion-active').hide();
-			});
+			}
+			
 		
 		       
     	</script>

@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="../mui/css/app.css" />
 		
 		
-		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 
 	</head>
 
@@ -32,7 +32,8 @@
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
-					<a class="mui-card-link">查看全文</a>
+					<a href="javascript:void(0)" onclick="share()" class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
+					<a style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
 					<a class="mui-card-link">更多</a>
 				</div>
 			</div>
@@ -51,7 +52,8 @@
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
-					<a class="mui-card-link">查看全文</a>
+					<a class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
+					<a style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
 					<a class="mui-card-link">更多</a>
 				</div>
 			</div>
@@ -70,7 +72,8 @@
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
-					<a class="mui-card-link">查看全文</a>
+					<a class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
+					<a style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
 					<a class="mui-card-link">更多</a>
 				</div>
 			</div>
@@ -79,7 +82,7 @@
 		<script src="../mui/js/mui.min.js"></script>
 		<script src="../js/jquery-2.1.4.js"></script>
 		<script src="../common/share.js"></script>
-		
+ 
 		<script>
 			
 			var fromurl = window.location.href;
@@ -94,7 +97,7 @@
 			    success: function (result) {
 				  
 			      wx.config({
-			        debug: true,
+			        debug: false,
 			        appId: 'wx6b235d0ef54f8644',
 			        timestamp: result['timestamp'], 
 			        nonceStr:result['nonceStr'],
@@ -114,7 +117,97 @@
 			      });
 			    }  
 			});  
-  
+            
+			
+			function share()
+			{
+				wx.onMenuShareTimeline({
+			      	title: '互联网之子11',
+			      	desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
+			      	link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
+			      	imgUrl:'http://wx.qlogo.cn/mmopen/Ulne3F1YNeE0Q19W68TLtYa2GXsOMuKmX86kpoV72GeG7zCGSDP9Mc2fFibO78Q8YzYbhs5O2op75d9bklgghYNEPXViaOAvVA/0',
+			      	trigger: function (res) {
+			         
+			      	},
+			      	success: function (res) {
+			        	mui.toast('分享成功',{ duration:'short', type:'div' });
+			      	},
+			      	cancel: function (res) {
+			      		
+			        	mui.toast('取消了分享',{ duration:'short', type:'div' });
+			      	},
+			      	fail: function (res) {
+			        	
+			      	}
+			    });
+			    
+			    wx.onMenuShareAppMessage({
+			      	title: '互联网之子11',
+			      	desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
+			      	link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
+			      	imgUrl:'http://wx.qlogo.cn/mmopen/Ulne3F1YNeE0Q19W68TLtYa2GXsOMuKmX86kpoV72GeG7zCGSDP9Mc2fFibO78Q8YzYbhs5O2op75d9bklgghYNEPXViaOAvVA/0',
+			      	trigger: function (res) {
+			         
+			      	},
+			      	success: function (res) {
+			        	mui.toast('分享成功',{ duration:'short', type:'div' });
+			      	},
+			      	cancel: function (res) {
+			      		
+			        	mui.toast('取消了分享',{ duration:'short', type:'div' });
+			      	},
+			      	fail: function (res) {
+			        	
+			      	}
+			    });
+				
+				/*
+				WeixinJSBridge.on('menu:share:appmessage', function(argv){
+
+					WeixinJSBridge.invoke('sendAppMessage',{
+					
+						"appid":"",
+						"img_url": 'http://wx.qlogo.cn/mmopen/Ulne3F1YNeE0Q19W68TLtYa2GXsOMuKmX86kpoV72GeG7zCGSDP9Mc2fFibO78Q8YzYbhs5O2op75d9bklgghYNEPXViaOAvVA/0',
+						"img_width": "120",
+						"img_height": "120",
+						"link":'http://chenxiaolong.top/mlyweixin/1/member_center.html',
+						"desc":"我是一个介绍",
+						"title":"标题，再简单不过了。"
+						}, function(res){
+							
+							if(res['err_msg'] == 'send_app_msg:ok'){
+								mui.toast('分享成功',{ duration:'short', type:'div' });
+							}else if(res['err_msg'] == 'send_app_msg:cancel'){
+								mui.toast('取消了分享',{ duration:'short', type:'div' });
+							}
+					});
+					
+				});
+
+
+				WeixinJSBridge.on('menu:share:timeline', function(argv){
+
+					WeixinJSBridge.invoke('shareTimeline',{
+					
+						"appid":"",
+						"img_url": 'http://wx.qlogo.cn/mmopen/Ulne3F1YNeE0Q19W68TLtYa2GXsOMuKmX86kpoV72GeG7zCGSDP9Mc2fFibO78Q8YzYbhs5O2op75d9bklgghYNEPXViaOAvVA/0',
+						"img_width": "120",
+						"img_height": "120",
+						"link":'http://chenxiaolong.top/mlyweixin/1/member_center.html',
+						"desc":"我是一个介绍",
+						"title":"标题，再简单不过了。"
+						}, function(res){
+							
+							if(res['err_msg'] == 'send_app_msg:ok'){
+								mui.toast('分享成功',{ duration:'short', type:'div' });
+							}else if(res['err_msg'] == 'send_app_msg:cancel'){
+								mui.toast('取消了分享',{ duration:'short', type:'div' });
+							}
+					});
+					
+				});*/
+		}
+			
 		</script>
 	</body>
 </html>
