@@ -33,7 +33,7 @@
 				</div>
 				<div class="mui-card-footer">
 					<a href="javascript:void(0)" onclick="share()" class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
-					<a style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
+					<a href="javascript:void(0)" onclick="pinglun()" style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
 					<a class="mui-card-link">更多</a>
 				</div>
 			</div>
@@ -52,8 +52,8 @@
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
-					<a class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
-					<a style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
+					<a href="javascript:void(0)" onclick="share()" class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
+					<a href="javascript:void(0)" onclick="pinglun()" style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
 					<a class="mui-card-link">更多</a>
 				</div>
 			</div>
@@ -72,8 +72,8 @@
 					<p>你常说自己是念旧的人，却在回不去时，才怀念家乡</p>
 				</div>
 				<div class="mui-card-footer">
-					<a class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
-					<a style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
+					<a href="javascript:void(0)" onclick="share()" class="mui-card-link">转发<span style="color: #FF8C00;">+5</span></a>
+					<a href="javascript:void(0)" onclick="pinglun()" style="margin-left: -170px;">评论<span style="color: #FF8C00;">+3</span></a>
 					<a class="mui-card-link">更多</a>
 				</div>
 			</div>
@@ -117,11 +117,28 @@
 			      });
 			    }  
 			});  
+			
+			
+			
+			function shareMess(type)
+			{
+				
+				$.ajax({
+					type:"get",
+					url:"http://chenxiaolong.top/shoph/1/mly/public/api/shareMessage",
+					async:true,
+					data:{userid:localStorage.getItem('userid'),sharetype:1},
+					success:function(data){
+						
+					}
+				});
+			}
             
 			
 			function share()
 			{
 				wx.onMenuShareTimeline({
+					
 			      	title: '互联网之子11',
 			      	desc: '在长大的过程中，我才慢慢发现，我身边的所有事',
 			      	link: 'http://chenxiaolong.top/mlyweixin/1/member_center.html',
@@ -130,6 +147,9 @@
 			         
 			      	},
 			      	success: function (res) {
+			      		
+			      		shareMess(1);
+			      		
 			        	mui.toast('分享成功',{ duration:'short', type:'div' });
 			      	},
 			      	cancel: function (res) {
@@ -150,6 +170,9 @@
 			         
 			      	},
 			      	success: function (res) {
+			      		
+			      		shareMess(0);
+			      		
 			        	mui.toast('分享成功',{ duration:'short', type:'div' });
 			      	},
 			      	cancel: function (res) {
@@ -171,8 +194,8 @@
 						"img_width": "120",
 						"img_height": "120",
 						"link":'http://chenxiaolong.top/mlyweixin/1/member_center.html',
-						"desc":"我是一个介绍",
-						"title":"标题，再简单不过了。"
+//						"desc":"我是一个介绍",
+//						"title":"标题，再简单不过了。"
 						}, function(res){
 							
 							if(res['err_msg'] == 'send_app_msg:ok'){
@@ -206,7 +229,23 @@
 					});
 					
 				});*/
-		}
+			}
+			
+			
+			function pinglun()
+			{
+				
+				 mui.prompt('请输入你的评论：', '', '评论', ['取消', '确定'], function(e) {
+				 	
+                    if (e.index == 1) {
+                        mui.toast(e.value,{ duration:'short', type:'div' });
+                    } else {
+                        
+                        mui.toast('取消了评论',{ duration:'short', type:'div' });
+                    }
+                })
+			}
+			
 			
 		</script>
 	</body>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/common.css" />
+		<script src="../calendar/js/jquery-1.10.2.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+		    <script src="../common/vue.js"></script>
+		<title>心愿单</title>
+	</head>
+	<style type="text/css">
+		
+		#beautiful_country ul:nth-child(1){
+			display: flex;
+			justify-content: space-between;
+		}
+		#beautiful_country ul:nth-child(2){
+			display: flex;
+			justify-content: space-between;
+		}
+		#beautiful_country ul:nth-child(3){
+			display: flex;
+			justify-content: space-between;
+		}
+		#beautiful_country ul:nth-child(4){
+			display: flex;
+			justify-content: space-between;
+		}
+		#beautiful_country .beautiful_list a {
+			display: block;
+			padding-bottom: 10px;
+		}
+		
+		#beautiful_country .beautiful_list .pic {
+			overflow: hidden;
+			height: 125px;
+		}
+		
+		#beautiful_country .beautiful_list .pic img {
+			width: 3rem;
+			height: 3rem;
+			padding-top: 3.5rem;
+			padding-left: 8rem;
+		}
+		#beautiful_country .beautiful_list .name img {
+			width: 10rem;
+			height: 10rem;
+		}
+		#beautiful_country ul li p{
+			padding-left: 13%;padding-top: 1rem;font-size: 2rem;
+		}
+		#beautiful_country ul li #idstr{
+			display: none;
+		}
+	</style>
+	<body>
+		<div id="beautiful_country"> 
+			   <ul>
+				<li class="beautiful_list">
+					    <p id='idstr' class="idstr0"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(0)">
+						</div>
+						<div class="name">
+							<img class="img0" alt="">
+							<div class="clear"></div>
+						</div>
+					<p class="name0"></p>
+				</li>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr1"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(1)">
+						</div>
+						<div class="name">
+							<img class="img1" alt="">
+							<div class="clear"></div>
+						</div>
+					<p class="name1"></p>
+				</li>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr2"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(2)">
+						</div>
+						<div class="name">
+							<img class="img2" alt="">
+							<div class="clear"></div>
+						</div>
+						<p class="name2"></p>
+				</li>
+			</ul>
+			<ul>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr3"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(3)">
+						</div>
+						<div class="name">
+							<img class="img3" alt="">
+							<div class="clear"></div>
+						</div>
+					<p class="name3"></p>
+				</li>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr4"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(4)">
+						</div>
+						<div class="name">
+							<img class="img4" alt="">
+							<div class="clear"></div>
+						</div>
+					<p class="name4"></p>
+				</li>
+			</ul>
+              	<ul>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr5"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(5)">
+						</div>
+						<div class="name">
+							<img class="img5" alt="">
+							<div class="clear"></div>
+						</div>
+				   <p class="name5"></p>
+				</li>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr6"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(6)">
+						</div>
+						<div class="name">
+							<img class="img6" alt="">
+							<div class="clear"></div>
+						</div>
+					<p class="name6"></p>
+				</li>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr7"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(7)">
+						</div>
+						<div class="name">
+							<img class="img7" alt="">
+							<div class="clear"></div>
+						</div>
+				<p class="name7"></p>
+				</li>
+			</ul>
+			<ul>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr8"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(8)">
+						</div>
+						<div class="name">
+							<img class="img8" alt="">
+							<div class="clear"></div>
+						</div>
+				  <p class="name8"></p>
+				</li>
+				<li class="beautiful_list">
+					 <p id='idstr' class="idstr9"><p>
+						<div class="pic">
+						<img src="../images/heart.png" onclick="imgclick(9)">
+						</div>
+						<div class="name">
+							<img class="img9" alt="">
+							<div class="clear"></div>
+						</div>
+				<p class="name9"></p>
+				</li>
+			</ul>
+			<div>
+				<p style="font-size: 2rem;width: 90%;text-align: center;padding-left: 5%;padding-top: 3rem;">
+					每月心愿数排名第一项目，在参与者中抽取三名人员增送该项目价值最高500元的减免额度
+				</p>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+		$.ajax({  
+            type:'get',  
+            url: 'http://chenxiaolong.ngrok.cc/shop/1/zmdmly/public/api/wishList',  
+            dataType:'json',  
+            async:false,  
+            cache:false,                 
+            success: function (result) {  
+                for(var i=0;i<result['data'].length;i++){
+                	var imgnum="img"+i;
+                    $("."+imgnum).attr('src',result['data'][i]['pro_pic']);
+                    var name="name"+i;
+                    $("."+name).text(result['data'][i]['pro_name']);
+                    var id="idstr"+i;
+                    $("."+id).text(result['data'][i]['id']);                   
+                }
+            },   
+            error:function(data){
+            	
+            }
+    });  
+      function imgclick(num){
+      	 id=$('.idstr'+num).text();
+      	 $.ajax({  
+            type:'get',  
+            url: 'http://chenxiaolong.ngrok.cc/shop/1/zmdmly/public/api/wishListPraise', 
+            data: {
+                userid:14,
+                idstr:id
+            },
+            dataType:'json',  
+            async:false,  
+            cache:false,                 
+            success: function (result) {
+              alert(result['message']);
+            },   
+            error:function(data){
+              
+            }
+    }); 
+      }
+</script>

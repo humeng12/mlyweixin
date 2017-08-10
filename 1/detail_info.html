@@ -9,9 +9,9 @@
 		
 		<link rel="stylesheet" href="../css/weui.min.css">
 		<link rel="stylesheet" href="../css/jquery-weui.min.css">
-		<link rel="stylesheet" href="../common/common.css" />
 		<script src="../js/jquery-2.1.4.js"></script>
 		<script src="../js/jquery-weui.js"></script>
+		<script src="../weui/js/weui.min.js"></script>
 		<script src="../weui/js/city-picker.js"></script>
 		
 		<style>
@@ -145,7 +145,7 @@
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>生日</label>
-	                	<input type="text" placeholder="请选择生日"/>
+	                	<input type="text" id="birthday" placeholder="请选择生日"/>
             		</div>
         		</div>
         		
@@ -153,13 +153,13 @@
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>地址</label>
-	                	<input type="text" onfocus="this.blur();" class="input" id="city" placeholder="详细地址"/>
+	                	<input type="text" class="input" id="city" placeholder="详细地址"/>
             		</div>
         		</div>
         		
         		
         		<div class="ui-btn-wrap mt20 ui-form">
-            		<input type="button" class="confirm" value="提交">
+            		<a href="javascript:void(0);" onclick="uploadInfo()" class="weui-btn weui-btn_primary" style="background-color: #fedd90;">提交</a>
 		        </div>
         		
     		</form>
@@ -192,14 +192,29 @@
 					});
 				});
 				
+				
 				$("#city").cityPicker({
 			        title: "选择所在地区",
-			        showDistrict: false,
+			        showDistrict: true,
 			        onChange: function (picker, values, displayValues) {
 			          console.log(values, displayValues);
 			        }
 			    });
 			    
+			    
+			    $("#birthday").datetimePicker({
+			        title: '请选择时间',
+			        dateForm:"Y-m-d",
+			        onChange: function (picker, values, displayValues) {
+			          console.log(values);
+			        }
+      			});
+      			
+      			
+      			function uploadInfo()
+      			{
+      				
+      			}
 			    
     		</script>
     	</div>

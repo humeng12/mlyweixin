@@ -129,7 +129,12 @@ html {
 .user_nav_list .telphone{background-image:url(../images/customservice.png);background-repeat:no-repeat}
 .user_nav_list .jifen{background-image:url(../images/coupon.png);background-repeat:no-repeat}
 .user_nav_list .suggest{background-image:url(../images/suggestion.png);background-repeat:no-repeat}
-.user_nav_list .jifenjilu{background-image:url(../images/Myorder.png);background-repeat:no-repeat}
+.user_nav_list .jifenjilu{background-image:url(../images/mypoint.png);background-repeat:no-repeat}
+.user_nav_list .hot{background-image:url(../images/hot.png);background-repeat:no-repeat}
+.user_nav_list .myprofile{background-image:url(../images/profile.png);background-repeat:no-repeat}
+.user_nav_list .xinyuan{background-image:url(../images/xinyuan.png);background-repeat:no-repeat}
+.user_nav_list .tequan{background-image:url(../images/tequan.png);background-repeat:no-repeat}
+.user_nav_list .dizhi{background-image:url(../images/dizhi.png);background-repeat:no-repeat}
 .user_nav_list .sign{background-image:url(../images/pointsrecard.png);background-repeat:no-repeat}
 .user_nav_list .u_nav_name{float:left;margin-left:1.5%;line-height:50px;font-size:15px}
 .user_nav_list .u_money{position:relative;font-size:13px;color:#666;line-height:51px;float:right}
