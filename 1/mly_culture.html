@@ -924,9 +924,50 @@
 		</div>
 		
 		
+		<!--<div class="btn_content">
+			<button style="float:left" id="open">弹出</button>
+			<button style="float:left" id="close">折叠</button>
+		</div>-->
+		
+		
+		<style>
+			.PopupLayer{width:70%;height:200px;z-index: 2000;padding:10px;left:10%;position:fixed;background:#fff;background-clip:padding-box;border-radius:10px;border:10px solid #666;border:5px solid rgba(0, 0, 0, 0.2);}
+			.PopupLayer a.close{display:block;width:30px;height:30px;float:right;background:url(images/close.jpg) no-repeat;overflow:hidden;}
+			.PopupLayer a.close:hover{background-position:-30px;}
+			.PopupLayer a.btn{display:block;width:100px;height:38px;line-height:38px;text-align:center;color:#fff;font-weight:bold;letter-spacing:0.1em;float:right;background:url(images/btn_bg.jpg) repeat-x;border-radius:8px;margin:40px 30px 0 0;}
+			/* btn_content */
+			.btn_content{margin:50px auto;top:327px;width:204px;height:25px;}
+			.btn_content button{width:100px;height:25px;line-height:25px;background:#F60;border:1px solid #989898;margin-right:2px;}
+			.btn_content button:hover{color:#fff;}
+			
+		</style>
+		
+		<div class="PopupLayer">
+			<a class="close" href="javascript:void(0);"></a>
+			<p> 比尔盖茨发现你正在用IE浏览器，紧紧握住您的手，使劲儿的那个摇。 <br />
+			拉里▪佩吉发现您正在用IE浏览器，耸了一下肩，摇头笑笑。 <br />
+			</p>
+			<a class="btn" href="javascript:void(0);">我知道了</a>
+		</div>
+		
 		<script src="../js/mo.min.js"></script>
 		
 		<script type="text/javascript">
+			
+			
+			$("#open").click(function(){
+				notice_show();
+			});
+			
+			function notice_show()
+			{
+				var browser_visible_region_height=document.documentElement.clientHeight;
+				var element_height=$(".PopupLayer").outerHeight();
+				//计算元素显示时的top值
+				var element_show_top=(browser_visible_region_height-element_height)/2;
+				
+				$(".PopupLayer").stop(true).animate({top:element_show_top,opacity:1},1800);
+			}
 			
 			
 			$('.sliderlist').bxSlider({
@@ -940,7 +981,7 @@
 			slidelist(null);
 			function menubtn()
 			{
-				slidelist(3);
+				slidelist(4);
 			}
 		  	function slidelist(listindex)
 		  	{
@@ -1098,7 +1139,6 @@
 					success:function(data){
 						
 						if(data['status'] == '0'){
-							
 							$('.focusnum'+(parseInt(id)-1)).text(data['data']['num']);
 						}
 					}
