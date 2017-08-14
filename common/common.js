@@ -92,3 +92,4 @@ var browser = {
 //alert(" 是否为iPhone: " + browser.versions.iPhone);
 //alert(" 是否iPad: " + browser.versions.iPad);
 //alert(navigator.userAgent);
+

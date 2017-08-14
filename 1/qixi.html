@@ -12,6 +12,7 @@
 		<script src="../js/jquery-weui.js"></script>
 		<script src="../weui/js/weui.min.js"></script>
 		
+		
 		<style>
 			<style>
 			*{
@@ -160,6 +161,48 @@
     	
     	<script>
     		
+    		
+    		var openid = localStorage.getItem('openid');
+
+    		if (openid == '' || !openid || openid == null) {
+    			
+    			$.ajax({  
+					type:'get',  
+					url:'http://chenxiaolong.top/shoph/1/mly/public/user',
+					async:false,  
+					cache:false,
+					success:function(data){
+	 					
+	 					openid = data['message'];
+	 					localStorage.setItem('openid',openid);
+	 					
+	 					getUserBaseInfo(openid);
+					},
+					error:function(data){
+						
+						window.location.href = 'http://chenxiaolong.top/shoph/1/mly/public/outhqixi';
+					}
+				});
+    		}
+    		
+    		function getUserBaseInfo(weixinid)
+			{
+				$.ajax({
+
+					type:'get',
+					url:'http://chenxiaolong.top/shoph/1/mly/public/api/getBaseInfo',
+					data:{openid:weixinid},
+					dataType:'json',
+					success:function(data){
+
+						localStorage.setItem('nickname',data['data']['nickname']);
+						localStorage.setItem('headimgurl',data['data']['imgurl']);
+						localStorage.setItem('userid',data['data']['id']);
+						
+					}
+				});
+			}
+    		
     		function uploadInfo()
     		{
     			var name =  $("#name").val();
@@ -190,7 +233,7 @@
 		        	dataType:'json',
 		        	url:"http://humeng.ngrok.cc/laravel/1/mly/public/uploadUserInfo",
 		        	async:true,
-		        	data:{username:name,phone:phone,chengji:chengji},
+		        	data:{username:name,phone:phone,chengji:chengji;userid:localStorage.getItem('userid')},
 					success:function(data){
 						
 						$.hideLoading();
@@ -198,6 +241,7 @@
 						$.toast(data['message'],'text');
 						
 						if(data['status'] == '0'){
+							
 							window.location.href = 'qixi_card.html';
 						}
 						
