@@ -169,16 +169,6 @@
     			}
     			
     			var phone = $('#phone').val();
-    			if(!phone){
-    				$.toast('请输入手机号','text');
-    				return;
-    			}
-    			
-    			if(phone.length!=11)
-		        {
-		           	$.toast('手机号位数不对','text');
-    				return;
-		        }
 		        
     			var chengji = $('#chengji').val();
     			if(!chengji)
@@ -187,28 +177,28 @@
     				return;
 		        }
 		        
-		        if(!isNaN(parseInt(chengji))){
-		        	alert("是数字");
-		        }else{
-		        	alert("1111是数字");
+		        if(isNaN(parseInt(chengji))){
+		        	$.toast('输入的不是纯数字','text');
+    				return;
 		        }
+		        
+		        
+		        $.ajax({
+		        	type:"get",
+		        	dataType:'json',
+		        	url:"http://humeng.ngrok.cc/laravel/1/mly/public/uploadUserInfo",
+		        	async:true,
+		        	data:{usernamr:name,phone:phone,chengji:chengji},
+					success:function(data){
+						
+						$.toast(data['message'],'text');
+					},
+					error:function(data){
+						
+					}
+		        });
     		}
     		
-    		
-    		function checknumber(String) {
-    			
-		　　　　var Letters = "1234567890"; 
-		　　　　var i; 
-		　　　　var c; 
-		　　　　for( i = 0; i < Letters.length(); i ++ ){
-					
-		　　　　　　c = Letters.charAt( i ); 
-		　　　　　　if (Letters.indexOf( c ) ==-1){
-		　　　　　　　　return true; 
-		　　　   　　} 
-		　　　　} 
-		　　　　return false; 
-		　　} 
     		
     	</script>
     	
