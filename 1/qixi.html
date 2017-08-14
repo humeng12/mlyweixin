@@ -184,11 +184,11 @@
 		        
 		        
 		        $.ajax({
-		        	type:"get",
+		        	type:"post",
 		        	dataType:'json',
 		        	url:"http://humeng.ngrok.cc/laravel/1/mly/public/uploadUserInfo",
 		        	async:true,
-		        	data:{usernamr:name,phone:phone,chengji:chengji},
+		        	data:{username:name,phone:phone,chengji:chengji},
 					success:function(data){
 						
 						$.toast(data['message'],'text');
