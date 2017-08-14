@@ -179,6 +179,14 @@
 		           	$.toast('手机号位数不对','text');
     				return;
 		        }
+		        
+		        
+		        var myreg = /^(((13[0-9]{1})|159|153)+\d{8})$/;
+		        if(!myreg.test(phone))
+		        {
+		            $.toast('手机号不对','text');
+    				return;
+		        }
     			
     		}
     	</script>
