@@ -137,7 +137,7 @@
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>电话</label>
-	                	<input type="text" class="input" id="sex" placeholder="请输入手机号"/>
+	                	<input type="text" class="input" id="phone" placeholder="请输入手机号"/>
             		</div>
         		</div>
         		
@@ -165,7 +165,21 @@
     			var name =  $("#name").val();
     			if(!name){
     				$.toast('请输入姓名','text');
+    				return;
     			}
+    			
+    			var phone = $('#phone').val();
+    			if(!phone){
+    				$.toast('请输入手机号','text');
+    				return;
+    			}
+    			
+    			if(phone.length!=11)
+		        {
+		           	$.toast('手机号位数不对','text');
+    				return;
+		        }
+    			
     		}
     	</script>
     	
