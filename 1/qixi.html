@@ -4,8 +4,165 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>七夕</title>
+		
+		
+		<link rel="stylesheet" href="../css/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+		<script src="../js/jquery-2.1.4.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../weui/js/weui.min.js"></script>
+		
+		<style>
+			<style>
+			*{
+				margin: 0;padding: 0;
+			}
+			
+			body {
+  				font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+				line-height: 1.5;
+				font-size: 16px;
+				color: #000;
+				background-color: #f8f8f8;
+				-webkit-user-select: none;
+				-webkit-text-size-adjust: 100%;
+				-webkit-tap-highlight-color: transparent;
+				outline: 0; 
+			}
+  
+			input,
+			button,
+			textarea,
+			select,
+			optgroup,
+			option {
+			  	font-family: inherit;
+			  	font-size: inherit;
+			  	font-style: inherit;
+			  	font-weight: inherit;
+			  	outline: 0; 
+			}
+			
+			.mt10{margin-top:10px;}
+			.mt20{margin-top: 20px;}
+			.ui-form {background-color: #fff; }
+			.centerMain{
+				width:100%;
+				overflow: hidden;
+				background: #f5f5f5;
+				padding-top: 50px;
+			}
+		
+			/* 表单输入项 */
+			.ui-form-item {
+				position: relative;
+				font-size: 16px;
+				height: 44px;
+				line-height: 44px;
+				padding-right: 15px;
+				padding-left: 15px; 
+			}
+			.ui-form-item label:not(.ui-switch):not(.ui-checkbox):not(.ui-checkbox-s):not(.ui-radio) {
+			    width: 95px;
+			    position: absolute;
+			    text-align: left;
+			    box-sizing: border-box; 
+			}
+			.ui-form-item input{
+			    width: 100%;
+			    box-sizing: border-box;
+			    -webkit-appearance: none;
+			    border: 0;
+			    background: none;
+			    padding-left: 95px; 
+			}
+  			.ui-form-item input[type="checkbox"], .ui-form-item input[type="radio"] {
+    			padding-left: 0; 
+    		}
+  			.ui-form-item .ui-icon-close {
+    			position: absolute;
+			    top: 0;
+			    right: 6px; 
+			}
+		    @media (max-width: 320px) {
+		       	.ui-form-item .ui-icon-close {
+		        	right: 1px; 
+		       	} 
+		    }
+		  	@media (max-width: 320px) {
+		    	.ui-form-item {
+		      		padding-left: 10px;
+		      		padding-right: 10px; 
+		      	} 
+		    }
+		    
+		    .ui-btn-wrap {
+  				padding: 15px 10px; 
+  			}
+  			@media (max-width: 320px) {
+    			.ui-btn-wrap {
+      				padding: 10px; 
+      			} 
+      		}
+      		
+			.confirm{ 
+				background-color:#04BE02; 
+				color:#fff; 
+				border-radius:3px; 
+				width:92%; 
+				height:40px; 
+				line-height:40px; 
+				text-align:center; 
+				font-size:16px; 
+				margin-left:4%;
+				margin-top:14px; 
+				border:none; 
+				font-family: 'Microsoft YaHei',Arial, Helvetica, sans-serif;
+			}
+
+		</style>
+		
 	</head>
 	<body>
 		
+		<div class="centerMain" style="margin-top: -40px;">
+    		<form class="form1 clearfix" action="" method="post" name="form1">
+    			<div class="mt10 ui-form">
+            		<div class="ui-form-item ui-border-b">
+	                	<label>姓名</label>
+	                	<input type="text" placeholder="请输入姓名"/>
+            		</div>
+        		</div>
+        		
+        		<div class="mt10 ui-form">
+            		<div class="ui-form-item ui-border-b">
+	                	<label>性别</label>
+	                	<input type="text" onfocus="this.blur();" class="input" id="sex" placeholder="请选择性别"/>
+            		</div>
+        		</div>
+        		
+        		<div class="mt10 ui-form">
+            		<div class="ui-form-item ui-border-b">
+	                	<label>生日</label>
+	                	<input type="text" id="birthday" placeholder="请选择生日"/>
+            		</div>
+        		</div>
+        		
+        		
+        		<div class="mt10 ui-form">
+            		<div class="ui-form-item ui-border-b">
+	                	<label>地址</label>
+	                	<input type="text" class="input" id="city" placeholder="详细地址"/>
+            		</div>
+        		</div>
+        		
+        		
+        		<div class="ui-btn-wrap mt20 ui-form">
+            		<a href="javascript:void(0);" onclick="uploadInfo()" class="weui-btn weui-btn_primary" style="background-color: #fedd90;">提交</a>
+		        </div>
+        		
+    		</form>	
+    	</div>
+    	
 	</body>
 </html>
