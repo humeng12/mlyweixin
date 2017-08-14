@@ -144,7 +144,7 @@
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>成绩</label>
-	                	<input type="text" id="birthday" placeholder="请输入成绩"/>
+	                	<input type="text" id="chengji" placeholder="请输入成绩"/>
             		</div>
         		</div>
         		
@@ -180,15 +180,32 @@
     				return;
 		        }
 		        
-		        
-		        var myreg = /^(((13[0-9]{1})|159|153)+\d{8})$/;
-		        if(!myreg.test(phone))
+    			var chengji = $('#chengji').val();
+    			if(!chengji)
 		        {
-		            $.toast('手机号不对','text');
+		           	$.toast('请输入成绩','text');
     				return;
 		        }
-    			
+		        
+		        alert(chengji);
     		}
+    		
+    		
+    		function checknumber(String) {
+    			
+		　　　　var Letters = "1234567890"; 
+		　　　　var i; 
+		　　　　var c; 
+		　　　　for( i = 0; i < Letters.length(); i ++ ){
+					
+		　　　　　　c = Letters.charAt( i ); 
+		　　　　　　if (Letters.indexOf( c ) ==-1){
+		　　　　　　　　return true; 
+		　　　   　　} 
+		　　　　} 
+		　　　　return false; 
+		　　} 
+    		
     	</script>
     	
     	
