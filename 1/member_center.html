@@ -46,7 +46,7 @@
 				width: 50px;
 				height: 25px;
 				margin-top: -26px;
-				margin-left: 40px;
+				margin-left: 60px;
 			}
 			
 			.myname{
@@ -93,7 +93,7 @@
 	        .content{
 	        	width: 100%;
 	        	background-color: #FFFFFF;
-	        	margin-top: 25px;
+	        	margin-top: 1rem;
 	        }
 	        
 	        .rank{
@@ -157,7 +157,7 @@
 				width: 100%;
 				height: 16rem;
 				background-color: #FFFFFF;
-				margin-top: 25px;
+				margin-top: 1rem;
 			}
 			
 			.percentage-left{
@@ -211,9 +211,49 @@
 			.splash1 .loading-circle1>canvas.mask1 {z-index: 2; transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);}
 			.splash1 .loading-circle1>p {z-index: 3;  width: 49%; height: 49%; text-align: center; line-height: 100px; font-size: 30px; font-weight: lighter; color: #999;}
 			
-		.content .sc_div ul li a{
-			-webkit-tap-highlight-color:transparent;
-		}
+			.content .sc_div ul li a{
+				-webkit-tap-highlight-color:transparent;
+			}
+
+			p{ white-space:nowrap;}
+
+			.pointsrank .rank-footer p{
+				position: absolute;
+				top: 17.8rem;
+				left: 65%;
+				color: #a6a6a6;
+			}
+			.percentage .rank-footer p{
+				position: absolute;
+				top: 13.8rem;
+				left: 65%;
+				color: #a6a6a6;
+			}
+			.pointsrank .ranklist .ranklist_left{
+				 display: flex;
+                 justify-content: space-between; 
+                 align-items: center;
+			}
+			.pointsrank .ranklist{
+				 display: flex;
+                 justify-content: space-between;                
+                 margin: 1rem 1rem 1rem;
+                 height: 4rem;
+                 align-items: center;
+			}
+			.pointsrank p{
+				text-align: center;
+			}
+			.ranklist_right p{
+				color: #DD3D3D;
+			}
+
+
+			.myname{
+				width: 50px;
+				overflow: hidden;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -283,7 +323,7 @@
 			.barbox dd.barline{width:80%;background-color: #0e76d9;height:16px;overflow:hidden;display:inline;border-radius:8px;}
 			.barbox dd.barline div.charts{height:16px;overflow:hidden;background-color: #f49011;border-radius:8px;}
 		</style>
-		<div class="rank">
+		<div class="rank" style="margin-top: 1rem;">
 			<div>
 				<p>你当前累计积分排行第 <span style="color: #eed620;font-size: 20px;" v-text='nums'></span> 位，击败了 <span style="color: #eed620;font-size: 20px;" v-text='rank'></span> 的会员</p>
 
@@ -325,51 +365,14 @@
 			</div>
 		</div>
 		
-		<style>
-			
-			p{ white-space:nowrap;}
-			.listleftimg{
-				width: 2rem;height:2rem;
-			}
-			.listheadimg{
-				width: 4rem;height:4rem;border-radius: 2rem;margin-left: 20px;
-			}
-			.pointsrank .rank-footer p{
-				position: absolute;
-				top: 17.8rem;
-				left: 65%;
-				color: #a6a6a6;
-			}
-			.percentage .rank-footer p{
-				position: absolute;
-				top: 13.8rem;
-				left: 65%;
-				color: #a6a6a6;
-			}
-			.pointsrank .ranklist .ranklist_left{
-				 width: 30%;
-				 display: flex;
-                 justify-content: space-between; 
-                 align-items: center;
-			}
-			.pointsrank .ranklist{
-				 display: flex;
-                 justify-content: space-between;                
-                 margin: 1rem 1rem 1rem;
-                 height: 4rem;
-                 align-items: center;
-			}
-			.ranklist_right p{
-				color: #DD3D3D;
-			}
-		</style>
 	 
 	    <div class="pointsrank" style="background-color: #FFFFFE;margin-top: 1rem;height: 21rem;position: relative;display: none;">
 	    	<p style="padding-top: 1rem;font-size: 16px;text-align: center;">积分排行榜</p>
+
 	    	<div class="ranklist" v-for='item in items'>
 	    		<div class="ranklist_left">
-		    		<img class="listleftimg" src="../images/Brand.png">
-		    		<img class="listheadimg" :src='item.imgurl'>
+		    		<img class="listleftimg" src="../images/Brand.png" style="width: 2rem;height:2rem"/>
+		    		<img class="listheadimg" :src="item.imgurl" style="margin-left: 20px;width:3rem;height:3rem;border-radius: 1.5rem;"/>
 		    		<p v-text="item.nickname" style="margin-left: 30px;"></p>
 	    		</div>
 	    		<div class="ranklist_right">
@@ -497,6 +500,87 @@
 	        </div>
 	        <div class="massion-layer-bg"></div>
 	    </div>
+
+	    <script type="text/javascript">
+
+
+	    	// var k = localStorage.getItem('bushu');
+
+	    	// if (!k) {
+	    	// 	k = 0;
+	    	// }
+
+	  //   	var int=self.setInterval("clock()",1000);
+
+			// function clock()
+			// {
+			// 	jibuqi();		
+			// }
+			// 
+			// window.clearInterval();
+
+	    	// jibuqi();
+
+
+	    	function jibuqi()
+	    	{
+	    		
+		    	var shakeThreshold = 1000; // 定义一个摇动的阈值 
+	    		var lastUpdate = 0; // 记录上一次摇动的时间 
+	    		var x, y, z, lastX, lastY, lastZ; // 定义x、y、z记录三个轴的数据以及上一次触发的数据
+
+	    		if (window.DeviceMotionEvent) { 
+	    			window.addEventListener('devicemotion', deviceMotionHandler, false); 
+				} else { 
+	    			alert('本设备不支持devicemotion事件'); 
+				} 
+
+				function deviceMotionHandler(eventData) { 
+
+					var acceleration = eventData.accelerationIncludingGravity;// 获取含重力的加速度  acceleration
+
+					var curTime = new Date().getTime(); 
+
+					if ((curTime - lastUpdate) > 100) { 
+
+
+						var diffTime = curTime - lastUpdate; 
+
+						lastUpdate = curTime; 
+
+						x = acceleration.x; 
+	        			y = acceleration.y; 
+	        			z = acceleration.z;
+
+	        			var speed = Math.abs(x + y + z - lastX - lastY - lastZ) / diffTime * 10000; 
+
+	        			// localStorage.setItem('dong',speed);
+
+	        			// 前后x, y, z间的差值的绝对值和时间比率超过了预设的阈值，则判断设备进行了摇晃操作 
+
+	        			if (speed > shakeThreshold) { 
+	            			//doSomething();
+	            			
+	            			parseInt(k)++;
+	            			alert('1111');
+
+	            			// localStorage.setItem('bushu',k);
+	        			}else{
+
+	        			}
+
+	        			lastX = x; 
+	        			lastY = y; 
+	        			lastZ = z; 
+
+					}else{
+
+					}
+
+				}
+	    	}
+
+	    </script>
     
     
     	<script>

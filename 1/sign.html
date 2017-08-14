@@ -7,69 +7,116 @@
 <link rel="stylesheet" href="../calendar/css/bootstrap3/css/bootstrap.min.css">
 <link rel="stylesheet" href="../calendar/css/style.css">
 <link rel="stylesheet" href="../calendar/css/qiandao_style.css">
+
+<link rel="stylesheet" href="../css/weui.min.css">
+<link rel="stylesheet" href="../css/jquery-weui.min.css">
+	
+<script src="../js/jquery-2.1.4.js"></script>
 <script src="../calendar/js/jquery-1.10.2.min.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../weui/js/weui.min.js"></script>
 <script src="../calendar/js/calendar.js"></script>
 </head>
 <script type="text/javascript">
+
+        $.ajax({  
+            type:'post', 
+            url: 'http://chenxiaolong.top/shoph/1/mly/public/api/gettaskSigndate',  
+            data: {
+                idstr:localStorage.getItem('userid'),
+            },
+            dataType:'json',  
+            async:false,  
+            cache:false,                 
+            success: function (result) {
+
+               if(result['status']== '0'){
+               		localStorage.setItem('signdate',JSON.stringify(result['data']));
+               	}else{
+
+               	}
+             
+           },   
+            error:function(data){  
+            	
+            }
+        }); 
+
+
+
 	function initSign(year, month, signList){
-		//显示当前年份和月份
-		$("#currDate").text(year+"-"+((month+1)<10?"0"+(month+1):(month+1)));
-		var str = calUtil.drawCal(year,month+1,signList);
-		//显示当前日历
-		$("#calendar").html("").html(str);
-   	}
+	//显示当前年份和月份
+	$("#currDate").text(year+"-"+((month+1)<10?"0"+(month+1):(month+1)));
+	var str = calUtil.drawCal(year,month+1,signList);
+	//显示当前日历
+	$("#calendar").html("").html(str);
+   }
 	$(function(){
-		//初始化签到表，为当前月份的签到情况
-		var iDate = new Date();
-	    var year=iDate.getFullYear();
-	    var month=iDate.getMonth();
-	    var currentmonth=month+1;
-	    var day=iDate.getDate();
-	    
-	    var date=year+"-"+currentmonth+"-"+day;
-	    
-		var signList = [date];
-		
-		initSign(iDate.getFullYear(), iDate.getMonth(),signList);
+	//初始化签到表，为当前月份的签到情况
+    
+    var iDate = new Date();
+    var year=iDate.getFullYear();
+    var month=iDate.getMonth();
+    var currentmonth=month+1;
+    var day=iDate.getDate();
+    
+    var date=year+"-"+currentmonth+"-"+day;
+    
+     var signList = new Array();　//创建一个数组 
+       var signdate = JSON.parse(localStorage.getItem('signdate'));
+     	for(var i=0;i<signdate.length;i++){
+          //已经签到的日期    	 
+             signList.push(signdate[i]['sign_date']);        
+       }
+
+      signList.push(date);
+
+      initSign(iDate.getFullYear(), iDate.getMonth(), signList);
 	
 		//上一个月的签到情况
-		$("#minusMonth").on("click", function(){
-			var currDate = $("#currDate").text();
-			var date = new Date(currDate);
-			//0表示1月份，再减一个月就得减年份
-			var year;
-			var month;
-			if(date.getMonth() == 0){
-				year = date.getFullYear() - 1;
-				month = 11;
-				var signList = "";
-				initSign(year, month, signList);
-			}else{
-				year = date.getFullYear();
-				month = date.getMonth()-1;
-				var signList = "";
-				initSign(year, month, signList);
-			}
-		});
-		//下一个月的签到情况
-		$("#addMonth").on("click", function(){
-			var currDate = $("#currDate").text();
-			var date = new Date(currDate);
-			//11表示12月份，再加一个月就得加年份
-			var year;
-			var month;
-			if(date.getMonth() == 11){
-				year = date.getFullYear() + 1;//年份加1
-				month = 0;//月份重新赋值为0（表示1月）
-				var signList = "";
-				initSign(year, month, signList);
-			}else{
-				year = date.getFullYear();
-				month = date.getMonth()+1;
-				var signList = "";
-				initSign(year, month, signList);
-			}
-		});
+	$("#minusMonth").on("click", function(){
+		var currDate = $("#currDate").text();
+		var date = new Date(currDate);
+		var iDate = new Date();
+
+		//0表示1月份，再减一个月就得减年份
+		var year;
+		var month;
+		if(date.getMonth() == 0){
+			year = date.getFullYear() - 1;
+			month = 11;
+
+			var signList = "";
+
+			initSign(year, month, signList);
+		}else{
+			year = date.getFullYear();
+			month = date.getMonth()-1;
+
+			var signList = "";
+
+			initSign(year, month, signList);
+		}
+	});
+	//下一个月的签到情况
+	$("#addMonth").on("click", function(){
+		var currDate = $("#currDate").text();
+		var date = new Date(currDate);
+		//11表示12月份，再加一个月就得加年份
+		var year;
+		var month;
+		if(date.getMonth() == 11){
+			year = date.getFullYear() + 1;//年份加1
+			month = 0;//月份重新赋值为0（表示1月）
+			var signList = "";
+			initSign(year, month, signList);
+		}else{
+			year = date.getFullYear();
+			month = date.getMonth()+1;
+			var signList = "";
+			initSign(year, month, signList);
+		}
+	});
 	});
 </script>
 <body>
@@ -87,7 +134,7 @@
 					<div id="calendar"></div>
 				</div>
 				<div class="text-center">
-					<button name='button' type='button' class="btn btn-qiandao" onClick="signIn()">马上签到</button>
+					<button id="button_id" name='button' type='button' class="btn btn-qiandao" onClick="signIn()">马上签到</button>
 				</div>
 			</div>
 		</div>
@@ -99,86 +146,106 @@
 	<div class="text-center pt10">您已经连续签到&nbsp;<span class="text-green">10</span>&nbsp;天</div>
 	<div class="text-center ptb15"><img src="../images/gift.png" style="width:125px;margin-left:20px;"></div>
 </div>
+<script type="text/javascript">
+            //返回已经签到的日期
+         	
+	    //签到的按钮方法
+	
+		var datestr = getNowFormatDate();
 
-	<script type="text/javascript">
-		
-		
-		function initSign(year, month, signList){
-			//显示当前年份和月份
-			$("#currDate").text(year+"-"+((month+1)<10?"0"+(month+1):(month+1)));
-			var str = calUtil.drawCal(year,month+1,signList);
-			//显示当前日历
-			$("#calendar").html("").html(str);
-		}
-		
-		//签到的按钮方法
 	    var lastsigndate =localStorage.getItem('lastsigndate');
 
-	    var now= new Date();
-        var year=now.getFullYear();     
-        var month=now.getMonth()+1;
-        var date=now.getDate();
-        if(month.toString().length==1){
-         	month="0"+month;
-        }
-        if(date.toString().length==1){
-         	date="0"+date;
-        }
-        var todaysign=year+"-"+month+"-"+date;
-		if(todaysign==lastsigndate){ 
-			
-			 $('button').text('已经签到');
-			 
-			 document.all("button").disabled=true;
-		}
-	
-	  	function  signIn(){
-	
-	 	
-		var signTime = localStorage.getItem('signTime');
+	    if (lastsigndate) {
+
+	    	if ((parseInt(datestr.substr(8,2)) -  parseInt(lastsigndate.substr(8,2))) > 0) {
+	    		
+	    	}else{
+
+	    		
+	    		
+	    		$('button').text('已经签到');
+			 	$("#button_id").attr('disabled',true);
+	    	}
+	    }
+	    
+
+	   
+  	function  signIn(){
+
+      
+		var userid = localStorage.getItem('userid');
 		
-		var datestr = getNowFormatDate();
-	
-	       //签到日期
-			var userid = localStorage.getItem('idstr'); 
-	         
-	        var userid = 11; 
-	           	$.ajax({  
-	            type:'post',  
-	            url: 'http://chenxiaolong.top/shoph/1/mly/public/api/taskSign',  
-	            data: {
-	                idstr:userid,
-	                signdate:datestr
-	            },
-	            dataType:'json',  
-	            async:false,  
-	            cache:false,                 
-	            success: function (result) {  
-	              if(result['status']== '0'){
-	              	
-	                	if(result['message']=='今日已签到'){
-	                		$('button').text('已经签到');
-	                		document.all("button").disabled=true;
-	                		return;
-	                	}else if(result['message']=='签到成功'){
-	              	     	$('button').text('已经签到');  
-	                	    var num=result['data']['signdate'].length-1;
-	                	    var lastsigndate=result['data']['signdate'][num]['sign_date'];               	     
-	                        localStorage.setItem('lastsigndate',lastsigndate);
-	              	     	document.all("button").disabled=true;
-	              		return;
-	              	}else{
-	              		alert('签到失败');
-	              		return;
-	              	}
-	             }
-	           },   
-	            error:function(data){            	
-	            	$.toast('签到失败',"text");
-	            }
-	        });   	
-		}
+        
+
+        $.showLoading('签到中...');
+
+        $.ajax({  
+            type:'post',  
+            url: 'http://chenxiaolong.top/shoph/1/mly/public/api/taskSign',  
+            data: {
+                idstr:userid,
+                signdate:datestr
+            },
+            dataType:'json',  
+            async:false,  
+            cache:false,                 
+            success: function (result) { 
+
+            	$.hideLoading();
+
+            	$.toast(result['message'],"text");
+
+               if(result['status']== '0'){
+                	
+                	if(result['message']=='签到成功'){
+
+              	     	$('button').text('已经签到');
+
+                	    var num=result['data']['signdate'].length-1;
+
+                	    var lastsigndate=result['data']['signdate'][num]['sign_date'];
+
+                        localStorage.setItem('lastsigndate',datestr);
+
+              	     	$("#button_id").attr('disabled',true);
+              		
+              	}else{
+              		
+              	}
+             }
+           },   
+            error:function(data){  
+            	$.hideLoading();          	
+            	$.toast('签到失败',"text");
+            }
+        });   	
+	}
    
+        function getNowFormatDate() {
+
+	    var date = new Date();
+	    var seperator1 = "-";
+	    var seperator2 = ":";
+	    var month = date.getMonth() + 1;
+	    var strDate = date.getDate();
+	    if (month >= 1 && month <= 9) {
+	        month = "0" + month;
+	    }
+	    if (strDate >= 0 && strDate <= 9) {
+	        strDate = "0" + strDate;
+	    }
+	    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+
+	    //" " + date.getHours() + seperator2 + date.getMinutes()
+	            //+ seperator2 + date.getSeconds()
+
+	    return currentdate;
+}
+//点击背景去除弹框的方法
+//$(".maskbox").click(function(){
+//	$(".maskbox").fadeOut();
+//	$(".qdbox").fadeOut();
+//});
 </script>
 </body>
 </html>
