@@ -130,14 +130,14 @@
     			<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>姓名</label>
-	                	<input type="text" placeholder="请输入姓名"/>
+	                	<input type="text" id="name" placeholder="请输入姓名"/>
             		</div>
         		</div>
         		
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>电话</label>
-	                	<input type="text" onfocus="this.blur();" class="input" id="sex" placeholder="请输入手机号"/>
+	                	<input type="text" class="input" id="sex" placeholder="请输入手机号"/>
             		</div>
         		</div>
         		
@@ -155,6 +155,20 @@
         		
     		</form>	
     	</div>
+    	
+    	
+    	
+    	<script>
+    		
+    		function uploadInfo()
+    		{
+    			var name =  $("#name").val();
+    			if(!name){
+    				$.toast('请输入姓名','text');
+    			}
+    		}
+    	</script>
+    	
     	
 	</body>
 </html>
