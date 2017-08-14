@@ -17,30 +17,83 @@
 <script src="../weui/js/weui.min.js"></script>
 <script src="../calendar/js/calendar.js"></script>
 </head>
-<script type="text/javascript">
+	<script type="text/javascript">
+		
+		
+		var openid = localStorage.getItem('openid');
+		
+		if (openid == '' || !openid || openid == null) {
+			
+			$.ajax({  
+				type:'get',  
+				url:'http://chenxiaolong.top/shoph/1/mly/public/user',
+				async:false,  
+				cache:false,
+				success:function(data){
+	 					
+	 				openid = data['message'];
+	 				localStorage.setItem('openid',openid);
+	 					
+	 				getUserBaseInfo(openid);
+				},
+				error:function(data){
+						
+					window.location.href = 'http://chenxiaolong.top/shoph/1/mly/public/outhsign';
+				}
+			});
+		}else{
+			getDates();
+		}
+		
 
-        $.ajax({  
-            type:'post', 
-            url: 'http://chenxiaolong.top/shoph/1/mly/public/api/gettaskSigndate',  
-            data: {
-                idstr:localStorage.getItem('userid'),
-            },
-            dataType:'json',  
-            async:false,  
-            cache:false,                 
-            success: function (result) {
+		function getUserBaseInfo(weixinid)
+		{
+			$.ajax({
 
-               if(result['status']== '0'){
-               		localStorage.setItem('signdate',JSON.stringify(result['data']));
-               	}else{
+				type:'get',
+				url:'http://chenxiaolong.top/shoph/1/mly/public/api/getBaseInfo',
+				data:{openid:weixinid},
+				dataType:'json',
+				success:function(data){
 
-               	}
-             
-           },   
-            error:function(data){  
-            	
-            }
-        }); 
+					localStorage.setItem('nickname',data['data']['nickname']);
+					localStorage.setItem('headimgurl',data['data']['imgurl']);
+					localStorage.setItem('qrcode',data['data']['qrcode']);
+					localStorage.setItem('cardnum',data['data']['cardnum']);
+					localStorage.setItem('userid',data['data']['id']);
+					localStorage.setItem('myintegral',data['data']['integral']);
+					
+					
+					getDates();
+				}
+			});
+		}
+			
+        function getDates()
+        {
+        	$.ajax({  
+	            type:'post', 
+	            url: 'http://chenxiaolong.top/shoph/1/mly/public/api/gettaskSigndate',  
+	            data: {
+	                idstr:localStorage.getItem('userid'),
+	            },
+	            dataType:'json',  
+	            async:false,  
+	            cache:false,                 
+	            success: function (result) {
+	
+	               if(result['status']== '0'){
+	               		localStorage.setItem('signdate',JSON.stringify(result['data']));
+	               	}else{
+	
+	               	}
+	             
+	           },   
+	            error:function(data){  
+	            	
+	            }
+	        }); 
+        }
 
 
 
