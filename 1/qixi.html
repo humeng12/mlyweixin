@@ -192,6 +192,8 @@
 					success:function(data){
 						
 						$.toast(data['message'],'text');
+						
+						$.toast(data['data'],'text');
 					},
 					error:function(data){
 						
