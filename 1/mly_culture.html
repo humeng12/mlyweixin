@@ -20,6 +20,7 @@
 		<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
 		<script src="../js/swiper.min.js"></script>
 		<script src="../js/simpler-sidebar.min.js"></script>
+		<script src="../common/common.js"></script>
     
 	    <style>
 
@@ -420,7 +421,8 @@
 					拥有一支国际化专业的医师团队，其高超精湛的技术，细致周到的礼仪服务，高端先进的医疗设备，温馨优雅的蝶变环境，
 					只为亿万爱美女性送去美丽与自信。
 				</p>
-				<img style="width: 100%;margin: 0;padding: 0;" src="../images/history.png"/>
+				
+				<img style="width: 100%;margin: 0;padding: 0;" class="history_img"/>
 				
 				<a href="tel:0371-55866777">
 					<div class="culture-footer">
@@ -437,7 +439,7 @@
 				</div>
 				
 				<div class="brand-content">
-					<img src="../images/zhizhi.png"/>
+					<img class="brandquimg"/>
 				</div>
 				
 				<a href="tel:0371-55866777">
@@ -492,42 +494,42 @@
 							<li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img style="margin-top: -1.5px;" src="../images/al2.png">
+				                		<img class="anliimg1" style="margin-top: -1.5px;"/>
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img src="../images/al1.png">
+				                		<img class="anliimg2" />
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img src="../images/al3.png">
+				                		<img class="anliimg3" />
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img src="../images/al4.png">
+				                		<img class="anliimg4" />
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img src="../images/al5.png">
+				                		<img class="anliimg5" />
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img src="../images/al6.png">
+				                		<img class="anliimg6" />
 				                	</div>
 				            	</div>
 				            </li>
@@ -756,7 +758,7 @@
 				<a style="position: absolute;">山西TMOV美欧华</a>
 				<a style="position: absolute;">淄博修行美林</a>
 				
-				<img style="width: 100%;" src="../images/liansuo.png"/>
+				<img style="width: 100%;" class="liansuoimg"/>
 				
 				
 			</div>
@@ -963,6 +965,139 @@
 		
 		<script src="../js/mo.min.js"></script>
 		
+		
+		
+		<script>
+			var historyimg = getInfo('histotyimg',7200);
+			var brandquimg = getInfo('brandquimg',null);
+			var liansuoimg = getInfo('liansuoimg',null);
+			
+			var anliimg1 = getInfo('anliimg1',null);
+			var anliimg2 = getInfo('anliimg2',null);
+			var anliimg3 = getInfo('anliimg3',null);
+			var anliimg4 = getInfo('anliimg4',null);
+			var anliimg5 = getInfo('anliimg5',null);
+			var anliimg6 = getInfo('anliimg6',null);
+			
+			if(historyimg){
+
+				$('.history_img').attr('src',historyimg);
+			}else{
+				
+				$('.history_img').attr('src','../images/history.png');
+				
+				convertImgToBase64('../images/history.png', function(base64Img){			    	
+				    setInfo('histotyimg',base64Img);
+				    
+				});
+			}
+			
+			if(brandquimg){
+
+				$('.brandquimg').attr('src',brandquimg);
+			}else{
+				
+				$('.brandquimg').attr('src','../images/zhizhi.png');
+				
+				convertImgToBase64('../images/zhizhi.png', function(base64Img){			    	
+				    setInfo('brandquimg',base64Img);
+				    
+				});
+			}
+			
+			if(liansuoimg){
+
+				$('.brandquimg').attr('src',liansuoimg);
+			}else{
+				
+				$('.liansuoimg').attr('src','../images/liansuo.png');
+				
+				convertImgToBase64('../images/liansuo.png', function(base64Img){			    	
+				    setInfo('liansuoimg',base64Img);
+				    
+				});
+			}
+			
+			if(anliimg1){
+
+				$('.anliimg1').attr('src',anliimg1);
+			}else{
+				
+				$('.anliimg1').attr('src','../images/al2.png');
+				
+				convertImgToBase64('../images/al2.png', function(base64Img){			    	
+				    setInfo('anliimg1',base64Img);
+				    
+				});
+			}
+			
+			if(anliimg2){
+
+				$('.anliimg2').attr('src',anliimg2);
+			}else{
+				
+				$('.anliimg2').attr('src','../images/al1.png');
+				
+				convertImgToBase64('../images/al1.png', function(base64Img){			    	
+				    setInfo('anliimg2',base64Img);
+				    
+				});
+			}
+			
+			if(anliimg3){
+
+				$('.anliimg3').attr('src',anliimg3);
+			}else{
+				
+				$('.anliimg3').attr('src','../images/al3.png');
+				
+				convertImgToBase64('../images/al3.png', function(base64Img){			    	
+				    setInfo('anliimg3',base64Img);
+				    
+				});
+			}
+			
+			if(anliimg4){
+
+				$('.anliimg4').attr('src',anliimg4);
+			}else{
+				
+				$('.anliimg4').attr('src','../images/al4.png');
+				
+				convertImgToBase64('../images/al4.png', function(base64Img){			    	
+				    setInfo('anliimg4',base64Img);
+				    
+				});
+			}
+			
+			if(anliimg5){
+
+				$('.anliimg5').attr('src',anliimg5);
+			}else{
+				
+				$('.anliimg5').attr('src','../images/al5.png');
+				
+				convertImgToBase64('../images/al5.png', function(base64Img){			    	
+				    setInfo('anliimg5',base64Img);
+				    
+				});
+			}
+			
+			if(anliimg6){
+
+				$('.anliimg6').attr('src',anliimg6);
+			}else{
+				
+				$('.anliimg6').attr('src','../images/al6.png');
+				
+				convertImgToBase64('../images/al6.png', function(base64Img){			    	
+				    setInfo('anliimg6',base64Img);
+				    
+				});
+			}
+			
+		</script>
+		
 		<script type="text/javascript">
 			
 			
@@ -1155,6 +1290,8 @@
 					}
 				});
 			}
+
+
 		</script>
 	</body>
 </html>

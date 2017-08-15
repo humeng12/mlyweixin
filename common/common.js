@@ -1,28 +1,32 @@
 
-function setInfo(key,value){
+function setInfo(keystr,valuestr){
 	
     var curTime = new Date().getTime();
-    localStorage.setItem(key,JSON.stringify({data:value,time:curTime}));
+    
+    localStorage.setItem(keystr,JSON.stringify({data:valuestr,time:curTime}));
 }
 
 
-function getInfo(key,exp){
+function getInfo(keystr,expstr){
 	
-    var data = localStorage.getItem(key);
+    var data = localStorage.getItem(keystr);
     var dataObj = JSON.parse(data);
     
-    if(exp != null)
+    if(dataObj)
     {
-    	if (new Date().getTime() - dataObj.time > exp) {
-    		return null;
+    	if(expstr != null)
+	    {
+	    	if (new Date().getTime() - dataObj.time > expstr) {
+	    		return null;
+		    }else{
+		        var dataObjDatatoJson = dataObj.data;
+		        return dataObjDatatoJson;
+		    }	
 	    }else{
-	        var dataObjDatatoJson = JSON.parse(dataObj.data);
-	        return dataObjDatatoJson;
+	    	
+	    	var dataObjDatatoJson = dataObj.data;
+		    return dataObjDatatoJson;
 	    }	
-    }else{
-    	
-    	var dataObjDatatoJson = JSON.parse(dataObj.data);
-	    return dataObjDatatoJson;
     }
 }
 
@@ -93,3 +97,21 @@ var browser = {
 //alert(" 是否iPad: " + browser.versions.iPad);
 //alert(navigator.userAgent);
 
+
+
+
+function convertImgToBase64(url, callback, outputFormat){
+    var canvas = document.createElement('CANVAS'),
+    ctx = canvas.getContext('2d'),
+    img = new Image;
+    img.crossOrigin = 'Anonymous';
+	img.onload = function(){
+	    canvas.height = img.height;
+	    canvas.width = img.width;
+	    ctx.drawImage(img,0,0);
+	    var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+	    callback.call(this, dataURL);
+	    canvas = null; 
+	};
+    img.src = url;
+}
