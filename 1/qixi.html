@@ -14,7 +14,7 @@
 		
 		
 		<style>
-			<style>
+
 			*{
 				margin: 0;padding: 0;
 			}
@@ -128,24 +128,27 @@
 		
 		<div class="centerMain" style="margin-top: -40px;">
     		<form class="form1 clearfix" action="" method="post" name="form1">
-    			<div class="mt10 ui-form">
+    			
+    			 <div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>姓名</label>
 	                	<input type="text" id="name" placeholder="请输入姓名"/>
             		</div>
-        		</div>
-        		
-        		<div class="mt10 ui-form">
-            		<div class="ui-form-item ui-border-b">
-	                	<label>电话</label>
-	                	<input type="text" class="input" id="phone" placeholder="请输入手机号"/>
-            		</div>
-        		</div>
+        		</div> 
+       
         		
         		<div class="mt10 ui-form">
             		<div class="ui-form-item ui-border-b">
 	                	<label>成绩</label>
-	                	<input type="text" id="chengji" placeholder="请输入成绩"/>
+	                	<input type="text" id="chengji" placeholder="请输入成绩(纯数字)"/>
+            		</div>
+        		</div>
+
+
+        		<div class="mt10 ui-form">
+            		<div class="ui-form-item ui-border-b">
+	                	<label>项目</label>
+	                	<input type="text" id="project" placeholder="请输入项目"/>
             		</div>
         		</div>
         		
@@ -159,59 +162,69 @@
     	
     	
     	
+    	<!--<div class="mt10 ui-form">
+            		<div class="ui-form-item ui-border-b">
+	                	<label>电话</label>
+	                	<input type="text" class="input" id="phone" placeholder="请输入手机号"/>
+            		</div>
+        		</div>-->
+    	
     	<script>
     		
+//  		var openid = localStorage.getItem('openid');
     		
-    		var openid = localStorage.getItem('openid');
 
-    		if (openid == '' || !openid || openid == null) {
-    			
-    			$.ajax({  
-					type:'get',  
-					url:'http://chenxiaolong.top/shoph/1/mly/public/user',
-					async:false,  
-					cache:false,
-					success:function(data){
-	 					
-	 					openid = data['message'];
-	 					localStorage.setItem('openid',openid);
-	 					
-	 					getUserBaseInfo(openid);
-					},
-					error:function(data){
-						
-						window.location.href = 'http://chenxiaolong.top/shoph/1/mly/public/outhqixi';
-					}
-				});
-    		}
+//  		if (openid == '' || !openid || openid == null) {
+//  			
+//  			$.ajax({  
+//					type:'get',  
+//					url:'http://chenxiaolong.top/shoph/1/mly/public/user',
+//					async:false,  
+//					cache:false,
+//					success:function(data){
+//	 					openid = data['message'];
+//	 					localStorage.setItem('openid',openid);
+//	 					
+//	 					getUserBaseInfo(openid);
+//					},
+//					error:function(data){
+//						
+//						window.location.href = 'http://chenxiaolong.top/shoph/1/mly/public/outhqixi';
+//					}
+//				});
+//  		}else{
+//  			
+//  		}
     		
-    		function getUserBaseInfo(weixinid)
-			{
-				$.ajax({
-
-					type:'get',
-					url:'http://chenxiaolong.top/shoph/1/mly/public/api/getBaseInfo',
-					data:{openid:weixinid},
-					dataType:'json',
-					success:function(data){
-
-						localStorage.setItem('nickname',data['data']['nickname']);
-						localStorage.setItem('headimgurl',data['data']['imgurl']);
-						localStorage.setItem('userid',data['data']['id']);
-						
-					}
-				});
-			}
+//  		function getUserBaseInfo(weixinid)
+//			{
+//				$.ajax({
+//
+//					type:'get',
+//					url:'http://chenxiaolong.top/shoph/1/mly/public/api/getBaseInfo',
+//					data:{openid:weixinid},
+//					dataType:'json',
+//					success:function(data){
+//
+//						localStorage.setItem('nickname',data['data']['nickname']);
+//						localStorage.setItem('headimgurl',data['data']['imgurl']);
+//						localStorage.setItem('userid',data['data']['id']);
+//						
+//					}
+//				});
+//			}
+			
     		
     		function uploadInfo()
     		{
-    			var name =  $("#name").val();
-    			if(!name){
-    				$.toast('请输入姓名','text');
-    				return;
-    			}
+    
+      			 var name =  $("#name").val();
+      			 if(!name){
+      			 	$.toast('请输入姓名','text');
+      			 	return;
+      			 }
     			
-    			var phone = $('#phone').val();
+    			//var phone = $('#phone').val();
 		        
     			var chengji = $('#chengji').val();
     			if(!chengji)
@@ -220,8 +233,26 @@
     				return;
 		        }
 		        
-		        if(isNaN(parseInt(chengji))){
-		        	$.toast('输入的不是纯数字','text');
+		        
+		        var re = /^[0-9]+.?[0-9]*$/;
+		        if (!re.test(chengji))
+			    {
+			        $.toast('输入的不是纯数字','text');
+    				return;
+			    }
+			    
+			    if (escape(chengji).indexOf("%u")!=-1)
+			    {
+			    	$.toast('不能包含汉字','text');
+    				return;
+			    }
+
+
+
+    			var project = $('#project').val();
+    			if(!project)
+		        {
+		           	$.toast('请输入项目','text');
     				return;
 		        }
 		        
@@ -231,22 +262,38 @@
 		        $.ajax({
 		        	type:"post",
 		        	dataType:'json',
-		        	url:"http://humeng.ngrok.cc/laravel/1/mly/public/uploadUserInfo",
+		        	url:"http://chenxiaolong.top/shoph/1/mly/public/uploadUserInfo",
 		        	async:true,
-		        	data:{username:name,phone:phone,chengji:chengji;userid:localStorage.getItem('userid')},
+		        	data:{username:name,project:project,phone:'',chengji:chengji,userid:''},
 					success:function(data){
 						
 						$.hideLoading();
-						
-						$.toast(data['message'],'text');
+				
 						
 						if(data['status'] == '0'){
 							
-							window.location.href = 'qixi_card.html';
+							
+							localStorage.setItem('username',name)
+							localStorage.setItem('mybushu',chengji);
+							localStorage.setItem('project',project);
+							localStorage.setItem('qixiid',data['data']['id']);
+							localStorage.setItem('qiximaxnum',data['data']['maxnum']);
+
+							setTimeout(function () {
+							   window.location.href = 'qixi_card.html';
+							}, 1000);
+						
+							
+						}else if(data['status'] == '1'){
+							
+							$.toast('已参加过活动','text');
+						}else{
+							$.toast(data['message'],'text');
 						}
 						
 					},
 					error:function(data){
+						
 						$.hideLoading();
 					}
 		        });

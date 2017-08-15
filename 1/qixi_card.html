@@ -12,41 +12,117 @@
 		<script src="../js/jquery-weui.js"></script>
 		<script src="../weui/js/weui.min.js"></script>
 		
+		<script src="../common/vue.js"></script>
+		
 		<style>
+			
 			
 			*{padding: 0;margin: 0;}
 			
+			
+			
 			.content img{
-				position: relative;
-				width: 100%;
+				position: absolute;
 				z-index: 1000;
+				margin-bottom:0px;
+				margin-top:0px;
+				margin-left:0px;
+				margin-right:0px;
+				width: 100%;
+				height: 100%;
 			}
 			
 			.content p{
 				z-index: 1001;
 				position: absolute;
-				color: #007AFF;
-				font-size: 12px;
+			}
+
+			/*.input1{
+				position: absolute;
+				z-index: 1001;
+				background: none;
+				width: 50px;
+				left:9.3rem;
+				border:none;
+				color: #ffffff;
+				border-bottom: 1px solid #ffffff;
 			}
 			
-			.name{
-				left: 4rem;
+			.input2{
+				position: absolute;
+				z-index: 1001;
+				background: none;
+				width: 200px;
+				left:3.1rem;
+				color: #ffffff;
+				border:none;
+				border-bottom: 1px solid #ffffff;
+			}*/
+			
+			p{
+				left: 3rem;
+				font-size: 14px;
+				color: #FFFFFF;
 			}
+
+			.p4{
+				left: 11.8rem;
+			}
+			
+			span{
+				color: #FF7F24;
+				font-size: 14px;
+			}
+
 		</style>
 	</head>
 	
 	<body>
 		
-		<div class="content">
-			<p class="name">232323</p>
-			<img src="../images/qixi.jpg"/>
+		
+		<div class="content" style="display: none;">
+
+			<p class="name">恭喜<span v-text="username"></span>女士:</p>
+			<p class="p1" style="text-indent:2em;">以<span v-text="mybushu"></span>步里程,成为第<span v-text="paiming"></span>位的美丽达人，</p>
+			<p class="p2">获得濮阳美林苑价值<span v-text="project"></span>。</p>
+			
+			<p class="p3">特为你奉上修行美林.濮阳分院七夕情人礼。</p>
+			
+			<img src="../images/12.jpg"/>
 		</div>
 		
 		<script>
 			
 			var hight =  parseInt(window.screen.availHeight);
 			
-			$('.name').css('top',(hight - 160)+'px');
+			
+			$(document).ready(function(){ 
+		　　　　　　
+				$('.name').css('top',(hight - 330)+'px');
+				$('.p1').css('top',(hight - 310)+'px');
+				$('.p2').css('top',(hight - 290)+'px');
+				$('.p4').css('top',(hight - 290)+'px');
+				
+				if(hight >= 667){
+					$('.p3').css('top',(hight - 270)+'px');	
+				}else{
+					$('.p3').css('top',(hight - 250)+'px');
+				}
+
+
+				$('.content').show();
+	
+				
+				new Vue({
+					el:'.content',
+					data:{
+						username:localStorage.getItem('username'),
+						paiming:localStorage.getItem('qixiid'),
+						project:localStorage.getItem('project'),
+						mybushu:localStorage.getItem('mybushu')
+					}
+				});　 
+		　　}); 
 			
 		</script>
 	</body>

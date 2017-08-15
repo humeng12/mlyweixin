@@ -169,7 +169,7 @@
 	      			url:"http://chenxiaolong.ngrok.cc/shop/1/zmdmly/public/api/uploadSuggest",
 	      			dataType:'json',
 					data:{
-						idstr:'23',
+						idstr:localStorage.getItem('userid'),
 						suggestmess:suggest,
 						suggestpic:imgsArr,
 						suggestcomm:$('.contact').val()
