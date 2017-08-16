@@ -566,6 +566,7 @@
     
     	<script>
     		
+    					
 			function animate1(){
 
 				$(".charts").each(function(i,item){
@@ -638,8 +639,7 @@
     					rankstr = parseInt(((nums-rank)/nums)*100);
     					
     					$('.charts').attr('w',rankstr);
-//  					$('.charts').attr('style',"width:"+rankstr+'%');
-    					
+    					//$('.charts').attr('style',"width:"+rankstr+'%');
     					animate1();
     					
     					handerCircle(rankstr);
@@ -810,12 +810,12 @@
     			window.location.href = 'newsports.html';
     		});
     		
-    		$('#progressbar').LineProgressbar({
-			    percentage: 75,
-			    fillBackgroundColor: '#f1c40f',
-			    height: '15px',
-			    radius: '50px'
-			});
+//  		$('#progressbar').LineProgressbar({
+//			    percentage: 75,
+//			    fillBackgroundColor: '#f1c40f',
+//			    height: '15px',
+//			    radius: '50px'
+//			});
 			
 			function massion()
 			{
