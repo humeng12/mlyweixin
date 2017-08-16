@@ -214,12 +214,6 @@
 				color: #DD3D3D;
 			}
 
-
-			.myname{
-				width: 50px;
-				overflow: hidden;
-			}
-
 		</style>
 	</head>
 	<body>
@@ -310,7 +304,7 @@
 				<div class="splash" id="splash">
 				    <div class="splash-inner">
 				        <div class="loading-circle" id="loadingCircle">
-				            <p><span id="loadedNum">1</span>/8</p>
+				            <p><span id="loadedNum">0</span>/8</p>
 				            <canvas class="mask" id="loadingProgress" width="102" height="102"></canvas>
 				            <canvas class="bg" width="102" height="102"></canvas>
 				        </div>
@@ -531,7 +525,6 @@
     
     
     	<script>
-    		
     					
 			function animate1(){
 
@@ -577,13 +570,15 @@
     				data:{userid:localStorage.getItem('userid')},
     				dataType:'json',
     				success:function(data){
-
+						
     					var nickname = localStorage.getItem('nickname');
 		    			var imgurl = localStorage.getItem('headimgurl');
 		    			var cardnum = localStorage.getItem('cardnum');
 						localStorage.setItem('myintegral',data['data']['integral']);
+						
+					
 		    			initBaseInfo(nickname,imgurl,data['data']['integral'],cardnum);
-
+						
 		    			getUserRank();
 		    			
 
@@ -648,8 +643,6 @@
 						localStorage.setItem('cardnum',data['data']['cardnum']);
 						localStorage.setItem('userid',data['data']['id']);
 						localStorage.setItem('myintegral',data['data']['integral']);
-
-						$('.header-right').show();
 						
 						initBaseInfo(data['data']['nickname'],data['data']['imgurl'],data['data']['integral'],data['data']['cardnum']);
 						
@@ -662,6 +655,7 @@
 
 			function initBaseInfo(nickname,imgurl,jifen,cardnum)
 			{
+				$('.header-right').show();
 				new Vue({
 					el:'#headinfo',
 					data:{
@@ -671,7 +665,14 @@
 						cardnum:cardnum
 					}
 				});
-
+				
+				if(!nickname){
+					$('.header-right img').css('left','-40'+'px');
+				}else{
+					var len = getLenght(nickname);
+					$('.header-right').show();
+					$('.header-right img').css('left',(len-37) +'px');	
+				}
 			}
 			
 			function handerCircle(tmpstr)

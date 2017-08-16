@@ -115,3 +115,24 @@ function convertImgToBase64(url, callback, outputFormat){
 	};
     img.src = url;
 }
+
+
+
+
+function getLenght(str)
+{
+	var re = /[\u4E00-\u9FA5]/g;
+	
+	var len1 = 0;
+	var len2 = 0;
+				
+	if(/.*[\u4e00-\u9fa5]+.*$/.test(str)){
+		len1 = str.match(re).length;
+		len2 = str.length - len1;
+		
+		return ((len1-1)*17 + (len2)*9);
+	}else{
+		
+		return (str.length-1)*9;
+	}
+}
