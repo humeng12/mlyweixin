@@ -637,7 +637,10 @@
     					
     					rankstr = parseInt(((nums-rank)/nums)*100);
     					
-    					$('.charts').attr('style',"width:"+rankstr+'%');
+    					$('.charts').attr('w',rankstr);
+//  					$('.charts').attr('style',"width:"+rankstr+'%');
+    					
+    					animate1();
     					
     					handerCircle(rankstr);
     					

@@ -501,35 +501,35 @@
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img class="anliimg2" />
+				                		<img class="anliimg2"/>
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img class="anliimg3" />
+				                		<img class="anliimg3"/>
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img class="anliimg4" />
+				                		<img class="anliimg4"/>
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img class="anliimg5" />
+				                		<img class="anliimg5"/>
 				                	</div>
 				            	</div>
 				            </li>
 				            <li>
 				                <div class="anli_list">
 				                	<div class="img">
-				                		<img class="anliimg6" />
+				                		<img class="anliimg6"/>
 				                	</div>
 				            	</div>
 				            </li>
@@ -1065,36 +1065,53 @@
 				$('.anliimg4').attr('src','../images/al4.png');
 				
 				convertImgToBase64('../images/al4.png', function(base64Img){			    	
+				    
 				    setInfo('anliimg4',base64Img);
-				    
+//				    localStorage.setItem('anliimg4',base64Img);
+					
 				});
 			}
 			
-			if(anliimg5){
-
-				$('.anliimg5').attr('src',anliimg5);
-			}else{
-				
-				$('.anliimg5').attr('src','../images/al5.png');
-				
-				convertImgToBase64('../images/al5.png', function(base64Img){			    	
-				    setInfo('anliimg5',base64Img);
-				    
-				});
-			}
+//			if(anliimg4){
+//
+//				$('.anliimg4').attr('src',anliimg4);
+//			}else{
+//				
+//				$('.anliimg4').attr('src','../images/al4.png');
+//				
+//				convertImgToBase64('../images/al4.png', function(base64Img){	
+//					
+//					alert(base64Img);
+//				    setInfo('anliimg4',base64Img);
+//				    
+//				});
+//			}
 			
-			if(anliimg6){
-
-				$('.anliimg6').attr('src',anliimg6);
-			}else{
-				
-				$('.anliimg6').attr('src','../images/al6.png');
-				
-				convertImgToBase64('../images/al6.png', function(base64Img){			    	
-				    setInfo('anliimg6',base64Img);
-				    
-				});
-			}
+//			if(anliimg5){
+//
+//				$('.anliimg5').attr('src',anliimg5);
+//			}else{
+//				
+//				$('.anliimg5').attr('src','../images/al5.png');
+//				
+//				convertImgToBase64('../images/al5.png', function(base64Img){			    	
+//				    setInfo('anliimg5',base64Img);
+//				    
+//				});
+//			}
+//			
+//			if(anliimg6){
+//
+//				$('.anliimg6').attr('src',anliimg6);
+//			}else{
+//				
+//				$('.anliimg6').attr('src','../images/al6.png');
+//				
+//				convertImgToBase64('../images/al6.png', function(base64Img){			    	
+//				    setInfo('anliimg6',base64Img);
+//				    
+//				});
+//			}
 			
 		</script>
 		
