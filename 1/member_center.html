@@ -110,41 +110,7 @@
 	        	padding-top: 20px;
 	        }
 	        
-	        /*.progressbar {
-	        	margin-left: 10%;
-				margin-top: 20px;
-			}
-
-			.proggress{
-				height: 8px;
-				width: 10px;
-			}
-			
-			.percentCount{
-				float:right;
-				margin-top: 10px;
-				clear: both;
-				font-weight: bold;
-				font-family: Arial;
-			}
-			
-			.line-div{
-				height: 0.5px;
-				margin-left: 5%;
-				width: 90%;
-				background-color: #c2c2c2;
-				margin-top: 2rem;
-				opacity: 0.5;
-			}*/
-			
-		/* 	.rank-footer{
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			height: 4rem;
-		} */
-				.rank .rank-footer p:nth-child(1){
+			.rank .rank-footer p:nth-child(1){
 				position: absolute;
 				right: 3rem;
 				color: #a6a6a6;
@@ -261,7 +227,7 @@
 		<div class="header" id="headinfo">
 			<a href="center.html" style="-webkit-tap-highlight-color:rgba(0,0,0,0);">
 				<img :src='imgurl'/>
-				<div class="header-right">
+				<div class="header-right" style="display: none;">
 					<p class="myname" v-text="nickname"></p>
 					<img src="../images/dengji.png"/>
 					<p class="cardnum">会员卡号:  <i v-text='cardnum'></i></p>
@@ -501,14 +467,14 @@
 	        <div class="massion-layer-bg"></div>
 	    </div>
 
-	    <script type="text/javascript">
+	    <!--<script type="text/javascript">
 
 	    	function jibuqi()
 	    	{
 	    		
-		    	var shakeThreshold = 1000; // 定义一个摇动的阈值 
-	    		var lastUpdate = 0; // 记录上一次摇动的时间 
-	    		var x, y, z, lastX, lastY, lastZ; // 定义x、y、z记录三个轴的数据以及上一次触发的数据
+		    	var shakeThreshold = 1000;
+	    		var lastUpdate = 0;
+	    		var x, y, z, lastX, lastY, lastZ;
 
 	    		if (window.DeviceMotionEvent) { 
 	    			window.addEventListener('devicemotion', deviceMotionHandler, false); 
@@ -518,7 +484,7 @@
 
 				function deviceMotionHandler(eventData) { 
 
-					var acceleration = eventData.accelerationIncludingGravity;// 获取含重力的加速度  acceleration
+					var acceleration = eventData.accelerationIncludingGravity;
 
 					var curTime = new Date().getTime(); 
 
@@ -561,7 +527,7 @@
 				}
 	    	}
 
-	    </script>
+	    </script>-->
     
     
     	<script>
@@ -577,6 +543,7 @@
 				});
 			}
 
+			//localStorage.setItem('userid','11');localStorage.setItem('openid','11');
 
     		var openid = '';
     		var rankstr = '';
@@ -640,12 +607,7 @@
     					
     					$('.charts').attr('w',rankstr);
     					//$('.charts').attr('style',"width:"+rankstr+'%');
-    					$(".charts").each(function(i,item){
-							var a=parseInt($(item).attr("w"));
-							$(item).animate({
-								width: a+"%"
-							},1000);
-						});
+    					animate1();
     					
     					handerCircle(rankstr);
     					
@@ -687,6 +649,8 @@
 						localStorage.setItem('userid',data['data']['id']);
 						localStorage.setItem('myintegral',data['data']['integral']);
 
+						$('.header-right').show();
+						
 						initBaseInfo(data['data']['nickname'],data['data']['imgurl'],data['data']['integral'],data['data']['cardnum']);
 						
 						getUserRank();
