@@ -640,7 +640,12 @@
     					
     					$('.charts').attr('w',rankstr);
     					//$('.charts').attr('style',"width:"+rankstr+'%');
-    					animate1();
+    					$(".charts").each(function(i,item){
+							var a=parseInt($(item).attr("w"));
+							$(item).animate({
+								width: a+"%"
+							},1000);
+						});
     					
     					handerCircle(rankstr);
     					
